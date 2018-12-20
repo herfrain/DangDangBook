@@ -1,0 +1,160 @@
+.bodyDiv{
+	width: 1600px;
+	height: 800px;
+	margin: 0px auto;
+	background-color: #F5F5F5;
+}
+.threeBoxDiv{
+	height: 80px;
+}
+.threeBoxDiv img
+{
+	float: left;
+}
+.paymentTitleDiv
+{
+	height: 40px;
+	color: #777777;
+}
+.paymentTitleDiv span
+{
+	margin-left: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+.paymentTitleDiv .paymentNumber
+{
+	float: right;
+	margin-right: 20px;
+}
+.paymentTitleDiv font
+{
+	color: #0AA2ED;
+	font-weight: bolder;
+	font-size: 25px;
+}
+.paymentBodyDiv .paymentBankTitle
+{
+	height: 50px;
+	color: #555555;
+	font-size:20px ;
+	font-weight:bold ;
+	background-color: #DBDBDB;
+}
+.paymentBodyDiv .paymentBankTitle span
+{
+	float: left;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+.paymentBodyDiv .paymentBankList
+{
+	background-color: #FFFFFF;
+}
+.paymentBodyDiv .paymentBankList table
+{
+	margin-left: 25px;
+	text-align: center;
+	height: 120px;
+}
+.paymentBodyDiv .paymentBankList input
+{
+	width: 22px;
+	height: 22px;
+	color: #FFFFFF;
+}
+.paymentBodyDiv .paymentBankList img
+{
+	width: 180px;
+	height: 60px;
+}
+.paymentBodyDiv .paymentBankList td.bankRadio
+{
+	width: 100px;
+}
+.paymentBodyDiv .paymentBankList td.bankImg
+	width: 200px;
+}
+.paymentBodyDiv .paymentBlank
+{
+}
+.paymentBodyDiv .paymentHiden
+{
+	height: 400px;
+}
+.paymentBodyDiv .paymentHiden  .paymentBox
+{
+	height: 350px;
+	width: 600px;
+	border: solid #0AA2ED 3px;
+	font-size: 20px;
+}
+.paymentBodyDiv .paymentHiden  .paymentBox .bankDetail
+{
+	width: 600px;
+	margin-left: 10px;
+}
+.paymentBodyDiv .paymentHiden  .paymentBox .bankDetail img
+{
+	margin-top: 5px;
+	width: 180px;
+	height: 60px;
+	border: solid #0AA2ED 1px;
+}
+.paymentBodyDiv .paymentHiden  .paymentBox .bankDetail span
+{
+	width: 300px;
+	float: right;
+	margin-top: 40px;
+	margin-right: 100px;
+}
+.paymentBodyDiv .paymentHiden  .paymentBox span
+{
+	width: 600px;
+	margin-left: 10px;
+	float: left;
+	margin-top: 15px;
+}
+.paymentBodyDiv .paymentHiden  .paymentBox  .inputDiv input 
+{
+	margin-top: 10px;
+	margin-left: 10px;
+	height: 30px;
+	width: 180px;
+	font-size: 30px;
+}
+.paymentBodyDiv .paymentHiden  .paymentBox input.paymentButton
+{
+	margin-top: 10px;
+	margin-left: 10px;
+	height: 40px;
+	width: 150px;
+	font-size: 20px;
+	background-color:#0AA2ED ;
+	color: #FFFFFF;
+}
+.paymentBodyDiv .paymentRestTime
+{
+	background-color: #DBDBDB;
+	height: 60px;
+}
+.paymentBodyDiv .paymentRestTime span
+{
+	float: left;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+.paymentBodyDiv font
+{
+	color: #0AA2ED;
+	font-weight: bolder;
+	font-size: 25px;
+}
+.paymentBodyDiv .paymentRestTime .backOrder
+{
+	float: right;
+	margin-right: 20px;
+	font-size: 22px;
+	color:#0AA2ED;
+}
+

@@ -1,0 +1,207 @@
+.mainDiv{
+	width: 1600px;
+	background-color: rgba(245,245,245,1);
+}
+
+.container{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.bookClass{
+	width: 100%;
+	height: 50px;
+}
+
+.bookClass ul{
+}
+
+.bookClass ul li{
+	float: left;
+	margin-left: 20px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+
+.topScrollPicture{
+	width: 100%;
+	height: 410px;
+	margin:0 auto;
+	
+	/*border: solid 2px;*/
+}
+
+.topScrollPicture div{
+	float: left;
+	width: 100%;
+}
+
+#image{
+	float: left;
+	margin:0 auto;
+	padding-left: 300px;
+	
+}
+
+#image li{
+	display: none;
+}
+
+#image li.image_show{
+	display: block;
+}
+
+#list {
+	position: relative;
+	margin-top: -34px;
+	padding-left: 735px;
+}
+
+#list li{
+	width: 20px;
+	vertical-align: middle;
+	height: 20px;
+	float: left;
+	border-radius: 20px;
+	margin-right: 20px;
+	background-color:rgba(255,255,255,0.9);
+	cursor: pointer;
+	/*渐变时间*/
+	transition-duration: 0.4s;
+}
+/*渐变hover*/
+#list li:hover{
+	background-color:rgba(135,206,250,0.8);
+}
+
+#list li.list_show{
+	background-color: rgba(100,149,230,1);
+}
+
+
+.round{
+	display: none;
+	height: 50px;
+	/*border: solid 1px;*/
+	margin-top: -230px;
+}
+
+.round li{
+	width: 50px; 
+	height: 50px; 
+	background-color: rgba(2,2,2,0.3);
+	border-radius: 40px;
+	line-height: 50px;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+.round li:hover{
+	background-color: rgba(245,245,245,0.5);
+	color: black;
+}
+
+.round_l{
+	float: left;
+	position: absolute;
+	margin-left: 301px;
+}
+.round_r{
+	/*float:right;*/
+	position: absolute;
+	margin-left: 1247px;
+}
+
+
+.subtitle{
+	/*width: 100%;*/
+	height: 30px;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: rgb(250,250,250,1);
+	box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2);
+	
+}
+.subtitle div{
+	float: left;
+	margin-left: 10px;
+}
+
+.subtitle .title{
+	font-size: 1.6em;
+	font-weight: 600;
+}
+
+.bookList{
+	width: 100%;
+	
+	margin-top: 10px;
+}
+
+.bookList ul{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+
+.bookList ul li{
+	float: left;
+	width: 24%;
+	margin-right: 14px;
+}
+
+
+.bookInfo{
+	width: 100%;
+	height: 400px;
+	
+	margin-bottom: 40px;
+	box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.bookInfo .image{
+	width: 100%;
+	height: 70%;
+	/*border:solid 2px;*/
+	
+}
+
+.bookInfo .info{
+	width: 100%;
+	height: 29%;
+	/*border:solid 2px;*/
+}
+
+.bookInfo img{
+	height: 99%;
+	display:block;
+	margin:0 auto;
+}
+
+.bookInfo div{
+	width: 100%;
+	float: left;
+}
+
+.bookInfo div span{
+	float: left;
+	padding-left: 10px;
+	margin-top: 5px;
+}
+
+.bookName{
+	width: 100%;
+	font-size: 1.3em;
+	font-weight: 500;
+}
+
+.bookPricePress{
+	width: 100%;
+	font-size: 1em;
+	font-weight: 500;
+}

@@ -1,0 +1,40 @@
+*,body,div,p,ul,li,a,input{
+	margin: 0px;/*上下左右都是0px*/
+	padding: 0px;
+	
+
+body{
+	width: 100%;
+	margin: 0px auto;
+}	
+}/*刚开始写页面的时候，建议先写一个单独的div和需要用到的标签样式
+	这个样式定义一个专门的边框
+	当框架搭建完成，可以删除这个样式*/
+	
+div{
+	/*border: solid #00FFFF 1px;*/
+}
+
+ul,li{
+	/*border: solid #00FF00 1px;*/
+}
+
+
+.mid{
+	height: 400px;
+	width: 100%;
+	/*text-align: center;*/
+	/*margin: 0px auto;*/
+}
+.mid .a404{
+	height: 400px;
+
+	display: flex;
+	justify-content: center;
+}
+.mid .noServer{
+	float: left;
+	margin-top: 280px;
+}
+
+

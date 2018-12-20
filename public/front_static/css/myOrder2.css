@@ -1,0 +1,324 @@
+*,body,div,p,ul,li,a,input{
+	margin: 0px;/*上下左右都是0px*/
+	padding: 0px;
+	
+	
+}/*刚开始写页面的时候，建议先写一个单独的div和需要用到的标签样式
+	这个样式定义一个专门的边框
+	当框架搭建完成，可以删除这个样式*/
+
+body{
+	width: 100%;
+	margin: 0px auto;
+}	
+div{
+	/*border: solid #00FFFF 1px;*/
+}
+
+ul,li{
+	/*border: solid #00FF00 1px;*/
+}
+
+
+.main{
+	height: 800px;
+	width: 1000px;
+	margin: 0px auto;
+	/*background-color: rgba(240,255,240,0.6);*/
+	background-color: rgb(245,245,245);
+}
+/*top*//*top*//*top*//*top*//*top*//*top*//*top*//*top*//*top*//*top*/
+.top{
+	height: 150px;
+}
+
+
+
+
+/*mid*//*mid*//*mid*//*mid*//*mid*//*mid*//*mid*//*mid*//*mid*//*mid*/
+.mid{
+	height: 550px;
+	width: 100%;
+	margin: 0px auto;
+	/*border: solid orange 1px;*/
+	align-content: center;
+}
+.mid .myList{
+	height: 400px;
+	width: 300px;
+	float: left;
+	
+}
+.mainDiv .menuDiv{
+	margin-left: 100px;
+	margin-top: 10px;
+	/*margin-right: 1px;*/
+	width: 163px;
+	height: auto;
+	/*height: 150px;*/
+}
+.mainDiv .menuDiv .manageDiv{
+	width: 143px;
+	height: 20px;
+	padding: 10px 10px;
+	background-color: #0aa2ed;
+	margin-bottom: 1px;
+}
+/*.mainDiv .menuDiv .manageDiv:hover .manageDiv2{
+	display: block;
+	visibility: visible;
+}*/
+.mainDiv .menuDiv .manageDiv2{
+	/*display: none;*/
+	visibility: hidden;
+	width: 143px;
+	height: 20px;
+	padding: 10px 10px;
+	background-color: lightskyblue;
+	margin-bottom: 1px;
+	font-size: 15px;
+	font-family: "黑体";
+	color: white;
+	/*transition-duration: 0.4s;*/
+}
+.mainDiv .menuDiv .manageDiv span{
+	font-size: 15px;
+	font-family: "黑体";
+	color: #fff;
+	margin: 0px 5px;
+}
+.mainDiv .menuDiv .manageDiv img{
+	height: 14px;
+}
+.mainDiv .menuDiv .rightEle{
+	float: right;
+}
+
+
+.mid .xxList{
+	height: 100%;
+	width: 1240px;
+	float: left;
+	
+}
+.mid .xxList .biaoqian{
+	width: 100%;
+	height: 40px;
+	margin-bottom: 10px;
+	background-color: rgb(220,220,220);
+	/*border: solid #FF0000 1px;*/
+}
+.mid .xxList .beijing{
+	background-color: white;
+}
+.mid .xxList .sp{
+	float: left;
+	width: 38%;
+	margin-right: 1px;
+	height: 40px;
+	line-height: 40px;
+}
+.mid .xxList .dj{
+	float: left;
+	width: 10%;
+	margin-right: 1px;
+	height: 40px;
+	line-height: 40px;
+}
+.mid .xxList .sl{
+	float: left;
+	width: 7%;
+	margin-right: 1px;
+	height: 40px;
+	line-height: 40px;
+}
+.mid .xxList .sh{
+	float: left;
+	width: 10%;
+	margin-right: 1px;
+	height: 40px;
+	line-height: 40px;
+}
+.mid .xxList .sfk{
+	float: left;
+	width: 12%;
+	margin-right: 1px;
+	height: 40px;
+	line-height: 40px;
+}
+.mid .xxList .jyzt{
+	float: left;
+	width: 10%;
+	margin-right: 1px;
+	height: 40px;
+	line-height: 40px;
+}
+.mid .xxList .cz{
+	width: 10%;
+	float: left;
+	margin-right: 1px;
+	height: 40px;
+	line-height: 40px;
+}
+.mid .beijing{
+	height: auto;
+	/*margin-bottom: 10px;*/
+	/*background-color: black;*/
+	
+}
+.mid .beijing .nANDtime{
+	background-color: rgb(232,232,232);
+}
+
+
+
+.mid .xx{
+	background-color: white;
+	width: 100%;
+	height: 100px;
+	margin-bottom: 10px;
+}
+.mid .xx .sp2{
+	background-color: white;
+	height: 100px;
+	/*background-color: orange;*/
+	float: left;
+	width: 38%;
+	margin-right: 1px;
+	align-content: center;
+	
+}
+.mid .xx .sp2 .sp22{
+	height: 84px;
+	float: left;
+}.mid .xx .sp2 .sp222{
+	background-color: white;
+	height: 50px;
+	width: auto;
+	float: left;
+	margin-top: 25px;
+}
+.mid .xx .dj2{
+	height: 100px;
+	/*background-color: orange;*/
+	float: left;
+	width: 10%;
+	margin-right: 1px;
+	align-content: center;
+}
+.mid .xx .dj2 .dj22{
+	height: 20px;
+	width: auto;
+	margin-top: 40px;
+}
+.mid .xx .sl2{
+	height: 100px;
+	float: left;
+	width: 7%;
+	margin-right: 1px;
+	align-content: center;
+	line-height: 100px;
+}
+.mid .xx .sh2{
+	height: 100px;
+	float: left;
+	width: 10%;
+	margin-right: 1px;
+	align-content: center;
+}
+.mid .xx .sh2 .sh22{
+	height: 50px;
+	width: auto;
+	margin-top: 25px;
+}
+.mid .xx .sfk2{
+	height: 100px;
+	float: left;
+	width: 12%;
+	margin-right: 1px;
+	align-content: center;
+	line-height: 100px;
+}
+.mid .xx .jyzt2{
+	height: 100px;
+	float: left;
+	width: 10%;
+	margin-right: 1px;
+	align-content: center;
+}
+.mid .xx .jyzt2 .jyzt22{
+	height: 50px;
+	width: auto;
+	margin-top: 25px;
+}
+.mid .xx .cz2{
+	height: 100px;
+	width: 10%;
+	float: left;
+	margin-right: 1px;
+	/*align-content: center;*/
+	padding-top: 0px,0px;
+}
+/*确认按钮*/
+.mid .xx .cz2 input{
+	background-color: rgb(36,175,241);
+	color:white;
+	height: 35px;
+	width: 70px;
+	margin: 0,auto;
+	margin-top: 32px;
+	margin-left: 10px;
+	border-radius: 5px;
+	border: rgb(36,175,230);
+	/*border: 0px;*/
+	
+}
+.mid .xx .cz2 input:hover{
+	background-color: orange;
+	height: 37px;
+	width: 72px;
+}
+/*.mid .xxList .biaoqian{
+	width: 100%;
+	height: 50px;
+}*/
+
+.mid .xxList .yema{
+	/*background-color: orange;*/
+	width: 100%;
+	height: 50px;
+	/*float: right;*/
+}/*页码翻页*/
+.mid .xxList .yema .yema-change{
+	height: 30px;
+	width: 50px;
+	float: right;
+	margin-right: 4px;
+	border-radius: 5px;
+	color: rgb(36,175,241);
+	background-color: rgb(232,232,232);
+	/*font-weight: 300;*/
+}/*页码翻页鼠标经过样式改变*/
+.mid .xxList .yema .yema-change:hover{
+	background-color: rgb(36,175,241);
+	color: white;
+}/*页码数字*/
+.mid .xxList .yema .yema-num{
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-right: 4px;
+	border-radius: 5px;
+}/*页码数字鼠标进过样式改变*/
+.mid .xxList .yema .yema-num:hover{
+	background-color: rgb(36,175,200);
+	color: white;
+}
+
+
+
+
+/*bottom*//*bottom*//*bottom*//*bottom*//*bottom*//*bottom*//*bottom*/
+.bottom{
+	height: 200px;
+}

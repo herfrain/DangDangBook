@@ -1,0 +1,38 @@
+*,body,div,p,ul,li,a,input{
+	margin: 0px; /*上下左右都为0px*/
+	padding: 0px;
+}
+
+body{
+	display: flex;
+    justify-content: center;
+}
+
+div,p,a{
+	/*border: solid 1px;*/
+}
+
+ul,li{
+	/*border: solid #00cc00 1px;*/
+	list-style:none;
+}
+
+span{
+	/*border: solid #cc0000 1px;*/
+}
+
+a{
+	text-decoration: none;
+}
+
+
+.mainDiv{
+	width: 1600px;
+	/*margin: 0px auto;*/
+	background-color: rgba(245,245,245,1);
+
+
+button{
+	cursor: pointer;
+	outline: none;
+}

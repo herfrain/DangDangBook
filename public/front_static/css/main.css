@@ -1,0 +1,10 @@
+*,body,div,p,ul,li,a,input,table,tr,td,span{
+	margin:0px ;/*上下左右都是0px*/
+	padding: 0px;
+}
+div,p,a,span,img{
+	border:solid #00FFFF 1px;
+}
+td,tr{
+	border:solid #00FFFF 1px;
+}

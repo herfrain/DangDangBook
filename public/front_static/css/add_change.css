@@ -1,0 +1,111 @@
+a{
+	color: gray;
+	transition: 0.3s;
+}
+a:hover{
+	color: #0AA2ED;
+}
+.mainDiv{
+	width: 1860px;
+}
+.background{
+	background-color: rgb(245,245,245);
+}
+/*bodyDiv*/
+.bodyDiv{
+	height: 450px;
+}
+.bodyDiv .menuDiv{
+	margin-left: 200px;
+	width: 163px;
+	height: 150px;
+}
+.bodyDiv .menuDiv .manageDiv{
+	width: 143px;
+	height: 20px;
+	padding: 10px 10px;
+	background-color: #0aa2ed;
+}
+.bodyDiv .menuDiv .manageDiv span{
+	font-size: 15px;
+	font-family: "微软雅黑";
+	color: #fff;
+	margin: 0px 5px;
+	font-weight: bold;
+}
+.bodyDiv .menuDiv .manageDiv img{
+	height: 14px;
+}
+.bodyDiv .menuDiv .rightEle{
+	float: right;
+}
+.bodyDiv .menuDiv .dropMenu{
+	display: block;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: gray;
+	background-color: white;
+	height: 100px;
+	line-height: 50px;
+}
+.bodyDiv .menuDiv .dropMenu p{
+	height: 50px;
+	text-indent: 3em;
+}
+.bodyDiv .operateDiv{
+	margin:0px auto;
+	background-color: #0AA2ED;
+
+	width: 260px;
+	height: 250px;
+	border-radius: 8px;
+}
+.bodyDiv .operateDiv .title{
+	height: 30px;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+.bodyDiv .operateDiv .add{
+	font-size: 20px;
+	color: white;
+}
+.bodyDiv .operateDiv .change{
+	font-size: 20px;
+	color: white;
+}
+.bodyDiv .operateDiv .con{
+	margin-left: 70px;
+	font-size: 12px;
+	color: white;
+}
+.bodyDiv .operateDiv .inputDiv input{
+	margin-left: 20px;
+	margin-top: 10px;
+	height: 30px;
+	width: 200px;
+	text-indent: 2em;
+}
+.bodyDiv .operateDiv .buttonDiv input{
+	margin-left: 20px;
+	margin-top: 10px;
+	width: 50px;
+	height: 30px;
+	border-radius: 4px;
+}
+.bodyDiv .operateDiv .buttonDiv .changeButton {
+	width: 150px;
+	height: 30px;
+	color: gray;
+}
+/*容错样式*/
+.errDiv span{
+	height: 30px;
+}
+.errDiv .correctSpan{
+	padding-left: 20px;
+	color: #00FF00;
+}
+.errDiv .wrongSpan{
+	color: #FF0000;
+	padding-left: 20px;	opacity: 0.7;
+}

@@ -1,0 +1,264 @@
+.mainDiv{
+/*	width: 1860px;*/
+	height: auto;
+	margin: 0px auto;
+	float: left;
+}
+
+/*这里是bodyDiv及其子标签的样式*/
+.bodyDiv{
+	width: 1600px;
+	/*background: rgb(245,245,245);*/
+	height: auto;
+	margin: 0px auto;
+	float: left;
+	padding-left: 20px;
+}
+
+.bodyDiv .mainTitle{
+	width: 1600px;
+	float: left;
+}
+
+.bodyDiv .mainTitle .title{
+	height: 60px;
+	
+	margin-right: 1030px;
+	float: left;
+	font-family: "微软雅黑";
+	font-size: 33px;
+	font-weight: 900;
+	line-height: 60px;
+}
+
+.bodyDiv .mainTitle .detail{
+	margin-right: 200px;
+	float: right;
+}
+
+.bodyDiv .mainTitle .detail .totalCount{
+	
+	margin-right: 20px;
+	font: "微软雅黑" 20px;
+	color: rgb(119,119,119);
+	height: 60px;
+	line-height: 60px;
+}
+
+.bodyDiv .mainTitle .detail .totalPrice{
+	
+	font: "微软雅黑" 20px;
+	color: rgb(119,119,119);
+	height: 60px;
+	line-height: 60px;
+}
+
+.bodyDiv .mainTitle .detail .total{
+	color: rgb(20,159,215);
+	font: "微软雅黑" 20px;
+	font-weight: bold;
+	height: 60px;
+	line-height: 60px;
+}
+
+.bodyDiv .cartHead{
+	width: 1460px;
+	height: 60px;
+	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+	background-color: rgb(238,236,237);
+}
+/*有重复的allSelectDiv，因此提取独立出来使用*/
+.allSelectDiv{
+	width: 100px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 18px;
+	font-family: "微软雅黑" ;
+	font-size: 20px;
+	color: rgb(119,119,119);
+	float: left;
+}
+
+.allSelectDiv input{
+	width: 20px;
+	height: 20px;
+}
+
+.bodyDiv .cartHead .goodsDiv{
+	width: 530px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 18px;
+	font-family: "微软雅黑" ;
+	font-size: 20px;
+	color: rgb(119,119,119);
+	float: left;
+}
+
+.bodyDiv .cartHead .propertyDiv{
+	width: 200px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 18px;
+	font-family: "微软雅黑" ;
+	font-size: 20px;
+	color: rgb(119,119,119);
+	float: left;
+}
+
+.bodyDiv .cartTable{
+	width: 1460px;
+	height: auto;
+	float: left;
+}
+
+.bodyDiv .cartTable .goodItem{
+	width: 1460px;
+	height: 150px;
+	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+	background-color: white;
+}
+
+.bodyDiv .cartTable .goodItem .selectDiv{
+	width: 100px;
+	height: 150px;
+	text-align: center;
+	line-height: 150px;
+	font-size: 18px;
+	font-family: "微软雅黑" ;
+	font-size: 20px;
+	color: rgb(119,119,119);
+	float: left;
+}
+
+.bodyDiv .cartTable .goodItem .selectDiv input{
+	width: 20px;
+	height: 20px;
+}
+
+.bodyDiv .cartTable .goodItem .goodsInformationDiv{
+	width: 530px;
+	height: 150px;
+	float: left;
+}
+
+.bodyDiv .cartTable .goodItem .goodsInformationDiv .goodsPectureDiv{
+	width: 130px;
+	height: 150px;
+	text-align: center;
+	line-height: 150px;
+	float: left;
+}
+
+.bodyDiv .cartTable .goodItem .goodsInformationDiv .goodsPectureDiv img{
+	width: 130px;
+	text-align: center;
+	margin: 20px 0px;
+	float: left;
+	vertical-align: middle;
+}
+
+.bodyDiv .cartTable .goodItem .goodsInformationDiv .goodsDeatil{
+	width: 390px;
+	height: 150px;
+	text-align: left;
+	float: left;
+}
+
+.bodyDiv .cartTable .goodItem .goodsInformationDiv .goodsDeatil .goods{
+	width: 380px;
+	height: 60px;
+	font-family: "微软雅黑";
+	font-size: 20px;
+	color: rgb(119,119,119);
+	margin-top:10px ;
+	line-height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	word-wrap:break-word;
+    word-break:break-all;
+    overflow: hidden;
+}
+
+.bodyDiv .cartTable .goodItem .othersDiv{
+	width: 200px;
+	height: 150px;
+	text-align: center;
+	line-height: 150px;
+	font-size: 18px;
+	font-family: "微软雅黑" ;
+	font-size: 20px;
+	color: rgb(119,119,119);
+	float: left;
+}
+
+.bodyDiv .cartTable .goodItem .othersDiv .countInput{
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	margin: auto 0px;
+}
+
+.bodyDiv .cartFoot{
+	width: 1460px;
+	height: 80px;
+	float: left;
+	
+	margin-top: 10px;
+	background-color: rgb(241,241,241);
+}
+
+.bodyDiv .cartFoot .detail{
+	margin-left: 700px;
+	float: left;
+	line-height: 80px;
+}
+.bodyDiv .cartFoot .detail .totalCount{
+	
+	margin-right: 20px;
+	font: "微软雅黑" 20px;
+	color: rgb(119,119,119);
+	height: 60px;
+	line-height: 60px;
+}
+
+.bodyDiv .cartFoot .detail .totalPrice{
+	
+	font: "微软雅黑" 20px;
+	color: rgb(119,119,119);
+	height: 60px;
+	line-height: 60px;
+}
+
+.bodyDiv .cartFoot .detail .total{
+	color: rgb(20,159,215);
+	font: "微软雅黑" 20px;
+	font-weight: bold;
+	height: 60px;
+	line-height: 60px;
+}
+
+.bodyDiv .cartFoot .submitButton{
+	width: 200px;
+	height: 80px;
+	float: left;
+	margin-left: 150px;
+	line-height: 80px;
+}
+
+.bodyDiv .cartFoot .submitButton input{
+	width: 200px;
+	height: 80px;
+	color: white;
+	background-color: rgb(29,170,242);
+	border: none;
+}

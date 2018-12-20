@@ -1,0 +1,11 @@
+*,body,div,p,ul,li,a,input{
+	margin: 0px;/*上下左右都是0px*/
+	padding: 0px;
+}
+
+div, p, a{
+	/*border: solid #000000 1px;*/
+}
+ul,li{
+	/*border: solid #000000 1px;*/
+}

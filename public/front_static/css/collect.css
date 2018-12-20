@@ -1,0 +1,65 @@
+a{
+	color: gray;
+	transition: 0.3s;
+}
+a:hover{
+	color: #0AA2ED;
+}
+
+.background{
+	background-color: rgb(245,245,245);
+}
+/*bodyDiv*/
+.bodyDiv .title{
+	font-family: "微软雅黑";
+	font-size: 25px;
+	font-weight: bolder;
+	margin-left: 120px;
+	margin-bottom: 30px;
+}
+.bodyDiv .container{
+	margin: 0px auto;
+	width: 100%;
+	height: 840px;
+	border: solid #F5F5F5 1px;
+	background-color: white;
+}
+.bodyDiv .container .goods{
+	float: left;
+	height: 280px;
+	width: 250px;
+	border: solid #F5F5F5 1px;
+	margin-left: 100px;
+	margin-top: 80px;
+	box-shadow:5px 2px 4px gray;
+}
+.bodyDiv .container .goods .photo{
+	width: 240px;
+	height: 200px;
+	margin: 0px auto;
+	border: solid #E7E7E7 1px;
+}
+.bodyDiv .container .goods .goodsName{
+	text-indent: 2em;
+	margin-top: 7px;
+	color: gray;
+	font-weight: bold;
+}
+.bodyDiv .container .goods .detail{
+	width: 250px;
+}
+.bodyDiv .container .goods .price{	
+	float: left;
+	width: 50px;
+	margin-top: 20px;
+	margin-left: 30px;
+	font-weight: bold;
+	color: #0AA2ED;
+}
+.bodyDiv .container .goods .check{
+	margin-top: 20px;
+	float: right;
+	width: 50px;
+	font-weight: bold;
+	color: gray;
+}

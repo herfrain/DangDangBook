@@ -1,0 +1,116 @@
+.mainDiv{
+	width: 1600px;
+	margin: 0px auto;
+}
+/*这里是topDiv内部的div的样式*/
+.topDiv .logoDiv{
+	margin-left:350px ;
+	margin-top:30px ;
+	font: "宋体";
+	font-size: 30px;
+	font-weight: 300;
+	height: 50px;
+	width: 440px;
+}
+/*这里是HlDiv及其内部的div的样式*/
+.HlDiv{
+	width: 100%;
+	height: 840px;
+	background-size: cover;
+	background-image: url(../学子商城web前端开发/客户端/img/login.jpg);
+}
+
+.HlDiv .loginDiv{
+	width: 420px;
+	height: 480px;
+	margin-left:1100px ;
+	margin-top:180px ;
+	float: left;
+	background: rgba(0,0,0,0.2);
+}
+
+.HlDiv .loginDiv .titleDiv{
+	color: white;
+	width: 200px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	font-family: "黑体";
+	font-size: 30px;
+	float: left;
+	margin-top: 30px;
+}
+
+.HlDiv .loginDiv .registDiv{
+	width: 100px;
+	height: 25px;
+	font-size: 18px;
+	text-align: center;
+	line-height: 25px;
+	float: right;
+	margin-top:40px ;
+	margin-right:10px ;
+	font-family: "黑体";
+}
+
+.HlDiv .loginDiv div a{
+	color: white;
+	text-decoration: none;
+}
+
+.HlDiv .loginDiv .whiteLine{
+	width: 380px;
+	border: solid 1px;
+	border-color:white;
+	float: left;
+	margin-top:10px ;
+	margin-left:15px ;
+	margin-bottom: 30px;
+}
+
+.HlDiv .loginDiv .inputDiv{
+	width: 420px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	float: left;
+	margin-bottom: 20px;
+}
+
+.HlDiv .loginDiv .inputDiv .inputClass{
+	width: 400px;
+	height: 55px;
+	line-height: 55px;
+	font-size: 20px;
+	font-weight: bold;
+	text-indent: 1em;
+	border-radius: 5px;
+	background: url(../img/fan.png) no-repeat right;
+}
+
+.HlDiv .loginDiv .inputDiv .buttonClass{
+	width: 400px;
+	height: 55px;
+	line-height: 55px;
+	font-family: "黑体";
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	color: white;
+	background-size: cover;
+	background-color: rgb(17,165,239);
+}
+
+.HlDiv .loginDiv .errDiv{
+	width: 420px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	float: left;
+}
+
+.HlDiv .loginDiv .showError{
+	color: #FF0000;
+	border-radius: 5px;
+	font-size: 20px;
+}

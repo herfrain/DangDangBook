@@ -1,0 +1,155 @@
+
+
+.topDiv{
+	height: 110px;
+	margin-bottom: 10px;
+}
+
+.topDiv .topLeftDiv{
+	float: left;
+	width: 100px;
+	height: 50px;
+	margin-top: 25px;/*上外边距*/
+	margin-left: 10px;
+}
+
+.topDiv .topMiddleDiv{
+	float: left;
+	width: 400px;
+	height: 80px;
+	margin-top: 25px;/*上外边距*/
+	margin-left: 30%;
+	text-align: center;
+}
+
+.topDiv .topMiddleDiv .topMiddleDiv_searchText{
+	float: left;
+	border: coral solid 1px;
+	width: 250px;
+	height: 30px;
+	margin: 0px auto;
+	margin-top: 10px;
+}
+
+.topDiv .topMiddleDiv .topMiddleDiv_submitBtn{
+	float: left;
+	background-image: url(../学子商城web前端开发/客户端/img/header/search.png);
+	width: 40px;
+	height: 40px;
+	margin: 0px auto;
+	margin-top: 6px;
+	margin-left: 10px;
+}
+
+.topDiv .topRightDiv{
+	float: right;
+	width: 400px;
+	height: 40px;
+	margin-top: 60px;
+	margin-right: 10px;
+}
+
+.topDiv .topRightDiv ul{
+	margin-top: 10px;
+	height: 30px;	
+}
+
+.topDiv .topRightDiv ul li{
+	float: left;
+	list-style:none; /* 将默认的列表符号去掉 */
+	text-align: center;
+	width: 50px;
+}
+
+.footer{
+	width: 100%;
+	height: 400px;
+}
+
+.footerTop{
+	width: 100%;
+	height: 50%;
+	float: left;
+	margin: 0px auto;
+}
+
+.footerTop ul{
+	margin: 0 auto;
+	height: 80%;
+	display: table;
+	padding-top: 80px;
+}
+
+.footerTop ul li{
+	text-align: center;
+	float: left;
+	list-style:none; /* 将默认的列表符号去掉 */
+	width: 200px;
+	margin: 0px,auto;
+	
+}
+.footerTop ul li img{
+	margin: 0 auto;
+	display: block;
+	
+}
+
+.footerBottom{
+	float: left;
+	margin: 0px auto;
+	width: 100%;
+	height: 50%;
+}
+
+.footerBottom div{
+	float: left;
+	margin: 0px auto;
+}
+
+.footerBottom .footerBottomL{
+	width: 20%;
+	height: 100%;
+}
+
+.footerBottom .footerBottomM{
+	width: 59%;
+	height: 100%;
+}
+
+.footerBottom .footerBottomM h2{
+	text-align: center;
+}
+
+.footerBottom .footerBottomM ul{
+	text-align: center;
+	list-style:none; /* 将默认的列表符号去掉 */
+}
+
+
+.footerBottom .footerBottomM_1{
+	width: 33%;
+	height: 100%;
+}
+
+.footerBottom .footerBottomM_2{
+	width: 33%;
+	height: 100%;
+}
+
+.footerBottom .footerBottomM_3{
+	width: 33%;
+	height: 100%;
+}
+
+.footerBottom .footerBottomR{
+	width: 20%;
+	height: 100%;
+}
+.footerBottomR .footerBottomR_1{
+
+	width: 48%;
+}
+.footerBottomR .footerBottomR_2{
+
+	width: 50%;
+}

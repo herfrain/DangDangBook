@@ -1,0 +1,78 @@
+.bodyDiv{
+	width: 1600px;
+	height: 700px;
+	margin: 0px auto;
+	background-color: #F5F5F5;
+}
+.threeBoxDiv{
+	height: 80px;
+}
+.threeBoxDiv img
+{
+	float: left;
+}
+.failPayTitleDiv
+{
+	height: 100px;
+	color: #777777;
+}
+.failPayTitleDiv span
+{
+	font-weight: bold;
+	font-size: 22px;
+}
+.failPayTitleDiv .failPayFont
+{
+	font-size: 25px;
+	float: left;
+}
+.failPayTitleDiv .failPayNumber
+{
+	float: right;
+}
+.failPayTitleDiv font
+{
+	color: #0AA2ED;
+	font-weight: bolder;
+	font-size: 25px;
+}
+.failPayBodyDiv
+{
+	margin-top:200px;
+	text-align: center;
+}
+.failPayBodyDiv table
+{
+	text-align: center;
+	margin: 0px auto;
+}
+.failPayBodyDiv td.failX
+{
+	width: 150px;
+}
+.failPayBodyDiv td.failFont
+{
+	width: 300px;
+}
+.failPayBodyDiv table img
+{
+	width: 100px;
+	height: 100px;
+}
+.failPayBodyDiv .showFail
+{
+	color: #0AA2ED;
+	font-size: 50px;
+	font-weight: bold;
+}
+.failPayBodyDiv .checkOrder
+{
+	color: #AAAAAA;
+	font-size: 22px;
+}
+.payFailTip
+{
+	color: #666666;
+	font-size: 22px;
+}
+}

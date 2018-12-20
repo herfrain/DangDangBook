@@ -1,0 +1,131 @@
+body{
+	background-color: #EEFFEE;
+	width: 1860px;
+}
+.mainDiv{
+	height: 700px;
+	width: 800px;
+	margin: 0px auto;
+	background-color: rgba(200,255,200,0.8);
+}
+
+/*topDiv ->一个大的div下的所有样式写在一起*/
+.topDiv{
+	height: 100px;	
+}
+.topDiv .leftTopDiv{
+	float: left;
+	width: 100px;
+	height: 50px;
+	margin-top: 25px;
+	margin-left: 10px;
+	
+}
+.topDiv .HTopDiv{
+	float: left;
+	width: 200px;
+	height: 50px;
+	margin-left: 200px;
+	margin-top: 20px;
+}
+/*ul li 可以独立浮动使用，可以不套div。*/
+.topDiv .UlTopDiv{
+	float: right;
+	width: 200px;
+	height: 30px;
+	margin-top: 65px;
+	margin-right: 10px;
+	padding-top: 5px;
+}
+.UlTopDiv li{
+	float: left;
+	list-style: none;
+	padding: 0px 10px;
+}
+/*bodyDiv*/
+.bodyDiv{
+	height: 500px;
+}
+.bodyDiv .inputDiv{
+	width: 500px;
+	margin: 0px auto;
+	height: 45px;
+	padding-top: 10px;
+}
+
+.bodyDiv div.checkDiv {
+	height: 95px;
+}
+
+.bodyDiv .inputDiv div{
+	float: left;
+	width: 160px;
+	height: 25px;
+}
+
+.bodyDiv div.checkDiv div{
+	height: 80px;
+}
+
+.bodyDiv .inputDiv .nameDiv{
+	text-align: right ;
+	font-size: 24px;
+}
+.bodyDiv .inputDiv .valueDiv input{
+	width: 160px;
+	height: 25px;
+	
+}
+.bodyDiv .inputDiv div.radioDiv input{
+	width: 15px;
+	height: 15px;
+}
+.bodyDiv .inputDiv div.checkBoxDiv input{
+	width: 15px;
+	height: 15px;
+}
+
+.bodyDiv .inputDiv div.checkBoxDiv .itemDiv{
+	width: 160px;
+	height: 20px;
+	float: left;
+}
+/*bottomDiv*/
+.bottomDiv{
+	height: 100px;
+}
+
+.bottomDiv .buttonDiv{
+	width: 300px;
+	height: 50px;
+	margin: 0px auto;
+}
+
+.bottomDiv .buttonDiv input{
+	width: 300px;
+	height: 50px;
+	font-size:25px ;
+	background-color:#00FFFF ;
+}
+/*容错样式*/
+.errDiv span{
+	width: 100px;
+}
+.errDiv .okSpan{
+	color: #FFFFFF;
+	padding-left: 20px;
+	background-image: url(../../学子商城web前端开发/学子商城web前端开发/客户端/img/datepicker/ui-icons_777620_256x240.png);
+	background-repeat:no-repeat ;/*取消了x轴和y轴的平铺*/
+	/*0px  x     0px  y  +是在图片背景图片上右边移动，-则是左边*/
+	/* 浏览器端向服务器端发送请求 html css文件 js文件都是独立的请求
+	 * 图片也是独立的请求，一张图片一个请求
+	 * 所以，我们将很多的小图，集中在一个图片文件中，通过像素的偏移 position来显示
+	 * */
+}	
+.errDiv .noSpan{
+	color: #FF0000;
+	padding-left: 20px;
+	background-image: url(../../学子商城web前端开发/学子商城web前端开发/客户端/img/datepicker/ui-icons_cc0000_256x240.png);
+	background-repeat:no-repeat ;/*取消了x轴和y轴的平铺*/
+	background-position:0px -20px ;
+}

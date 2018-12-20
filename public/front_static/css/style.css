@@ -1,0 +1,171 @@
+﻿body,
+div,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+fieldset,
+legend,
+input {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link,
+a:visited {
+	color: #FFFAFA;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+.back {
+	background: #B0C4DE;
+	height: 100%;
+}
+
+
+/*header*/
+
+.header {
+	background: #000;
+	height: 80px;
+}
+
+.logo {
+	float: left;
+}
+
+.search {
+	float: right;
+	margin: 0;
+	margin-top: 13px;
+}
+
+.search-container {
+	height: 45px;
+	font-size: 15px;
+	font-style: italic;
+	float: left;
+	background-color: #323A45;
+	border: solid 1px gainsboro;
+	color: white;
+}
+
+.search-button {
+	outline: 0;
+	margin: 4px;
+}
+
+.search-button:hover {
+	filter: alpha(Opacity=80);
+	-moz-opacity: 0.8;
+	opacity: 0.8;
+}
+
+
+/*header end*/
+
+
+/*menu start*/
+
+.menu {
+	background: #292929;
+	box-shadow: 2px 2px 2px;
+	width: 100%;
+}
+
+.menu ul li {
+	position: relative;
+	display: inline-block;
+	width: 10%;
+	border: solid 1px;
+	text-align: center;
+	
+}
+
+.menu ul li a {
+	position: relative;
+	font-family: "微软雅黑", sans-serif;
+	font-size:70%;
+	display: block;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.menu li :hover {
+	color: #000;
+	background: #EEC900;
+}
+
+
+/*menu end*/
+
+
+/*banner start*/
+
+.banner-container {
+	height: 623px;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	margin-top: 3px;
+}
+
+.banner-img {
+	height: 623px;
+	width: 1100px;
+	position: absolute;
+	margin-left: 200px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.banner-img:hover{
+	transform: scale(1.07);
+}
+
+.selected {
+	width: 100px;
+	height: 10px;
+	background-color: #FFFF00;
+	opacity: 0.9;
+}
+
+.unselected {
+	width: 100px;
+	height: 10px;
+	background-color: gray;
+	opacity: 0.5;
+}
+.banner-change {
+	position: absolute;
+	margin-left: 400px;
+	bottom: 50px;
+}
+.banner-change ul li {
+	display: inline-block;
+	margin-left: 60px;
+}
+
+
+/*banner end*/

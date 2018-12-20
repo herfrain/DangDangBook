@@ -1,0 +1,156 @@
+
+*,body,div,p,ul,li,a,input{
+	margin: 0px;/*上下左右都是0px*/
+	padding: 0px;
+	
+	
+}/*刚开始写页面的时候，建议先写一个单独的div和需要用到的标签样式
+	这个样式定义一个专门的边框
+	当框架搭建完成，可以删除这个样式*/
+
+body{
+	width: 100%;
+	margin: 0px auto;
+}	
+div{
+	/*border: solid #00FFFF 1px;*/
+}
+
+ul,li{
+	/*border: solid #00FF00 1px;*/
+}
+.mid{
+	height: 700px;
+}
+
+.mid .myPosition{
+	margin-bottom: 20px;
+}
+.mid .picDiv{
+	margin-bottom: 70px;
+}
+.mid .picDiv ul{
+	margin: 0 auto;
+	height: 80%;
+	display: table;
+	padding-top: 70px;
+}
+.mid .picDiv .picLine{
+	padding-top: 30px;
+}
+
+.mid .picDiv ul li{
+	text-align: center;
+	float: left;
+	list-style:none; /* 将默认的列表符号去掉 */
+	width: 150px;
+	margin: 0px,auto;
+	
+}
+.mid .picDiv ul li img{
+	margin: 0 auto;
+	display: block;
+	
+}
+
+.mid .textBt{
+	font-size: 25px;
+	margin-bottom: 3px;
+}
+.mid .blackLine{
+	border: solid black 1px;
+	margin-bottom: 6px;
+}
+
+.mid .xxMessage{
+	margin-bottom: 12px;
+}
+.mid .xxMS{
+	margin-bottom: 15px;
+	margin-right: 35px;
+}
+
+
+.mid .spxx{
+	float: left;
+	width: 45%;
+	/*width: 700px;*/
+	padding-top: 10px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.mid .dj{
+	float: left;
+	width: 20%;
+	/*width: 313px;*/
+	padding-top: 10px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.mid .sl{
+	float: left;
+	width: 15%;
+	/*width: 234px;*/
+	padding-top: 10px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.mid .sfk{
+	float: left;
+	width: 19%;
+	/*width: 310px;*/
+	padding-top: 10px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.mid .nANDtime{
+	float: left;
+	width: 100%;
+	height: auto;
+	background-color: gray;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.mid .xx{
+	float: left;
+	/*border: solid red 1px;*/
+	background-color: white;
+	width: 100%;
+	height: 190px;
+	/*height: auto;*/
+	margin-bottom: 10px;
+	text-align: center;
+}
+.mid .xx .spxx2{
+	float: left;
+	width: 45%;
+}
+.mid .xx .spxx22{
+	float: left;
+	
+}
+.mid .xx .spxx222{
+	float: left;
+	margin-top: 60px;
+}
+.mid .xx .dj2{
+	float: left;
+	text-align: center;
+	width: 20%;
+	height: 190px;
+	line-height: 190px;
+}
+.mid .xx .sl2{
+	float: left;
+	text-align: center;
+	width: 15%;
+	height: 100%;
+	line-height: 190px;
+}
+.mid .xx .sfk2{
+	float: left;
+	text-align: center;
+	width: 19%;
+	height: 100%;
+	line-height: 190px;
+}
