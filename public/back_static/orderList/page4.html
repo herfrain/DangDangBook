@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/frame.css" />
+	<link rel="stylesheet" href="../css/main.css" />
+	<link rel="stylesheet" href="../css/order-list.css">
+	<link rel="stylesheet" href="../css/orderPage.css" />
+	<link rel="stylesheet" href="../css/inspectDiv.css" />
+	<script type="text/javascript" src="../js/inspectDiv.js" ></script>
+	<body>
+		<div class="inspectDiv" style="position:fixed; z-index:1;" hidden="hidden" id="inspectDiv">
+			 <span class="inspectDivTitle">订单管理</span> <span class="inspectDivClose" onclick="closeInspectDiv();">关闭</span>
+			 <div class="inspectDetailDiv">
+			 	<table cellspacing="10px">
+			 		<tr>
+			 			<td>
+			 				<span><font>收货人</font></span>
+			 			</td>
+			 			<td>
+			 				
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>
+			 				<span>姓名:刘铁蛋</span> 
+			 			</td>
+			 			<td>
+			 				<span class="rightSpan">订单编号：<font>#123</font></span>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>
+			 				<span>收货地址：北京市 海淀区 18号</span>
+			 			</td>
+			 			<td>
+			 				<span class="rightSpan">订单状态：待处理</span>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>
+			 				<span>电话：10086<span>	
+			 			</td>
+			 			<td>
+			 				<span class="rightSpan">创建时间：2017-11-6 11:16</span>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>
+			 				<span>订单总额：</span>
+			 			</td>
+			 			<td>
+			 				<span><font>￥998.00</font></span>
+			 			</td>
+			 		</tr>
+			 	</table>
+			 </div>
+		</div>
+			<table class="orderTable" cellspacing="0">
+				<tr class="oneLine">
+					<td class="orderNum">
+						031
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/inHandle.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|<font>处理</font>
+					</td>
+				</tr>
+				<tr class="twoLine">
+					<td class="orderNum">
+						032
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/hasDeliver.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|<font>处理</font>
+					</td>
+				</tr>
+				<tr class="oneLine">
+					<td class="orderNum">
+						033
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/awaitHandle.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|<font>处理</font>
+					</td>
+				</tr>
+				<tr class="twoLine">
+					<td class="orderNum">
+						034
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/inHandle.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|<font>处理</font>
+					</td>
+				</tr>
+				<tr class="oneLine">
+					<td class="orderNum">
+						035
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/hasPay.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|处理
+					</td>
+				</tr>
+				<tr class="twoLine">
+					<td class="orderNum">
+						036
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/hasDeliver.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|<font>处理</font>
+					</td>
+				</tr>
+				<tr class="oneLine">
+					<td class="orderNum">
+						037
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/awaitHandle.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|<font>处理</font>
+					</td>
+				</tr>
+				<tr class="twoLine">
+					<td class="orderNum">
+						038
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/inHandle.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|<font>处理</font>
+					</td>
+				</tr>
+				<tr class="oneLine">
+					<td class="orderNum">
+						039
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/awaitHandle.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|<font>处理</font>
+					</td>
+				</tr>
+				<tr class="twoLine">
+					<td class="orderNum">
+						040
+					</td>
+					<td class="orderCondition">
+						<img src="../img/handleCondition/hasPay.png"/>
+					</td>
+					 <td class="createDate">
+						2017-11-6 11:16
+					</td>
+					<td class="orderAmount">
+						￥50.00
+					</td>
+					<td class="operation">
+						<font onclick="showInspectDiv();">查看</font>|处理
+					</td>
+				</tr>
+			</table>
+	</body>
+</html>

@@ -1,0 +1,172 @@
+
+/*bodyDiv及其内部样式的内容*/
+.bodyDiv{
+	width: 1540px;
+	height: 830px;
+	float: right;
+	background-color: rgb(236,239,244);
+	z-index: 1;
+}
+
+.bodyDiv .locationDiv{
+	width: 600px;
+	height: 90px;
+	line-height: 90px;
+	float: right;
+	text-align: right;
+	/*color: rgb(106,107,111);*/
+	font-size: 20px;
+	margin-right:20px ;
+}
+
+.bodyDiv .locationDiv img{
+	vertical-align: middle;
+}
+
+.bodyDiv .locationDiv .lastStep{
+	text-decoration: none;
+	color: black;
+	font-size:20px ;
+}
+.bodyDiv .locationDiv .nowStep{
+	text-decoration: none;
+	color: rgb(107,109,113);
+	font-size:20px ;
+}
+/*内容内部添加*/
+.bodyDiv .contentDiv{
+	width: 1500px;
+	height: 720px;
+	margin-left: 35px;
+	border-top: solid 5px;
+	border-color:rgb(60,142,192) ;
+	/*border-color:rgb(106,107,111) ;*/
+	border-radius:3px ;
+	background-color: white;
+	/*background-color: orange;*/
+	float: left;
+}
+/*.bodyDiv .contentDiv{
+	width: 1480px;
+	height: 700px;
+	margin-left: 35px;
+	border-top: solid 5px;
+	border-color:rgb(60,142,192) ;
+	//padding: 10px;
+	border-radius:3px ;
+	background-color: white;
+	float: left;
+}*/
+.bodyDiv .contentDiv .contentDivTitle{
+	height:60px ;
+	width: 100%;
+	/*background-color: orange;*/
+	border-bottom:solid rgb(236,239,244) 3px;
+	
+}
+.bodyDiv .contentDiv .contentDivTitle .contentDivTitleSpan{
+	height: 60px;
+	width: auto;
+	color: rgb(55,55,55);
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 60px;
+	margin-left: 15px;
+}
+.bodyDiv .contentDiv .detai{
+	height: 575px;
+	width: 100%;
+	border-bottom:solid rgb(236,239,244) 3px;
+}
+.bodyDiv .contentDiv .detai .oneInput{
+	width: 500px;
+	height: 80px;
+	float: left;
+	/*border: solid orange 1px;*/
+}
+.bodyDiv .contentDiv .detai .detaiType{
+	float: left;
+	height: 80px;
+	width: 130px;
+	font-family: "微软雅黑";
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 80px;
+	text-align: right;
+	line-height: 80px;
+	/*margin-left: 45px;*/
+	/*border: solid black 1px;*/
+
+}
+.bodyDiv .contentDiv .detai .detaiInput{
+	float: left;
+	height: 80px;
+	line-height: 80px;
+	width: auto;
+	margin-left: 35px;
+	/*border: solid red 1px;*/
+	
+}
+.bodyDiv .contentDiv .detai .detaiInput input{
+	/*long300,heigh 48*/
+	width: 250px;
+	height: 48px;
+	padding-left: 20px;
+	background-color: rgb(238,238,238);2
+	/*border-color: rgb(213,214,217);*/
+	border: solid rgb(215,216,218) 2px;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	font-weight:lighter;
+}
+.bodyDiv .contentDiv .detai .checkPic{
+	float: left;
+	height: 80px;
+	line-height: 80px;
+	width: 30px;
+	margin-left: 7px;
+	/*border: solid black 1px;*/
+	
+}
+.bodyDiv .contentDiv .detai .checkPic{
+	height: 50px;
+	width: 50px;	
+}
+.bodyDiv .contentDiv .pic{
+	width: 100%;
+	height: auto;
+	/*border: solid orange 1px;*/
+	float: left;
+}
+.bodyDiv .contentDiv .pic .picImg{
+	float: left;
+	width: 500px;
+	text-align: center;
+}
+.bodyDiv .contentDiv .pic .picImg img{
+	width: 300px;
+	height: 220px;
+}
+
+.bodyDiv .buttonDiv{
+	width: 100%;
+	height: 75px;
+	line-height: 75px;
+	text-align: right;
+	/*border: solid orange 1px;*/
+}
+.bodyDiv .buttonDiv .buttonaaa{
+	/*margin-bottom: 15px;*/
+	margin-right: 20px;
+	width: 80px;
+	height: 45px;
+	color: white;
+	border-radius: 5px;
+	background-color: rgb(63,139,187);
+	border-color: rgb(71,123,146);
+	border: solid 2px;
+	font-size: 20px;
+	font-weight: lighter;
+	
+}
+

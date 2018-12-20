@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/detail.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
+
+		<script type="text/javascript" src="/DangDangBook/public/front_static/js/unify.js" ></script>
+	</head>
+	<body>
+		<div class="mainDiv">
+			
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/top.html" width="100%"  height=""></iframe>
+
+			
+			
+			<div class="container">
+				<div class="navi"> Java编程思想> </div>
+				<div class="sellBook">
+					<div class="bookPicture">
+						<img src="/DangDangBook/public/front_static/img/goods/9787111213826/detail1big.jpg" />
+					</div>
+					<div class="bookInfo">
+						<div class="bookName">JAVA编程思想</div>
+						<div class="bookAuthor">(sdwihaoiawjalksh)</div>
+						<div class="bookPrice">
+							<div class="bookPriceNum">价格：<span>¥66.20</span></div>
+							服务承诺：*退货补运费 *30天无忧退货
+						</div>
+						<div class="bookInfoFont">
+						<div class="customerService"><a href="">客服：联系客服<img /></a></div>
+						<div class="press">出版社：<span>人民邮电出版社</span></div>
+						<div class="press">出版日期：<span>2016-11-01</span></div>
+						
+						<div class="bookNum">
+							<div class="bookNumInputDiv">
+								数量：<button onclick="reduce(this)">-</button>
+								<input type="text" id="num" name="num" value="1" onchange="inputChange(this)"/>
+								<button onclick="addn(this)">+</button>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="sellBook2">
+					<div class="bookPictureShow">
+						<button><img src="/DangDangBook/public/front_static/img/goods/9787111213826/detail1.jpg"/></button>
+					</div>
+					<div class="operation">
+						<div><a href="orderConfirm.html" class="button1 shadow">立即购买</a></div>
+						<div><a onclick="alert('已加入购物车！')" class="button2 shadow"><img src="/DangDangBook/public/front_static/img/product_detail/product_detail_img7.png"/>加入购物车</a></div>
+						<div><a id="collectBtn" onclick="changeImg()" class="button2 button3 shadow"><img id="collectImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_img6.png"/><br />收藏</a></div>
+					</div>
+				</div>
+				<div class="recommend">
+					<div class="title shadow">
+						<div class="recommendTitle">为你推荐</div>
+						<div class="recommendSubtitle">大家都在看</div>
+					</div>
+					<div class="recommendBook">
+						<div class="recommendBookP">
+							<img src="/DangDangBook/public/front_static/img/goods/9787111532644/index.jpg" />
+							<br />大数据架构师指南
+						</div>
+						<div class="recommendBookP">
+							<img src="/DangDangBook/public/front_static/img/goods/9787115335500/index.jpg" />
+							<br />深入浅出Node.js
+						</div>
+						<div class="recommendBookP">
+							<img src="/DangDangBook/public/front_static/img/goods/9787111213826/index.jpg" />
+							<br />Java编程思想
+						</div>
+						<div class="recommendBookP">
+							<img src="/DangDangBook/public/front_static/img/goods/9787111545682/index.jpg" />
+							<br />Linux运维最佳实践
+						</div>
+					</div>
+				</div>
+				
+				<div class="bookDetail_Evaluation">
+					<div class="topBar shadow">
+						<span>商品详情</span>
+						<span>商品评价</span>
+
+					</div>
+					<div class="specification">
+						<div class="bookDetailTitle">
+							<div>规格参数</div>
+							<div><img class="titleImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_1.png" /></div>
+						</div>
+						<div class="specificationDetail">
+							<div class="specificationDetail_col">
+								<ul>
+									<li>图书编号：1234124123</li>
+									<li>价格：1234124123</li>
+									<li>出版日期：1234124123</li>
+									<li>包装：平装</li>
+								</ul>
+							</div>
+							<div class="specificationDetail_col">
+								<ul>
+									<li>图书名称：1234124123</li>
+									<li>出版社：1234124123</li>
+									<li>页数：1234124123</li>
+									<li>开本：平装</li>
+								</ul>
+							</div>
+							<div class="specificationDetail_col">
+								<ul>
+									<li>作者：1234124123</li>
+									<li>版次：1234124123</li>
+									<li>字数：1234124123</li>
+									<li>用纸：平装</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div class="bookIntroduction">
+						<div class="bookDetailTitle">
+							<div>商品介绍</div>
+							<div><img class="titleImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_4.png" /></div>
+						</div>
+						<div><img src="/DangDangBook/public/front_static/img/goods/9787111213826/intro.jpg" /></div>
+					</div>
+					
+					<div class="bookDetailTitle">
+						<div>售后保障</div>
+						<div><img class="titleImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_3.png" /></div>
+					</div>
+					
+						<div class="realProtect">
+							<div><img src="/DangDangBook/public/front_static/img/product_detail/product_detail_img16.png" /></div>
+							<div><span>正品保障</span></div>
+						</div>
+						<div class="protectInformation">
+							这就是我们的保障，如果你不要我就不给你，你买了就有，怎么样，是不是很划算，哈哈！
+						</div>
+
+
+						<div class="realProtect">
+							<div><img src="/DangDangBook/public/front_static/img/product_detail/product_detail_img16.png" /></div>
+							<div><span>全国联保</span></div>
+						</div>
+						<div class="protectInformation">
+							全国哟，大江南北，都是我们的地盘，如果你买了，我们再送你一个全球的联保，还行吧？
+						</div>
+
+				</div>
+				<div class="rightBar">
+					<div class="rightBarCss shadow">
+						<div><img src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_1.png" /></div>
+						<div>规格参数</div>
+					</div>
+					<div class="rightBarCss shadow">
+						<div><img src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_4.png" /></div>
+						<div>商品介绍</div>
+					</div>
+					<div class="rightBarCss shadow">
+						<div><img src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_3.png" /></div>
+						<div>售后保障</div>
+					</div>
+					<div onclick="backToUp()" class="rightBarCss shadow">
+						<div><img src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_up_1.png" /></div>
+						<div>回到顶部</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript" src="/DangDangBook/public/front_static/js/detail.js" ></script>
+			<!--尾-->
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
+		</div>
+	</body>
+</html>

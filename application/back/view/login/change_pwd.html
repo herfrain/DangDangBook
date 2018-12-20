@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
+	<link rel="stylesheet" href="/DangDangBook/public/back_static/css/changePwd.css" />
+	<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
+	<script type="text/javascript" src="/DangDangBook/public/back_static/js/changePwd.js" ></script>
+	<body>
+		<div class="mainDiv">
+			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+				
+			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+			<div class="bodyDiv">`
+                <div class="contentDiv">
+                	<!--
+                    	作者：罗梓浩
+                    	时间：2018-10-10
+                    	描述：写自己的内容
+                    -->
+                    <div class="title">
+							<span class="change">修改密码</span>
+						</div>
+						<div class="inputDiv">
+							<input type="password" placeholder="Current Password" name="oldPwd" id="oldPwd" 
+								onfocus="this.placeholder=''" onblur="oldPwdOnblur(this);"/>
+						</div>
+						<div class="inputDiv">
+							<input type="password" placeholder="New Password" name="newPwd" id="newPwd" 
+								onfocus="this.placeholder=''" onblur="newPwdOnblur(this);"/>
+						</div>
+						<div class="inputDiv">
+							<input type="password" placeholder="Confirm New Password" name="newPwds" id="newPwds" 
+								onfocus="this.placeholder=''" onblur="newPwdsOnblur(this);"/>
+						</div>
+						<div class="buttonDiv">
+							<input type="submit" value="提交" class="changeButton"/>
+						</div>
+						<div class="errDiv">
+							<span id="errName"></span>
+						</div>
+                </div>
+			</div>
+			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+		</div>
+	</body>
+</html>

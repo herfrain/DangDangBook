@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>添加地址</title>
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/add_change.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
+		<script type="text/javascript" src="/DangDangBook/public/front_static/js/addAddress.js"></script>
+	</head>
+
+	<body>
+		<div class="mainDiv">
+			<div class="background">
+				<!--头-->
+				<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/top.html" width="100%"  height=""></iframe>
+				
+				<form action="" method="get" onsubmit="return submitClick();">
+				<div class="bodyDiv">
+					<div class="menuDiv">
+						<div class="manageDiv">
+							<img src="/DangDangBook/public/front_static/img/myOrder/myOrder.png" />
+							<span id="accountManage">账号管理</span>
+							<img src="/DangDangBook/public/front_static/img/myOrder/myOrder1.png" class="rightEle" />
+						</div>
+						<div class="dropMenu">
+							<p><a href="changePwd.html">修改密码</a></p>
+							<p><a href="addAddress.html">添加地址</a></p>
+						</div>
+					</div>
+					<div class="operateDiv">
+						<div class="title">
+							<span class="add">添加地址</span>
+							<span class="con">继续购物</span>
+						</div>
+						<div class="inputDiv">
+							<input type="text" placeholder="收件人（6-12位字符）" name="name" id="name" 
+								onfocus="this.placeholder=''" onblur="nameOnblur(this);"/>
+						</div>
+						<div class="inputDiv">
+							<input type="text" placeholder="地址" name="address" id="address" 
+								onfocus="this.placeholder=''" onblur="addressOnblur(this);"/>
+						</div>
+						<div class="inputDiv">
+							<input type="text" placeholder="号码（11位号码)" name="phone" id="phone" 
+								onfocus="this.placeholder=''" onblur="phoneOnblur(this);"/>
+						</div>
+						<div class="buttonDiv">
+							<input type="submit" value="添加" />
+						</div>
+						<div class="errDiv"><span id="errName"></span></div>
+					</div>
+				</div>
+				</form>
+			</div>
+			
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
+		</div>
+	</body>
+
+</html>

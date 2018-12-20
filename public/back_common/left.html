@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
+	</head>
+	<body>
+		<div class="shellDiv">
+				<div class="menuDiv">
+					<div class="itemDiv" onclick="">
+						<img src="/DangDangBook/public/back_static/img/link.png"/><span class="linkName">订单管理</span>
+					</div>
+					
+					<!-- 
+						这下面 a的链接都要使用 {:url('路径')}，调用controller里面的方法
+					 -->
+					
+					<div class="itemDiv" onclick="">
+						<a href="order-list.html" target="_top">订单列表</a>
+					</div>
+					
+					<div class="itemDiv" onclick="">
+						<a class="linkName" href="orderProcess.html" target="_top">订单进程</a>
+					</div>
+					<div class="itemDiv" onclick="">
+						<a class="linkName" href="orderDetail.html" target="_top">订单详情</a>
+					</div>
+					<div class="itemDiv">
+						<img src="/DangDangBook/public/back_static/img/link.png"/><span class="linkName">商品管理</span>
+					</div>
+					<div class="itemDiv" onclick="">
+						<a class="linkName" href="product-list.html" target="_top">所有商品</a>
+					</div>
+					<div class="itemDiv" onclick="">
+						<a class="linkName" href="productAdd.html" target="_top">添加商品</a>
+					</div>
+				</div>
+	</body>
+</html>

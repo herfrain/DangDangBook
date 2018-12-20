@@ -1,0 +1,119 @@
+.contentDiv{
+	width: 1480px;
+	height: 700px;
+	margin-left: 35px;
+	border-top: solid 5px;
+	border-color:rgb(60,142,192) ;
+	padding: 10px;
+	border-radius:3px ;
+	background-color: white;
+	float: left;
+}
+
+.informationForm{
+	width: 1500px;
+	height: 700px;
+	padding-left: 20px;
+	padding-right: 20px;
+	float: left;
+}
+
+.informationForm .informationTitle{
+	float: left;
+	width: 95%;
+	height: 60px;
+	font-family: "微软雅黑";
+	font-size: 30px;
+	
+}
+
+.informationForm .inputDiv{
+	width: 480px;
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	text-align: left;
+	margin-bottom:20px ;
+}
+
+.informationForm .inputDiv .inputText{
+	width: 460px;
+	height: 50px;
+	line-height: 50px;
+	text-indent: 1em;
+	font-size: 25px;
+}
+
+.informationForm .inputDiv .inputButton{
+	width: 150;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	font-family: "微软雅黑";
+	background-color: rgb(243,243,243);
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 2px;
+	float: left;
+}
+
+.informationForm .inputDiv .inputFile{
+	visibility: hidden;
+	width: 1px;
+	height: 50px;
+	float: left;
+}
+
+.informationForm .inputDiv .path{
+	width: 300px;
+	height: 50px;
+	line-height: 50px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+}
+
+.informationForm .line{
+	width: 1470px;
+	height: auto;
+	border: solid 1px;
+	border-color: rgb(244,244,244);
+	margin-left: -30px;
+	margin-top: 60px;
+	float: left;
+}
+
+.informationForm .submitDiv{
+	width: 1400px;
+	height: 70px;
+	line-height: 50px;
+	float: left;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.informationForm .submitDiv input{
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: white;
+	background-color: rgb(60,141,189);
+	font-size: 20px;
+	font-family: "微软雅黑";
+	border-radius:3px ;
+	border: none;
+	float: right;
+}
+
+.informationForm .submitDiv p{
+	width: 1000px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	font-family: "微软雅黑";
+	float: left;
+}
+

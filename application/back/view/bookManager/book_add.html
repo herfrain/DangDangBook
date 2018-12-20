@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/productAdd.css" />
+		<script type="text/javascript" src="/DangDangBook/public/back_static/js/productAdd.js" ></script>
+	</head>
+	<body>
+		<div class="mainDiv">
+			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+				
+			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+				
+			<div class="bodyDiv">
+                <div class="locationDiv">
+                	<!--自己按自己的图改下面的文本内容-->
+                	<img src="/DangDangBook/public/back_static/img/logo.png"/><a href="#" class="lastStep">商品管理</a> >添加商品
+                </div>
+                <div class="contentDiv">
+                	<!--
+                    	作者：罗梓浩
+                    	时间：2018-10-10
+                    	描述：写自己的内容
+                    -->
+                    
+                    <form method="get" action="#" class="informationForm" onsubmit="return onSubmit()">
+                    	<div class="informationTitle">
+                    		信息录入
+                    	</div>
+                    	<div class="inputDiv">
+                    		<!--
+                            	作者：罗梓浩
+                            	时间：2018-10-11
+                            	描述：正则表达式判断纯数字编号
+                            -->
+                    		<input id="bookNumber" type="text" class="inputText" placeholder="图书编号" onblur="bookNumberOnblur(this)"/>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<input id="bookName" type="text" class="inputText" placeholder="书名" onblur="bookNameOnblur(this)"/>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<input id="bookAuthor" type="text" class="inputText" placeholder="作者" onblur="bookAuthorOnblur(this)"/>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<input id="bookPriceS" type="text" class="inputText" placeholder="优惠价" onblur=""/>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<input id="bookPriceB" type="text" class="inputText" placeholder="原价" onblur=""/>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<input id="bookPublishComply" type="text" class="inputText" placeholder="出版社" onblur="bookPublishComplyOnblur(this)"/>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<input id="bookPublishTime" type="text" class="inputText" placeholder="出版时间" onblur=""/>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<select class="inputText" value="">
+                    			
+                    			<!-- 
+                    				用Book表里面的class显示
+                    			 -->
+                    			<option value="">类型</option>
+                    			<option value="文学">文学</option>
+                    			<option value="建筑">建筑</option>
+                    			<option value="社会科学">社会科学</option>
+                    			<option value="工业技术">工业技术</option>
+                    		</select>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<input type="button" class="inputButton" value="图片" onclick="browser(this)"/>
+                    		<input type="file" class="inputFile" onchange="fileChange(this)"/>
+                    		<p class="path"></p>
+                    	</div>
+                    	<div class="inputDiv">
+                    		<textarea id="" rows="20" cols="60" placeholder="内容简介"></textarea>
+                    	</div>
+                    	
+                    	<div class="inputDiv">
+                    		<textarea id="" rows="20" cols="60" placeholder="作者简介"></textarea>
+                    	</div>
+                    	
+                    	<div class="line"></div>
+                    	<div class="submitDiv">
+                    		<p class="report" id="report" style="color: red;"></p>
+                    		<input type="submit" value="提交"/>
+                    	</div>
+                    </form>
+                </div>
+			</div>
+			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+		</div>
+	</body>
+</html>

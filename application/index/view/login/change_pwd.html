@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>修改密码</title>
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/add_change.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
+		<script type="text/javascript" src="/DangDangBook/public/front_static/js/changePwd.js"></script>
+	</head>
+
+	<body>
+		<div class="mainDiv">
+			<div class="background">
+				<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/top.html" width="100%"  height=""></iframe>
+				
+				<form action="" method="get" onsubmit="return submitClick();">
+					<div class="bodyDiv">
+						<div class="menuDiv">
+							<div class="manageDiv">
+								<img src="/DangDangBook/public/front_static/img/myOrder/myOrder.png" />
+								<span id="accountManage">账号管理</span>
+								<img src="/DangDangBook/public/front_static/img/myOrder/myOrder1.png" class="rightEle" />
+							</div>
+							<div class="dropMenu">
+								<p>
+									<a href="changePwd.html">修改密码</a>
+								</p>
+								<p>
+									<a href="addAddress.html">添加地址</a>
+								</p>
+							</div>
+						</div>
+						<div class="operateDiv">
+							<div class="title">
+								<span class="change">修改密码</span>
+								<span class="con">继续购物</span>
+							</div>
+							<div class="inputDiv">
+								<input type="password" placeholder="Current Password" name="oldPwd" id="oldPwd" onfocus="this.placeholder=''" onblur="oldPwdOnblur(this);" />
+							</div>
+							<div class="inputDiv">
+								<input type="password" placeholder="New Password" name="newPwd" id="newPwd" onfocus="this.placeholder=''" onblur="newPwdOnblur(this);" />
+							</div>
+							<div class="inputDiv">
+								<input type="password" placeholder="Confirm New Password" name="newPwds" id="newPwds" onfocus="this.placeholder=''" onblur="newPwdsOnblur(this);" />
+							</div>
+							<div class="buttonDiv">
+								<input type="submit" value="提交" class="changeButton" />
+							</div>
+							<div class="errDiv">
+								<span id="errName"></span>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
+		</div>
+	</body>
+
+</html>

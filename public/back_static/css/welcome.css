@@ -1,0 +1,163 @@
+.mainDiv{
+	width: 1850px;
+	height: 900px;
+	float: left;
+	margin:0px auto;
+	font-family:"微软雅黑" ;
+}
+/*titleDiv，用于显示学子商城系统字样*/
+.titleDiv{
+	width: 310px;
+	height: 70px;
+	background-color: rgb(54,127,168);	
+	font-size: 35px;
+	line-height: 70px;
+	text-align: center;
+	color: white;
+	float: left;
+}
+/*topDiv,主要用于显示用户名等*/
+.topDiv{
+	width: 1540px;
+	height: 70px;
+	background-color: rgb(60,141,188);
+	line-height: 70px;
+	float: left;
+}
+
+.topDiv .titleDiv img{
+	width: 70px;
+	height: 70px;
+}
+
+.topDiv .menuLogoDiv{
+	width: 70px;
+	height: 70px;
+	float: left;
+}
+
+.topDiv .userNameDiv{
+	width: 260px;
+	height: 70px;
+	text-align: right;
+	font-size: 30px;
+	margin-left: 1200px;
+	line-height: 70px;
+	float: left;
+	color: white;
+}
+
+.topDiv .userNameDiv img{
+	width: 70px;
+	height: 70px;
+	vertical-align: middle;
+}
+/*shellDiv，左菜单栏的外壳*/
+.shellDiv{
+	width: 310px;
+	height: 870px;
+	float: left;
+	background-color: rgb(26,34,37);
+}
+
+.shellDiv .menuDiv{
+	width: 310px;
+	height: 810px;
+	margin-top: 60px;
+	background-color: rgb(34,45,49);
+	float: left;
+}
+
+.shellDiv .menuDiv .itemDiv{
+	width: 310px;
+	height: 60px;
+	text-align: left;
+	line-height: 60px;
+}
+
+.shellDiv .menuDiv .itemDiv span.linkName{
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+}
+
+.shellDiv .menuDiv .itemDiv span.go{
+	text-decoration: none;
+	color: white;
+	float: right;
+	font-size: 30px;
+	margin-right: 10px;
+}
+/*bodyDiv及其内部样式的内容*/
+.bodyDiv{
+	width: 1540px;
+	height: 830px;
+	float: right;
+	margin-top: 70px;
+	background-color: rgb(236,239,244);
+}
+
+.bodyDiv .locationDiv{
+	width: 600px;
+	height: 90px;
+	line-height: 90px;
+	float: right;
+	text-align: right;
+	color: rgb(106,107,111);
+	font-size: 20px;
+	margin-right:20px ;
+}
+
+.bodyDiv .locationDiv img{
+	vertical-align: middle;
+}
+
+.bodyDiv .locationDiv .lastStep{
+	text-decoration: none;
+	color: black;
+	font-size:20px ;
+}
+
+.bodyDiv .contentDiv{
+	width: 1500px;
+	height: 700px;
+	margin-left: 35px;
+	border-color:rgb(60,142,192) ;
+	border-radius:3px ;
+	float: left;
+}
+.bodyDiv .contentDiv .welcomDiv{
+	font-size: 45px;
+	text-align: center;
+	margin-top: 325px;
+}
+
+/*footDiv，网页的尾部*/
+.footDiv{
+	width: 1540px;
+	height: 40px;
+	background-color: white;
+	float: left;
+}
+
+.footDiv .copyright{
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	font-size: 20px;
+}
+
+.footDiv .owner{
+	float: left;
+	line-height: 40px;
+	font-size: 25px;
+	float: left;
+	color: rgb(115,163,218);
+}
+
+.footDiv .slogan{
+	height: 40px;
+	line-height: 40px;
+	float: right;
+	font-size: 20px;
+}

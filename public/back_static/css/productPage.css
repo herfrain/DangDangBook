@@ -1,0 +1,57 @@
+.orderTable
+{
+	border: solid #DDDDDD 1px;
+}
+.orderTable tr
+{
+	height: 45px;
+}
+.orderTable td
+{
+	font-size: 20px;
+	border: solid #DDDDDD 1px;
+}
+.orderTable .oneLine
+{
+	background-color: #EEEEEE;
+}
+.orderTable td font
+{
+	color: #3C8DBC;
+}
+.operation
+{
+	font-weight:bold ;
+}
+
+.operation font{
+	cursor: pointer;
+}
+.orderAmount span
+{
+	font-size: 20px;
+	font-weight: bold;
+}
+.priceFont1
+{
+	color: #FFFFFF;
+	background-color: indianred;
+}
+.priceFont2
+{
+	color: #FFFFFF;
+	background-color: dodgerblue;
+}
+
+.priceFont3
+{
+	color: #000000;
+	background-color: gold;
+}
+
+.priceFont4
+{
+	color: #000000;
+	background-color: greenyellow;
+}
+

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/order-confirm.css" />
+	<script src="/DangDangBook/public/front_static/js/orderConfirm.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="mainDiv">
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/top.html" width="100%"  height=""></iframe>
+				
+			<div class="bodyDiv">
+				<div class="threeBoxDiv" name="threeBox"><!--三个框框#0aA2ED-->
+					<img src="/DangDangBook/public/front_static/img/threeBox/firstBoxTrue.png" class="firstImg"/>
+					<img src="/DangDangBook/public/front_static/img/threeBox/secondBoxFalse.png" class="secondImg"/>
+					<img src="/DangDangBook/public/front_static/img/threeBox/thirdBoxFalse.png" class="thirdImg"/>
+				</div>
+				<div class="addressDiv">
+					<div class="addressTitleDiv">
+						<h2>选择收货地址</h2>
+						<hr/>
+					</div>
+					<div class="addressContentDiv">
+						<div class="addressDetailDiv" id="oneAddress">
+							<input type="radio" name="addressRadio" id="address1" checked="checked"/>
+							<div class="addressNameDiv">王翠花</div>
+							<span class="addressPlaceDiv">北京市 海淀区 大钟寺123号 13566779988</span>
+						</div>
+						<div class="addressDetailDiv">
+							<input type="radio" name="addressRadio" id="address2"/>
+							<div class="addressNameDiv">刘铁蛋</div>
+							<span class="addressPlaceDiv">北京市 海淀区 大钟寺123号 13566778899</span>
+						</div>
+					</div>
+					<div class="moreAddress">
+						<span id="moreAddress" onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);" onclick="moreAddressClick()">
+							更多地址>>
+						</span><div>
+						<div id="addAddress" class="addAddress" hidden="hidden">
+							<table cellpadding="10px" cellspacing="10px">
+								<tr>
+									<td class="firstTd">收货人姓名：</td>
+									<td><input type="text" id="newAddressName" placeholder="请输入收货人姓名"
+							onfocus="this.placeholder=''" onblur="addressNameOnblur(this);"></td>
+									<td class=""><span id="errorAddName"></span></td>
+								</tr>
+								<tr>
+									<td class="firstTd">收货地址：</td>
+									<td><input type="text" id="newAddressPlace" placeholder="请输入收货地址"
+							onfocus="this.placeholder=''" onblur="addressPlaceOnblur(this);"></td>
+									<td class=""><span id="errorAddPlace"></span></td>
+								</tr>
+								<tr>
+									<td class="firstTd">收货人电话：</td>
+									<td><input type="text" id="newAddressTel" placeholder="请输入收货人电话"
+							onfocus="this.placeholder=''" onblur="addressTelOnblur(this);"></td>
+									<td class=""><span id="errorAddTel"></span></td>
+								</tr>
+								<tr>
+									<td colspan="2"><input type="submit" value="添加地址" class="addAddressButton" onclick="addAddress()"></td>
+									<td></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				<div class="goodsDiv">
+					<div class="goodsTitleDiv">
+						<h2>确认商品信息</h2>
+					</div>
+					<div class="goodsDiv">
+						<div class="goodsHeadDiv">
+							<table>
+								<tr>
+									<td class="goodsImg"></td>
+									<td class="goodsName">商品信息</td>
+									<td class="goodsPrize">单价(元)</td>
+									<td class="goodsNum">数量</td>
+									<td class="goodsAmount">金额</td>
+								</tr>
+							</table>
+						</div>
+						<div class="goodsContentDiv">
+							<table>
+								<tr>
+									<td class="goodsImg"><img src="学子商城web前端开发/客户端/img/recommend/recommend_img1.jpg"</td>
+									<td class="goodsName">大数据架构师指南</td>
+									<td class="goodsPrize"><font>达内专属价</font><br>￥29.90</td>
+									<td class="goodsNum">✖1</td>
+									<td class="goodsAmount">￥29.90</td>
+								</tr>
+							</table>
+						</div>
+						<div class="goodsContentDiv">
+							<table>
+								<tr>
+									<td class="goodsImg"><img src="学子商城web前端开发/客户端/img/recommend/recommend_img2.jpg"</td>
+									<td class="goodsName">深入浅出</td>
+									<td class="goodsPrize"><font>达内专属价</font><br>￥39.90</td>
+									<td class="goodsNum">✖1</td>
+									<td class="goodsAmount">￥39.90</td>
+								</tr>
+							</table>
+						</div>
+						<div class="goodsBottomDiv">
+							<table cellpadding="0" cellspacing="0">
+								<tr>
+									<td class="back"><span onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);"><<返回购物车</span></td>
+									<td class="blank"></td>
+									<td class="totalAmount">已选<font>2</font>件商品，合计(不含运费)<font>69.80</font>元</span></td>
+									<td class="confirmButton"><input type="submit" value="确认并付款" onclick="confirmClick();"></td>
+								</tr>
+							</table>
+	
+						</div>
+						<div class="errorTip">
+							<span id="errorTipFont"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+.orderTable
+{
+	border: solid #DDDDDD 1px;
+}
+.orderTable tr
+{
+	height: 45px;
+}
+.orderTable td
+{
+	font-size: 20px;
+	border: solid #DDDDDD 1px;
+}
+.orderTable .oneLine
+{
+	background-color: #EEEEEE;
+}
+.orderTable td font
+{
+	color: #3C8DBC;
+}
+.operation
+{
+	font-weight:bold ;
+}
+
+.operation font{
+	cursor: pointer;
+}

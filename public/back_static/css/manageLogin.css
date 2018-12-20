@@ -1,0 +1,56 @@
+.mainDiv{
+	width: 1860px;
+	height:600px;
+	background-color: #F5F5F5;
+	font-family: "微软雅黑";
+}
+.title{
+	height: 80px;
+	width: 400px;
+	margin-left: 730px;
+	margin-top: 100px;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 45px;
+	color: #808080;
+}
+.loginDiv{
+	margin: 0px auto;
+	margin-top: 50px;
+	height: 300px;
+	width: 500px;
+	background-color: white;
+}
+.loginDiv .loginTitle{
+	font-size: 20px;
+	margin-top: 30px;
+	color: #808080;
+	text-align: center;
+	font-weight: bold;
+}
+.loginDiv .inputDiv input{
+	text-indent: 1em;
+	margin-top: 30px;
+	margin-left: 50px;
+	width: 400px;
+	height: 35px;
+	font-size: 20px;
+}
+.loginDiv .inputDiv .buttonDiv{
+	background-color: #0AA2ED;
+	color: white;
+	border: none;
+	text-indent: 0;http://127.0.0.1:8020/Project/manageLogin.html
+}
+.loginDiv .inputDiv .buttonDiv:hover{
+	cursor: pointer;
+}
+.loginDiv .forgetDiv{
+	margin-top: 5px;
+	margin-left: 50px;
+	font-size: 20px;
+}
+.loginDiv .forgetDiv a{
+	color: #0000dd;
+	text-decoration: none;
+}

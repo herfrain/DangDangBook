@@ -1,0 +1,88 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/index.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
+		
+		<!--<script type="text/javascript" src="js/index.js" ></script>-->
+	</head>
+	<body>
+		
+		<div class="mainDiv">
+			{include  file="./public/front_common/top.html"/}
+			
+			
+			<div class="container">
+				
+				<div class="bookClass">
+					<ul>
+						<li><a href="{:url('index/index')}">全部</a></li>
+						{foreach $classes as $class}
+						<li><a href="{:url('index/bookClass')}?class={$class.bClass}">{$class.bClass}</a></li>
+						{/foreach}
+					</ul>
+				</div>
+					
+				<div id="box" class="topScrollPicture">
+        			<div>
+        				<ul id="image">
+           					<li class="image_show"><img src="/DangDangBook/public/front_static/img/banner/banner4.png"/></li>
+            				<li><img src="/DangDangBook/public/front_static/img/banner/banner1.png"/></li>
+            				<li><img src="/DangDangBook/public/front_static/img/banner/banner2.png"/></li>
+            				<li><img src="/DangDangBook/public/front_static/img/banner/banner3.png"/></li>
+        				</ul>
+        			</div>
+        			<div>
+        				<ul id="list">
+            				<li class="list_show"></li>
+            				<li></li>
+            				<li></li>
+            				<li></li>
+        				</ul>
+        			</div>
+        			<div>
+        				<ul class="round" id="round">
+            				<li class="round_l" id="round_l"><<</li>
+            				<li class="round_r" id="round_r">>></li>
+        				</ul>
+        			</div>
+				</div>
+				
+				<div class="subtitle">
+					<div><img src="/DangDangBook/public/front_static/img/banner/icon.png"/></div>
+					<div><span class="title">热搜排行</span></div>
+				</div>
+				<div class="bookList">
+					<ul>
+						
+						{foreach $books as $book}
+						<li>
+							<div class="bookInfo">
+								<div class="image"><a href="{:url('bookdetail/detail')}?bookID={$book.bookID}"><img src="{$book.bPicture}"/></a></div>
+								<div class="info">
+									<span class="bookName">{$book.bName}</span>
+									<span class="bookPricePress">
+										价格：¥{$book.bPriceS}
+										<br />出版社：{$book.bPublisher}
+									</span>
+								</div>
+							</div>
+						</li>
+						{/foreach}
+						
+					</ul>
+				</div>
+			</div>
+			
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
+		</div>
+		<script type="text/javascript" src="/DangDangBook/public/front_static/js/index.js" ></script>
+	</body>
+</html>

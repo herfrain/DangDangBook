@@ -1,0 +1,217 @@
+.contentDiv{
+	width:100%;
+	float: left;
+}
+
+.contentDiv .barTitle{
+	width: 100%;
+	height: 45px;
+	padding: 10px 0px;
+}
+
+.barTitle div{
+	float: left;
+}
+
+
+.barTitle .leftTitle{
+	float: left;
+	margin-left: 20px;
+	font-size: 1.6em;
+	font-weight: 500;
+}
+
+.barTitle .rightDate{
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	font-size: 1.3em;
+	color: #999;
+}
+
+.barTitle hr{
+	color: #ccc;
+	border: solid 1px;
+	width: 98%;
+	margin-left: 20px;
+}
+
+.contentDiv .receiverInfo{
+	
+}
+
+.receiverInfo .info{
+	float: left;
+	width: 48%;
+	margin-left: 20px;
+}
+
+.info .subTitle{
+	font-size: 1.6em;
+	font-weight: 700;
+}
+
+.info ul{
+	margin-top: 30px;
+}
+
+.info ul li{
+	margin-top: 5px;
+}
+
+.boldType{
+	font-size: 1.2em;
+	font-weight: 600;
+}
+
+.status{
+	float: left;
+}
+
+.lightType{
+	font-size: 1.2em;
+	font-weight: 500;
+}
+.lightType div{
+	float: left;
+	
+	margin-left: 10px;
+}
+
+
+.lightType .buttonSave{
+	
+	text-align: center;
+	
+	position: relative;
+	padding: 10px;
+	width: 60px;
+	margin-top: -10px;
+    cursor: pointer;
+	font-size: 1.1em;
+	background-color: rgba(255,255,224,0.8);
+	border-radius: 8px;
+	box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+	transition-duration: 0.4s;
+}
+
+.buttonSave:hover{
+	box-shadow:none;
+	background-color: rgba(255,236,139,0.8);
+}
+
+.contentDiv .goodsInfo{
+	float: left;
+	width: 100%;
+}
+
+.goodsInfo .scroll{
+	overflow-x: hidden;
+	overflow-y: overlay;
+	width:100%; 
+	height:340px;
+}
+
+.goodsInfo ul{
+	float: left;
+	width: 100%;
+	
+}
+
+.goodsInfo .detail .boldType{
+	font-size: 1.2em;
+	font-weight: 600;
+}
+
+.goodsInfo .bar{
+	height: 50px;
+	margin-top: 15px;
+	padding-top: 24px;
+	padding-left: 20px;
+	
+	background-color: #fff;
+	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.2);
+}
+.bar ul li{
+	float: left;
+}
+
+.goodsInfo .detail{
+	height: 50px;
+	padding-top: 25px;
+	padding-left: 20px;
+}
+
+.detail ul li{
+	float: left;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+
+.contentDiv .printDiv{
+	float: right;
+	margin-right: 40px;
+}
+
+.printDiv .buttonPrint{
+	/*弹性布局(flex)，实现水平居中，
+	 * 其中justify-content用于设置弹性盒子元素
+	 * 在主轴（横轴）方向上的对齐方式*/
+	display: flex;
+    justify-content: center;
+    
+    margin-top: 5px; 
+    padding: 5px;
+    cursor: pointer;
+	font-size: 1.4em;
+	height: 35px;
+	width: 100px;
+	background-color: rgba(255,255,224,0.8);
+	border-radius: 8px;
+	box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+	transition-duration: 0.4s;
+}
+
+.buttonPrint:hover{
+	/*255 236 139*/
+	box-shadow:none;
+	background-color: rgba(255,236,139,0.8);
+}
+
+.printDiv .buttonPrint .text{
+	padding-top: 5px;
+}
+.printDiv .buttonPrint div{
+	float: left;
+	height: 100%;
+}
+.printDiv .buttonPrint div img{
+	height: 100%;
+}
+
+
+.width1{
+	width: 5%;
+}
+
+.width2{
+	width: 25%;
+}
+
+.width3{
+	width: 10%;
+}
+
+.width4{
+	width: 47%;
+}
+
+.width5{
+	width: 10%;
+}
+
+.greyBack{
+	background-color: #eee;
+	border-radius: 8px;
+	box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+}
