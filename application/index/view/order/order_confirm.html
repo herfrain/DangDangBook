@@ -7,11 +7,214 @@
 	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
 	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
 	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/order-confirm.css" />
-	<script src="/DangDangBook/public/front_static/js/orderConfirm.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="/DangDangBook/public/front_static/js/jquery-1.4.2.js"> </script>
+	<script>	
+	function changeColorOver(obj)//鼠标移动到上面时变色
+	{
+		obj.style.color="#0AA2ED"
+	}
+	function changeColorOut(obj)//鼠标移开时变色
+	{
+		obj.style.color="#000000"
+	}
+	function moreAddressClick()//添加更多的地址
+	{
+		if($("#addAddress").is(':hidden')){　　//如果node是隐藏的则显示node元素，否则隐藏
+			　　$("#addAddress").show();　
+			}else{
+			　　$("#addAddress").hide();
+			}
+	}
+	function addressNameOnblur(obj)//判断用户名输入是否正确
+	{
+		obj.placeholder="请输入收货人姓名"
+		var str=obj.value;
+		if(str=="")
+		{
+			document.getElementById("errorAddName").className="errorTd";
+			document.getElementById("errorAddName").innerHTML="收货人姓名不能为空！";
+		}
+		else
+		{
+			document.getElementById("errorAddName").className="rightTd";
+			document.getElementById("errorAddName").innerHTML="收货人姓名正确";
+			return true;
+		}
+		return false;
+	}
+	function addressPlaceOnblur(obj)//判断收货地址输入是否正确
+	{
+		obj.placeholder="请输入收货地址"
+		var str=obj.value;
+		if(str=="")
+		{
+			document.getElementById("errorAddPlace").className="errorTd";
+			document.getElementById("errorAddPlace").innerHTML="收货地址不能为空！";
+		}
+		else
+		{
+			document.getElementById("errorAddPlace").className="rightTd";
+			document.getElementById("errorAddPlace").innerHTML="收货地址正确";
+			return true;
+		}
+		return false;
+	}
+	function addressTelOnblur(obj)//判断电话号码是否输入正确
+	{
+		obj.placeholder="请输入收货人电话"
+		var str=obj.value;
+		var txt=new RegExp(/^[0-9]{4,}$/);//使用正则表达式来进行字符串的匹配	
+		if(str=="")
+		{
+			document.getElementById("errorAddTel").className="errorTd";
+			document.getElementById("errorAddTel").innerHTML="电话号码不能为空！";
+		}
+		else if(!txt.test(str))
+		{
+			document.getElementById("errorAddTel").className="errorTd";
+			document.getElementById("errorAddTel").innerHTML="请输入正确的(6位以上)电话号码";
+		}
+		else
+		{
+			document.getElementById("errorAddTel").className="rightTd";
+			document.getElementById("errorAddTel").innerHTML="电话号码正确";
+			return true;
+		}
+		return false;
+	}
+	function addAddress()//提交新输入的地址
+	{
+		if(addressNameOnblur(document.getElementById("newAddressName"))&&
+		addressPlaceOnblur(document.getElementById("newAddressPlace"))&&
+		addressTelOnblur(document.getElementById("newAddressTel")))
+		{
+			var name=document.getElementById("newAddressName").value;
+			var place=document.getElementById("newAddressPlace").value;
+			var tel=document.getElementById("newAddressTel").value;
+			/*var adde=document.getElementById("oneAddress");		
+			var superE=adde.parentNode;
+			var newE=adde.cloneNode(true);//传入一个bl值，当为真的时候，会拷贝全部，false时候只会拷贝首节点
+			var arr=newE.childNodes;
+			
+			for(i in arr)
+			{
+				if(arr[i].nodeName=="INPUT")
+				{
+					arr[i].checked='checked';
+				}
+				if(arr[i].className=="addressNameDiv")
+				{
+					arr[i].innerHTML=name;
+				}
+				if(arr[i].className=="addressPlaceDiv")
+				{
+					arr[i].innerHTML="地址:&nbsp;"+place;
+				}
+				if(arr[i].className=="addressTelDiv")
+				{
+					arr[i].innerHTML="电话:&nbsp;"+tel;
+				}
+			}
+			newE.style.display = "block";
+			superE.appendChild(newE);//以上是html元素的添加
+			document.getElementById("newAddressName").value="";
+			document.getElementById("newAddressPlace").value="";
+			document.getElementById("newAddressTel").value="";
+			document.getElementById("addAddress").style.display = "none";*/
+			//通过order模型修改数据库
+			$.get("{:url('order/addAddress')}",{"addName":name,"addPlace":place,"addTel":tel});
+			window.location.reload();
+		}
+	}
+	function backCart()//返回购物车
+	{
+		window.location.href="{:url('cart/cart')}";
+	}
+	function confirmClick(sum)//提交按钮的点击事件
+	{
+		$custID=$("input:radio:checked");
+		if($custID.val()=="")
+		{
+			alert("你还没有选择收货地址");
+			return ;
+		}
+		
+		//这个方法的意思请参考cart.html第123到第124行注释
+		$.get("{:url('order/submitOrder')}",{"custID":$custID.val(),"sum":sum},function(data){
+					if(data=="goPay"){
+						window.location.href="{:url('order/orderPay')}";
+					}				
+				});
+	}		
+	function editA(obj)
+	{
+		$custID=$(obj).parent().find('#address1').val();
+		$custName=$(obj).parent().find('.addressNameDiv').text();
+		$custTel=$(obj).parent().find('.addressTelDiv').text().split(':')[1].trim();
+		$custAdd=$(obj).parent().find('.addressPlaceDiv').text().split(':')[1].trim();
+		if($("#add-panel").is(':hidden')){　　//如果node是隐藏的则显示node元素，否则隐藏
+		　　document.getElementById('add-panel').style.display="block";
+			document.getElementById('showCustID').value=$custID;
+			document.getElementById('addName').value=$custName;
+			document.getElementById('addPhone').value=$custTel;
+			document.getElementById('addAddr').value=$custAdd;			
+			}else{
+			　　document.getElementById('add-panel').style.display="none";
+			}
+	}
+	function editAddressClick()	//编辑收货人地址
+	{
+		var custid = document.getElementById("showCustID").value;
+		var name=document.getElementById("addName").value;
+		var addr=document.getElementById("addAddr").value;
+		var phone=document.getElementById("addPhone").value;	
+		var txt=new RegExp(/^[0-9]{4,}$/);//使用正则表达式来进行字符串的匹配	
+		if(name==""||addr==""||phone=="")
+		{
+			alert("不能有空值!");
+			return ;
+		}
+		if(!txt.test(phone))
+		{
+			alert("请输入正确的(6位以上)电话号码!");
+			return ;
+		}
+		document.getElementById('add-panel').style.display="none";
+		//修改数据库
+		$.get("{:url('order/editAddress')}",{"addName":name,"addAddr":addr,"addPhone":phone,"showCustID":custid},function(data)
+			{
+				if(data=="success")
+				{
+					alert("地址编辑成功！");	
+				}
+			}
+		);
+		window.location.reload();
+		//alert(addr);
+	}
+	function closeEdit()
+	{
+		document.getElementById('add-panel').style.display="none";
+	}
+	function deleteAddressClick(obj)	//删除收货人地址
+	{
+		$cust=$(obj).parent().find('#address1');
+		var custID=$cust.val();
+		$.get("{:url('order/deleteAddress')}",{"custID":custID},function(data)
+				{
+					if(data=="success")
+					{
+						window.location.reload();				
+					}	
+				}
+			);
+		
+	}
+
+	</script>
 	<body>
 		<div class="mainDiv">
-			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/front_common/top.html" width="100%"  height=""></iframe>
+			{include  file="./public/front_common/top.html"/}
 				
 			<div class="bodyDiv">
 				<div class="threeBoxDiv" name="threeBox"><!--三个框框#0aA2ED-->
@@ -24,18 +227,28 @@
 						<h2>选择收货地址</h2>
 						<hr/>
 					</div>
+					
 					<div class="addressContentDiv">
-						<div class="addressDetailDiv" id="oneAddress">
-							<input type="radio" name="addressRadio" id="address1" checked="checked"/>
-							<div class="addressNameDiv">王翠花</div>
-							<span class="addressPlaceDiv">北京市 海淀区 大钟寺123号 13566779988</span>
+						<div class="addressDetailDiv" id="oneAddress" hidden="hidden">
+							<input type="radio" name="addressRadio" id="address1" checked="checked" value=""/>
+							<div class="addressNameDiv"></div>
+							<span class="addressTelDiv">电话:&nbsp;</span>
+							<span class="addressPlaceDiv">地址:&nbsp;</span>
+							<span class="addressDeleDiv"  onclick="deleteAddressClick(this)">删除</span>
+							<span class="addressEditDiv"  onclick="editA(this)">编辑</span>		
 						</div>
+					{foreach $customers as $customer}
 						<div class="addressDetailDiv">
-							<input type="radio" name="addressRadio" id="address2"/>
-							<div class="addressNameDiv">刘铁蛋</div>
-							<span class="addressPlaceDiv">北京市 海淀区 大钟寺123号 13566778899</span>
+							<input type="radio" name="addressRadio" id="address1" checked="checked" value="{$customer.custID}"/>
+							<div class="addressNameDiv">{$customer.custName}</div>
+							<span class="addressTelDiv">电话:&nbsp;{$customer.custMobile}</span>
+							<span class="addressPlaceDiv">地址:&nbsp;{$customer.custAddress}</span>
+							<span class="addressDeleDiv"  onclick="deleteAddressClick(this)">删除</span>
+							<span class="addressEditDiv"  onclick="editA(this)">编辑</span>		
 						</div>
+					{/foreach}
 					</div>
+			
 					<div class="moreAddress">
 						<span id="moreAddress" onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);" onclick="moreAddressClick()">
 							更多地址>>
@@ -49,16 +262,16 @@
 									<td class=""><span id="errorAddName"></span></td>
 								</tr>
 								<tr>
-									<td class="firstTd">收货地址：</td>
-									<td><input type="text" id="newAddressPlace" placeholder="请输入收货地址"
-							onfocus="this.placeholder=''" onblur="addressPlaceOnblur(this);"></td>
-									<td class=""><span id="errorAddPlace"></span></td>
-								</tr>
-								<tr>
 									<td class="firstTd">收货人电话：</td>
 									<td><input type="text" id="newAddressTel" placeholder="请输入收货人电话"
 							onfocus="this.placeholder=''" onblur="addressTelOnblur(this);"></td>
 									<td class=""><span id="errorAddTel"></span></td>
+								</tr>
+								<tr>
+									<td class="firstTd">收货地址：</td>
+									<td><input type="text" id="newAddressPlace" placeholder="请输入收货地址"
+							onfocus="this.placeholder=''" onblur="addressPlaceOnblur(this);"></td>
+									<td class=""><span id="errorAddPlace"></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><input type="submit" value="添加地址" class="addAddressButton" onclick="addAddress()"></td>
@@ -83,35 +296,30 @@
 								</tr>
 							</table>
 						</div>
+						{assign name="sum" value="0"}
+						{assign name="num" value="0"}
+						{foreach $showcarts as $showcart}
 						<div class="goodsContentDiv">
 							<table>
 								<tr>
-									<td class="goodsImg"><img src="学子商城web前端开发/客户端/img/recommend/recommend_img1.jpg"</td>
-									<td class="goodsName">大数据架构师指南</td>
-									<td class="goodsPrize"><font>达内专属价</font><br>￥29.90</td>
-									<td class="goodsNum">✖1</td>
-									<td class="goodsAmount">￥29.90</td>
+									<td class="goodsImg"><img src="{$showcart.bPicture}"</td>
+									<td class="goodsName">{$showcart.bName}</td>
+									<td class="goodsPrize"><font>优惠价格</font><br>￥{$showcart.bPriceS}</td>
+									<td class="goodsNum">✖{$showcart.num}</td>
+									<td class="goodsAmount">￥{$showcart.bPriceS*$showcart.num}</td>
 								</tr>
 							</table>
 						</div>
-						<div class="goodsContentDiv">
-							<table>
-								<tr>
-									<td class="goodsImg"><img src="学子商城web前端开发/客户端/img/recommend/recommend_img2.jpg"</td>
-									<td class="goodsName">深入浅出</td>
-									<td class="goodsPrize"><font>达内专属价</font><br>￥39.90</td>
-									<td class="goodsNum">✖1</td>
-									<td class="goodsAmount">￥39.90</td>
-								</tr>
-							</table>
-						</div>
+						{assign name="sum" value="$sum+$showcart.bPriceS*$showcart.num"}
+						{assign name="num" value="$num+$showcart.num"}
+						{/foreach}
 						<div class="goodsBottomDiv">
 							<table cellpadding="0" cellspacing="0">
 								<tr>
-									<td class="back"><span onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);"><<返回购物车</span></td>
+									<td class="back"><span onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);" onclick="backCart();"><<返回购物车</span></td>
 									<td class="blank"></td>
-									<td class="totalAmount">已选<font>2</font>件商品，合计(不含运费)<font>69.80</font>元</span></td>
-									<td class="confirmButton"><input type="submit" value="确认并付款" onclick="confirmClick();"></td>
+									<td class="totalAmount">已选<font>{$num}</font>件商品，合计(不含运费)<font>{$sum}</font>元</span></td>
+									<td class="confirmButton"><input type="submit" value="确认并付款" onclick="confirmClick({$sum});"></td>
 								</tr>
 							</table>
 	
@@ -123,6 +331,44 @@
 				</div>
 			</div>
 			
+			<div id="add-panel" class="editBox" align="center">
+				<br/>
+				<form method="get">
+				<div class="title-bar" align="center">
+					<span class="title">编辑收货人地址</span>
+					<input class="close" type="button" value="X" onclick="closeEdit()">
+				</div>
+				<div class="edit-panel">
+					<table class="edit-table" cellspacing="20px">
+							<td>
+								<input id="showCustID" hidden="hidden"/>
+								<label for="addName">姓名：</label>					
+							</td>
+							<td>
+								<input id="addName" type="text" name="addName" placeholder="请输入姓名" >
+							</td>			
+						</tr>
+						<tr>
+							<td>
+								<label for="addPhone">电话：</label>
+							</td>
+							<td>
+								<input id="addPhone" type="text" name="addPhone" placeholder="请输入电话">
+							</td>			
+						</tr>
+						<tr>
+							<td>
+								<label for="addAddr">详细地址：</label>
+							</td>
+							<td>
+								<input id="addAddr" type="text" name="addAddr">
+							</td>			
+						</tr>
+					</table>
+				</div>
+				<button id="edit-btn" class="save" onclick="editAddressClick()" type="button">保存</button>
+				</form>
+			</div>
 			
 			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
 				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>收藏商品</title>
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/collect.css" />
+	</head>
+	<body>
+		<div class="mainDiv">
+			<div class="background">
+				{include  file="./public/front_common/top.html"/}
+				
+				<div class="bodyDiv">
+					<div class="title">收藏商品</div>
+					<div class="container">
+						<div class="page">{$page}</div>
+					<!-- 用循环显示goods -->
+						<div style="width:100%;height:90%;">
+						{foreach $books as $book}
+						<div class="goods">
+							<div class="photo">
+								<a href="{:url('bookdetail/detail')}?bookID={$book.bookID}"><img src="{$book.bPicture}" /></a>
+							</div>
+							<div class="goodsName">{$book.bName}</div>
+							<div class="detail">
+							<div class="price">￥{$book.bPriceS}</div>
+							<div class="check"><a href="{:url('bookdetail/detail')}?bookID={$book.bookID}">查看</a></div>								
+							</div>
+						</div>
+						{/foreach}
+						</div>
+						
+						
+					</div>
+					
+				</div>
+			</div>
+			
+			
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
+		</div>
+	</body>
+</html>

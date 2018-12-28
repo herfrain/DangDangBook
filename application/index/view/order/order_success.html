@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/pay-fail.css" />
+	<body>
+		<div class="mainDiv">
+			{include  file="./public/front_common/top.html"/}
+				
+				
+			<div class="bodyDiv">
+				<div class="threeBoxDiv" name="threeBox"><!--三个框框#0aA2ED-->
+					<img src="/DangDangBook/public/front_static/img/threeBox/firstBoxFalse.png" class="firstImg"/>
+					<img src="/DangDangBook/public/front_static/img/threeBox/secondBoxFalse.png" class="secondImg"/>
+					<img src="/DangDangBook/public/front_static/img/threeBox/thirdBoxTrue.png" class="thirdImg"/>
+				</div>
+				<div class="failPayTitleDiv">
+					<span class="failPayFont">支付成功</span>
+					<span class="failPayNumber">支付订单：{$order.orderID}支付金额：<font>{$order.totalPay}元</font></span>
+				</div>
+					
+				<div class="failPayBodyDiv">
+					<table>
+						<tr>
+							<td rowspan="2" class="failX">
+								<img src="/DangDangBook/public/front_static//img/pay/pay_succ.png" />
+							</td>
+							<td class="failFont">
+								<font class="showFail">支付成功</font>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<font class="checkOrder"><a href="{:url('order/order')}">查看订单状态?查看订单>></a></font>
+							</td>
+						</tr>
+					</table>
+					<font class="payFailTip">达内学子商城不会以系统异常，订单升级为由，要求你点击任何连接进行退款操作！</font>
+				</div>
+				
+			</div>
+			
+			
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
+		</div>
+	</body>
+</html>

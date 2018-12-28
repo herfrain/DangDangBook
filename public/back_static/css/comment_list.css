@@ -1,7 +1,4 @@
-a
-{
-	color: #FFFFFF;
-}
+
 .orderlistTable
 {
 	margin-top: 20px;
@@ -33,6 +30,9 @@ a
 }
 .orderTable .createDate 
 {
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
 	width: 450px;
 	
 }
@@ -103,3 +103,74 @@ a
 	width: 40px;
 	height: 40px;
 }
+
+
+.editBox
+{
+	display: none;
+	position:absolute;
+	top:200px;left:50%;
+	border:1px solid #aaa;
+	width:600px; height:400px;
+	z-index:999;
+	background-color:#fff;
+	border-radius:5px;
+}
+
+.editBox div{
+	float:left;
+}
+
+.editBox .commentContent{
+	margin-left:10%;
+	width:80%;
+	height:300px;
+	margin-top:40px;
+	
+}
+
+.editBox .commentContent textarea{
+	width:99%;
+	height:99%;
+	resize:none;
+	font-size:23px;
+	border-radius:5px;
+}
+
+.editBox .cancel{
+	width:49%;
+	font-size:20px;
+}
+
+.editBox .submitBtn{
+	width:49%;
+	font-size:20px;
+}
+
+.iFrameDiv ul{
+	float:left;
+}
+
+.iFrameDiv a{
+	color:#444;
+}
+
+.pages ul{
+	float:right;
+}
+
+.pages ul li{
+	float:left;
+	font-size:25px;
+	margin-right:10px;
+}
+
+.pages a{
+	color: gray;
+	transition: 0.3s;
+}
+
+.pages a:hover{
+	color: #0AA2ED;
+}
+

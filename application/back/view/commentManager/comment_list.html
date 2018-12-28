@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/main.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/comment_list.css" />
+		<script type="text/javascript" src="/DangDangBook/public/back_static/js/order-list.js" ></script>
+		<script type="text/javascript" src="/DangDangBook/public/back_static/js/jquery-1.4.2.js"> </script>
+		<script type="text/javascript" src="/DangDangBook/public/back_static/js/jquery-1.8.3.min.js"> </script>
+		
+		
+		<script>
+		
+		//显示回复框
+		function reply(commentID)
+		{
+			var panelCommentID=$('#panelCommentID');
+			panelCommentID.val(commentID);
+			var val=panelCommentID.val();
+			//alert(val);
+			if($("#add-panel").is(':hidden')){　　//如果node是隐藏的则显示node元素，否则隐藏
+			　　document.getElementById('add-panel').style.display="block";	
+			}else{
+				document.getElementById('add-panel').style.display="none";
+			}
+		}
+		
+		//用ajax修改数据
+		function submitReply()	
+		{
+			//要回复的commentID
+			var panelCommentID=$('#panelCommentID').val();
+			//回复内容
+			var reply=$('#reply').val();
+			if(reply=="")
+			{
+				alert("内容不能为空!");
+				return ;
+			}
+			document.getElementById('add-panel').style.display="none";
+			//修改数据库
+			$.post("{:url('commentmanager/reply')}",{"commentID":panelCommentID,"reply":reply},function(data)
+				{
+					if(data=="success")
+					{
+						alert("回复成功！");	
+						window.location.reload();
+					}else{
+						alert("回复失败！");	
+					}
+				}
+			);
+			
+			//alert(addr);
+		}
+		//隐藏回复框
+		function closeReply()
+		{
+			document.getElementById('add-panel').style.display="none";
+		}
+		
+		//显示内容
+		function showContent(content)
+		{
+			alert(content);
+		}
+		
+		//可拖动div
+		function dragFunc(id) {
+		    var Drag = document.getElementById(id);
+		    Drag.onmousedown = function(event) {
+		        var ev = event || window.event;
+		        event.stopPropagation();
+		        var disX = ev.clientX - Drag.offsetLeft;
+		        var disY = ev.clientY - Drag.offsetTop;
+		        document.onmousemove = function(event) {
+		            var ev = event || window.event;
+		            Drag.style.left = ev.clientX - disX + "px";
+		            Drag.style.top = ev.clientY - disY + "px";
+		            Drag.style.cursor = "move";
+		        };
+		    };
+		    Drag.onmouseup = function() {
+		        document.onmousemove = null;
+		        this.style.cursor = "default";
+		    };
+		};
+		
+		</script>
+	</head>
+	<body>
+		<div class="mainDiv">
+			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+				
+			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+				
+			<div class="bodyDiv">
+                <div class="locationDiv"><!--#3C8DBC-->
+                	<img src="/DangDangBook/public/back_static/img/logo.png"/><a href="#" class="lastStep">订单管理</a> >所有订单
+                </div>
+                <div class="contentDiv">
+                	<div class="orderTable orderlistTable">
+                		<div class="orderTableTitle">
+                			<ul>
+	            				<li class="orderNum">评价编号</li>
+	            				<li class="orderCondition">评价用户</li>
+	            				<li class="createDate">评价内容</li>
+	            				<li class="operation">评价时间</li>
+	            				<li class="">操作</li>
+	            			</ul>
+	            			
+                		</div>
+                		<div class="iFrameDiv">
+                			{foreach $comments as $comment}
+                			<ul>
+	            				<li id="commentID" class="orderNum">{$comment.commentID}</li>
+	            				<li class="orderCondition">{$comment.email}</li>
+	            				<li class="createDate"><a href="javascript:showContent('{$comment.content}')">{$comment.content}</a></li>
+	            				<li class="operation">{$comment.sendTime}</li>
+	            				{if $comment.reply eq ""}
+	            				<li id="replyBtn" class=""><a style="color:#a00;" href="javascript:reply({$comment.commentID})">回复</a></li>
+	            				{else/}
+	            				<li id="haveReplyed" class=""><a href="javascript:showContent('{$comment.reply}')">已回复</a></li>
+	            				{/if}
+	            			</ul>
+                			{/foreach}
+                		</div>
+                	</div>
+                	<div class="pages">
+                		{$page}
+                	</div>
+					
+					<div id="add-panel" class="editBox" align="center">
+				
+						<form method="post">
+							<input id="panelCommentID" style="display:none;" value="0"></input>
+							<div class="commentContent"><textarea id="reply" name="reply"></textarea></div>
+							<div class="cancel"><a href="javascript:closeReply()">取消</a></div>
+							<div class="submitBtn"><a id="edit-btn" href="javascript:submitReply()" >提交</a></div>
+						</form>
+					</div>
+                </div>
+			</div>
+			<script>dragFunc("add-panel");</script>
+			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+		</div>
+	</body>
+</html>

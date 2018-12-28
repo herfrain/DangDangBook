@@ -15,18 +15,15 @@ class Index extends Controller
         //获取input输入框内容
         $bName=input('post.bookName');
         //默认展示所有book
-        $results=bookModel::all();
-//         foreach ($results as $result){
-//             echo '<pre>';
-//             echo var_dump($result->bName);
-//             echo var_dump($result->bPriceS);
-//             echo var_dump($result->bPublisher);
-//             echo '<pre>';
-//         }
+        $results=bookModel::paginate(20);
+
         //如果输入框有名字
         if(!empty($bName)){
-            $results=bookModel::where(" bName like '%".$bName."%' ")->select();//查找包含此名字的book对象
+            //查找书名、书作者、书类型
+            $results=bookModel::where(" bName like '%".$bName."%' "."or bAuthor like '%".$bName."%' "."or bClass like '%".$bName."%' ")->paginate(20);
         }
+        $page=$results->render();
+        $this->assign('page',$page);
         //返回搜索到的商品对象
         $this->assign('books',$results);
         
@@ -43,13 +40,14 @@ class Index extends Controller
     {
         $class=input('get.class');
 //         echo $class;
-        $results=bookModel::where('bClass',$class)->select();
+        $results=bookModel::where('bClass',$class)->paginate(20);
+        $page=$results->render();
+        $this->assign('page',$page);
         $this->assign('books',$results);
         
         $classes=bookModel::field('bClass')->distinct(true)->select();
         $this->assign('classes',$classes);
         return  $this->fetch('index');
     }
-    
     
 }

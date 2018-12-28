@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+
+
+.bookInfo{
+	float:left;
+	width:30%;
+	margin-left: 10%;
+
+}
+
+.bookInfo .image img{
+	height: 99%;
+	display:block;
+	margin:0 auto;
+}
+
+.bookInfo .bookName{
+	margin:0 auto;
+	text-align:center;
+}
+
+.addComment{
+	float:left;
+	width:49%;
+	height:200px;
+	margin-left:30px;
+	margin-top:30px;
+}
+
+
+
+.addComment .addCommentText{
+	resize:none;
+	width:100%;
+	height:200px;
+	font-size:23px;
+}
+
+.addComment .bottom{
+	float:right;
+}
+
+.addComment .score{
+	font-size:16px;
+}
+
+.addComment .addCommentBtn{
+	font-size:20px;
+}

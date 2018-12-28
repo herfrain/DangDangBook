@@ -41,6 +41,7 @@
 	width: 20px;
 	height: 20px;
 }
+
 .addressDetailDiv .addressNameDiv
 {
 	float: left;
@@ -60,6 +61,34 @@
 	line-height: 50px;
 	font-size:20px ;
 	color: #AAAAAA;
+}
+.addressDetailDiv .addressTelDiv
+{
+	margin-left: 20px;
+	text-align: center;
+	line-height: 50px;
+	font-size:20px ;
+	color: #AAAAAA;
+}
+.addressDetailDiv .addressEditDiv
+{
+	font-weight:bold;
+	margin-top:10px;
+	float:right;
+	margin-right:50px;
+	text-align:center;
+	font-size:20px;
+	color:#0AA2ED;
+}
+.addressDetailDiv .addressDeleDiv
+{
+	font-weight:bold;
+	margin-top:10px;
+	float:right;
+	margin-right:30px;
+	text-align:center;
+	font-size:20px;
+	color:#0AA2ED;
 }
 .addressDiv .moreAddress
 {
@@ -125,6 +154,10 @@
 	font-weight: bold;
 	color: #0AA2ED;
 }
+.goodsContentDiv .goodsImg img
+{
+	width: 120px;
+}
 .goodsDiv .goodsImg
 {
 	width: 250px;
@@ -183,4 +216,55 @@
 	font-size: 25px;
 	font-weight: bold;
 	color: indianred;
+}
+.editBox
+{
+	display: none;
+	position:absolute;
+	top:200px;left:35%;
+	border:2px solid #0aA2ED;
+	width:600px; height:400px;
+	z-index:999;
+	background-color: 	#E0FFFF;
+}
+.editBox .title
+{
+	font-size:30px;
+	font-weight:bold;
+	color:#0aA2ED;
+}
+.editBox .close
+{
+	float:right;
+	font-size:18px;
+	font-weight:bold;
+	margin-right:40px;
+	width:30px;
+	height:30px;
+	background-color: 	#E0FFFF;
+}
+.editBox .edit-panel
+{
+	/*border:1px solid #000;*/
+}
+.editBox .edit-table
+{
+	font-size:24px;
+	margin-top:30px;
+	witdth:80%;
+	height:80%;
+}
+.editBox .edit-table input
+{
+	font-size:20px;
+	width:300px;
+	height:30px;
+}
+.editBox .save
+{
+	font-weight:bold;
+	font-size:20px;
+	margin-top:30px;
+	height:40px;
+	width:160px
 }

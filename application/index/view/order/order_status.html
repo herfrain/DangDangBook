@@ -11,62 +11,70 @@
 
 	<body>
 		<div class="mainDiv">
-			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/front_common/top.html" width="100%"  height=""></iframe>
-			
-			<div class="mid">
-				<div class="myPosition">
-					<span>首页>订单管理>订单</span><span>12345678910</span>
-				</div>
-				<div class="nowState">
-					<span>订单</span><span style="margin-right: 15px;">12345567777777</span>
-					<span>当前状态：</span><span>等待发货</span>
-				</div>
+			{include  file="./public/front_common/top.html"/}
+			<div class="orderDetail"> 
+					<table cellspacing="0" cellpadding="0">
+						<tr class="orderTitle">
+							<td colspan=3 class="orderInfTitle">
+								订单信息
+							</td>
+							<td colspan=3 class="custInfTitle">
+								收货人信息
+							</td>
+						</tr>
+						<tr class="orderTitle">
+							<td colspan=3 class="orderInf">
+								订单编号：{$showorder.orderID}<br/>
+								创建时间：{$showorder.createTime}<br/>
+								订单金额：{$showorder.totalPay}<br/>
+								订单状态:
+								{switch name="$showorder.orderStatus"}
+								{case value="未付款"}
+								<a href="{:url('order/orderPay')}"><font color="red">去付款&nbsp;|</font></a>
+								<a href="{:url('order/deleteOrder')}"><font color="red">删除订单</font></a>
+								{/case}
+								{case value="已付款"}											
+										<a href=""><font color="#CDBE70">等待发货</font></a>	
+								{/case}
+								{case value="已发货"}											
+										<a href="{:url('order/getPackage')}?orderID={$showorder.orderID}"><font color="#0aa2ed">已发货&nbsp;|&nbsp;确认收货</font></a>	
+								{/case}
+								{default /}<font color="green">{$showorder.orderStatus}</font>&nbsp;&nbsp;
+							{/switch}<br/>
+							</td>
+							<td colspan=3 class="custInf">
+									<span class="xxMS">收件人：{$showorder.custName}</span><br/>
+									<span class="xxMS">快递单号：{$showorder.packageID}</span><br/>
+									<span class="xxMS">联系电话：{$showorder.custMobile}</span><br/>
+									<span class="xxMS">收货地址：{$showorder.custAddress}</span><br/>
+							</td>
+						</tr>
+						<tr class="shoplistTitle">
+							<td>图书编号</td>
+							<td></td>
+							<td>图书信息</td>
+							<td>购买价格</td>
+							<td>购买数量</td>
+							<td>实付款</td>
+						</tr>
+						<!--  <tr>
+							<td colspan="4"><div class="line"></div></td>
+						</tr>-->
+						{foreach $showshoplists as $showshoplist}
+						<tr class="shoplist">
+						<td >{$showshoplist.bookID}</td>
+							<td ><img src="{$showshoplist.bPicture}"/></td>
 				
-				<div class="picDiv">
-					<ul>
-						<li><img src="/DangDangBook/public/front_static/img/orderinfo/orderinfo_img1_2.png" />提交订单</li>
-						<li class="picLine"><img src="/DangDangBook/public/front_static/img/orderinfo/orderinfo_img6_2.png" /></li>
-						<li><img src="/DangDangBook/public/front_static/img/orderinfo/orderinfo_img3_1.png" /></li>
-						<li class="picLine"><img src="/DangDangBook/public/front_static/img/orderinfo/orderinfo_img6_1.png" /></li>
-						<li><img src="/DangDangBook/public/front_static/img/orderinfo/orderinfo_img4_1.png" /></li>
-						<li class="picLine"><img src="/DangDangBook/public/front_static/img/orderinfo/orderinfo_img6_1.png" /></li>
-						<li><img src="/DangDangBook/public/front_static/img/orderinfo/orderinfo_img5_1.png" /></li>
-					</ul>
-				</div>
+							<td>{$showshoplist.bName}<br/><br/>{$showshoplist.bAuthor}[著]<br/><br/>{$showshoplist.bPublisher}[出版]</td>
 				
-				<div class="textBt">详细信息</div>
-				<div class="blackLine"></div>
-				<div class="xxMessage">
-					<span class="xxMS">收件人：某某某</span><span class="xxMS">邮编：1008610010</span><span class="xxMS">联系电话：13919145824</span>
-					<br /><br /><span class="xxMS">收货地址：北北京市昌平沙河小镇小沙河单身男公寓11楼1单元1号门</span>
-				</div>
-				<div class="textBt">商品信息</div>
-				<div style="margin-bottom: 10px;height: auto;">
-					<div class="spxx"><span>商品信息</span></div>
-					<div class="dj">单价（元）</div>
-					<div class="sl">数量</div>
-					<div class="sfk">实付款</div>
-				</div>
-				<div class="nANDtime">订单编号：12345678910   &nbsp;
-					成交时间：2016-01-04&nbsp;18:00&nbsp;联系客服<img src="/DangDangBook/public/front_static/img/myOrder/kefuf.gif"/>
-				</div>
-				<div class="xx">
-					<div class="spxx2">
-						<div class="spxx22"><img src="/DangDangBook/public/front_static/img/goods/9787302383666/collect.jpg"/></div>
-						<div class="spxx222"><span>联想（Lenovo）YoGA5 PRP 标配版电脑<br />
-						（I5-7200U 8G 512G SSD IPS）<br />颜色：深空灰</span>
-						</div>
-					</div>
-					<div class="dj2"><span>专属价￥488.80</span></div>
-					<div class="sl2">1件</div>
-					<div class="sfk2">￥4888.80</div>
-				</div>
-				
-				
+							<td>￥{$showshoplist.bPriceS}</td>
+							<td>{$showshoplist.num}件</td>
+							<td>￥{$showshoplist.num*$showshoplist.bPriceS}</td>
+						</tr>
+						{/foreach}
+			</table>
 			</div>
-			
-			<<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
 				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
 		</div>
 	</body>

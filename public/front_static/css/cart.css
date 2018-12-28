@@ -120,12 +120,12 @@
 
 .bodyDiv .cartTable .goodItem{
 	width: 1460px;
-	height: 150px;
-	
+	height: 160px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	float: left;
 	background-color: white;
+	border:1px solid rgb(180,180,180);
 }
 
 .bodyDiv .cartTable .goodItem .selectDiv{
@@ -152,7 +152,7 @@
 }
 
 .bodyDiv .cartTable .goodItem .goodsInformationDiv .goodsPectureDiv{
-	width: 130px;
+	width: 150px;
 	height: 150px;
 	text-align: center;
 	line-height: 150px;
@@ -160,16 +160,19 @@
 }
 
 .bodyDiv .cartTable .goodItem .goodsInformationDiv .goodsPectureDiv img{
-	width: 130px;
+	width: 140px;
+	height: 150px;
 	text-align: center;
-	margin: 20px 0px;
+	margin: 5px 0px;
 	float: left;
 	vertical-align: middle;
 }
 
 .bodyDiv .cartTable .goodItem .goodsInformationDiv .goodsDeatil{
-	width: 390px;
+	width: 350px;
 	height: 150px;
+	margin-top:10px;
+	margin-left:30px;
 	text-align: left;
 	float: left;
 }
@@ -218,7 +221,7 @@
 }
 
 .bodyDiv .cartFoot .detail{
-	margin-left: 700px;
+	margin-left:800px;
 	float: left;
 	line-height: 80px;
 }
@@ -250,8 +253,7 @@
 .bodyDiv .cartFoot .submitButton{
 	width: 200px;
 	height: 80px;
-	float: left;
-	margin-left: 150px;
+	float: right;
 	line-height: 80px;
 }
 

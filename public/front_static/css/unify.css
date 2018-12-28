@@ -36,3 +36,32 @@ button{
 	cursor: pointer;
 	outline: none;
 }
+
+.container{
+	margin-top:100px;
+}
+
+img{
+	height: 99%;
+	display:block;
+	margin:0 auto;
+}
+
+.page ul{
+	float:right;
+}
+
+.page ul li{
+	float:left;
+	font-size:25px;
+	margin-right:10px;
+}
+
+.page a{
+	color: gray;
+	transition: 0.3s;
+}
+
+.page a:hover{
+	color: #0AA2ED;
+}

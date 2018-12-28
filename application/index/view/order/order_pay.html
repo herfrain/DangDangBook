@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
+	<link rel="stylesheet" href="/DangDangBook/public/front_static/css/payment.css" />
+	<script type="text/javascript" src="__ROOT__/public/front_static/js/jquery-1.4.2.js"> </script>
+	<script>
+	function onclickBank(obj)
+	{
+		if($("#paymentBox").is(":hidden"))
+		{
+			$("#paymentBox").show();
+		}
+		document.getElementById("bankImg").src="/DangDangBook/public/front_static/img/pay/pay_img"+obj.id+".jpg";
+		if(obj.id=="1")
+		{
+			document.getElementById("bankNum").innerHTML="银行卡号：123********123";
+		}
+		if(obj.id=="2")
+		{
+			document.getElementById("bankNum").innerHTML="银行卡号：321********321";
+		}
+		if(obj.id=="3")
+		{
+			document.getElementById("bankNum").innerHTML="银行卡号：345********345";
+		}
+		if(obj.id=="4")
+		{
+			document.getElementById("bankNum").innerHTML="银行卡号：645********654";
+		}
+		if(obj.id=="5")
+		{
+			document.getElementById("bankNum").innerHTML="银行卡号：876********876";
+		}
+	}
+	function pwdOnblur(obj)
+	{
+		if(obj.value.length<6)
+		{
+			return false;
+		}
+		else return true;
+	}
+	function confirmPay(obj)
+	{
+		if(!pwdOnblur(document.getElementById("payPwd")))
+		{
+			document.getElementById("pwdDiv").style.color="#FF0000";
+			return;
+		}
+		if(document.getElementById("payPwd").value=="123456")
+		{
+			window.location.href="{:url('order/orderSuccess')}";
+		}
+		else window.location.href="{:url('order/orderFail')}";
+	}
+	function backOrder()
+	{
+		window.location.href="orderConfirm.html";
+	}
+
+	</script>
+	<body>
+		<div class="mainDiv">
+		{include  file="./public/front_common/top.html"/}
+				
+			<div class="bodyDiv">
+				<div class="threeBoxDiv" name="threeBox"><!--三个框框#0aA2ED-->
+					<img src="/DangDangBook/public/front_static/img/threeBox/firstBoxFalse.png" class="firstImg"/>
+					<img src="/DangDangBook/public/front_static/img/threeBox/secondBoxTrue.png" class="secondImg"/>
+					<img src="/DangDangBook/public/front_static/img/threeBox/thirdBoxFalse.png" class="thirdImg"/>
+				</div>
+				<div class="paymentTitleDiv">
+					<span class="paymentAmount">支付金额:<font>{$order.totalPay}元</font></span>
+					<span class="paymentNumber">支付订单：{$order.orderID}  收款方：达内商城</span>
+				</div>	
+				<div class="paymentBodyDiv">
+					<div class="paymentBankTitle"><span>网上银行支付</span></div>
+					<div class="paymentBankList">
+						<table>
+							<tr>
+								<td class="bankRadio"><input type="radio" name="bankChoice"
+									id="1" onchange="onclickBank(this);"/></td>
+								<td class="bankImg"><img src="/DangDangBook/public/front_static/img/pay/pay_img1.jpg"/></td>
+								<td class="bankRadio"><input type="radio" name="bankChoice" 
+									id="2" onchange="onclickBank(this)"/></td>
+								<td class="bankImg"><img src="/DangDangBook/public/front_static/img/pay/pay_img2.jpg"/></td>
+								<td class="bankRadio"><input type="radio" name="bankChoice"
+									id="3" onchange="onclickBank(this)"/></td>
+								<td class="bankImg"><img src="/DangDangBook/public/front_static/img/pay/pay_img3.jpg"/></td>
+								<td class="bankRadio"><input type="radio" name="bankChoice"
+									id="4" onchange="onclickBank(this)"/></td>
+								<td class="bankImg"><img src="/DangDangBook/public/front_static/img/pay/pay_img4.jpg"/></td>
+								<td class="bankRadio"><input type="radio" name="bankChoice"
+									id="5" onchange="onclickBank(this)"/></td>
+								<td class="bankImg"><img src="/DangDangBook/public/front_static/img/pay/pay_img5.jpg"/></td>
+							</tr>
+						</table>
+					</div>
+					<div class="paymentBlank"></div>
+					<div class="paymentHiden" >
+						<div class="paymentBox" id="paymentBox" hidden="hidden">
+							<div class="bankDetail"><img src="/DangDangBook/public/front_static/img/pay/pay_img1.jpg" id="bankImg" />
+							<span class="bankNum" id="bankNum">银行卡号：123********123</span>
+							</div>		
+							<span>收货人：{$customer.custName}</span>
+							<span>收货地址：{$customer.custAddress}</span>
+							<span>收货人电话：{$customer.custMobile}</span>
+							<span>支付金额：<font>{$order.totalPay}元</font></span>
+							<div class="inputDiv" id="pwdDiv"><input type="password" maxlength="6" id="payPwd" onblur="pwdOnblur(this);"/> 请输入6位支付密码</div>
+							<div class="inputDiv"><input type="submit" class="paymentButton" value="确认支付" onclick="confirmPay(this);"/></div>
+						</div>
+					</div>
+
+					<div class="paymentRestTime"><span>剩余的付款时间：<font>15:00</font></span><span id="backOrder" class="backOrder" onclick="backOrder();"><<返回订单信息</span></div>
+				</div>
+				
+			</div>
+			
+			
+			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
+				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
+		</div>
+	</body>
+</html>

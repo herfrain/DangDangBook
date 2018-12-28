@@ -9,35 +9,75 @@
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
 
 		<script type="text/javascript" src="/DangDangBook/public/front_static/js/unify.js" ></script>
+		<script type="text/javascript" src="/DangDangBook/public/front_static/js/jquery-1.4.2.js"></script>
+		<script type="text/javascript">
+			//加入购物车
+			function addToCart(action,email,bookID){
+				var num=$('#num').val();
+				console.log(action);
+				
+				$.post("{:url('bookdetail/addToCart')}",{"bookID":bookID,"num":num},function(result){
+					console.log(result);
+					if(result.msg=="请先登录!"){
+						alert(result.msg);
+						window.location.href = result.url;
+					}else{
+						if(action=="buy"){
+							window.location.href = "{:url('cart/cart')}?email="+email;
+						}else{
+							alert(num+'件商品,'+'已加入购物车');
+						}
+					}
+				});
+			}
+			
+			//加入收藏
+			function addToCollection(bookID){
+				
+				$.post("{:url('bookdetail/addToCollection')}",{"bookID":bookID},function(result){
+					console.log(result);
+					if(result=="add"){
+						alert('收藏成功!');
+						$('#collectImg').src="/DangDangBook/public/front_static/img/product_detail/product_detail_img62.png";
+						window.location.reload();
+					}else{
+						alert('取消收藏成功!');
+						$('#collectImg').src="/DangDangBook/public/front_static/img/product_detail/product_detail_img6.png";
+						window.location.reload();
+					}
+				});
+			}
+		
+			
+		</script>
 	</head>
 	<body>
 		<div class="mainDiv">
 			
-			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/front_common/top.html" width="100%"  height=""></iframe>
-
+			{include  file="./public/front_common/top.html"/}
 			
 			
 			<div class="container">
-				<div class="navi"> Java编程思想> </div>
+				<div class="navi">{$book.bClass}>{$book.bName}</div>
 				<div class="sellBook">
 					<div class="bookPicture">
-						<img src="/DangDangBook/public/front_static/img/goods/9787111213826/detail1big.jpg" />
+						<img src="{$book.bPicture}" />
 					</div>
 					<div class="bookInfo">
-						<div class="bookName">JAVA编程思想</div>
-						<div class="bookAuthor">(sdwihaoiawjalksh)</div>
+						<div class="bookName">{$book.bName}</div>
+						<div class="bookAuthor">{$book.bAuthor}</div>
 						<div class="bookPrice">
-							<div class="bookPriceNum">价格：<span>¥66.20</span></div>
+							<div class="bookPriceNum">价格：<span>¥{$book.bPriceS}</span></div>
 							服务承诺：*退货补运费 *30天无忧退货
 						</div>
 						<div class="bookInfoFont">
 						<div class="customerService"><a href="">客服：联系客服<img /></a></div>
-						<div class="press">出版社：<span>人民邮电出版社</span></div>
-						<div class="press">出版日期：<span>2016-11-01</span></div>
+						<div class="press">出版社：<span>{$book.bPublisher}</span></div>
+						<div class="press">出版日期：<span>{$book.bPubTime}</span></div>
 						
 						<div class="bookNum">
 							<div class="bookNumInputDiv">
+
 								数量：<button onclick="reduce(this)">-</button>
 								<input type="text" id="num" name="num" value="1" onchange="inputChange(this)"/>
 								<button onclick="addn(this)">+</button>
@@ -48,12 +88,25 @@
 				</div>
 				<div class="sellBook2">
 					<div class="bookPictureShow">
-						<button><img src="/DangDangBook/public/front_static/img/goods/9787111213826/detail1.jpg"/></button>
+						<a><img src="{$book.bPicture}"/></a>
 					</div>
 					<div class="operation">
-						<div><a href="orderConfirm.html" class="button1 shadow">立即购买</a></div>
-						<div><a onclick="alert('已加入购物车！')" class="button2 shadow"><img src="/DangDangBook/public/front_static/img/product_detail/product_detail_img7.png"/>加入购物车</a></div>
-						<div><a id="collectBtn" onclick="changeImg()" class="button2 button3 shadow"><img id="collectImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_img6.png"/><br />收藏</a></div>
+						<div><a href="javascript:addToCart('buy','{$Think.session.userEmail}','{$book.bookID}')" class="button1 shadow">立即购买</a></div>
+						
+						<div><a class="button2 shadow" href="javascript:addToCart('add','{$Think.session.userEmail}','{$book.bookID}')">
+						<img src="/DangDangBook/public/front_static/img/product_detail/product_detail_img7.png"/>加入购物车</a></div>
+						
+						<div><a id="collectBtn" href="javascript:addToCollection('{$book.bookID}')" class="button2 button3 shadow">
+						{if $Think.session.userEmail eq ''}
+						<img id="collectImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_img6.png"/>
+						{else/}
+						{if $collection eq ''}
+						<img id="collectImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_img6.png"/>
+						{else/}
+						<img id="collectImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_img62.png"/>
+						{/if}
+						{/if}
+						<br />收藏</a></div>
 					</div>
 				</div>
 				<div class="recommend">
@@ -62,31 +115,23 @@
 						<div class="recommendSubtitle">大家都在看</div>
 					</div>
 					<div class="recommendBook">
+						{foreach $recommendBooks as $recommendBook}
 						<div class="recommendBookP">
-							<img src="/DangDangBook/public/front_static/img/goods/9787111532644/index.jpg" />
-							<br />大数据架构师指南
+							<a href="{:url('bookdetail/detail')}?bookID={$recommendBook.bookID}"><img src="{$recommendBook.bPicture}" /></a>
+							<br />{$recommendBook.bName}
 						</div>
-						<div class="recommendBookP">
-							<img src="/DangDangBook/public/front_static/img/goods/9787115335500/index.jpg" />
-							<br />深入浅出Node.js
-						</div>
-						<div class="recommendBookP">
-							<img src="/DangDangBook/public/front_static/img/goods/9787111213826/index.jpg" />
-							<br />Java编程思想
-						</div>
-						<div class="recommendBookP">
-							<img src="/DangDangBook/public/front_static/img/goods/9787111545682/index.jpg" />
-							<br />Linux运维最佳实践
-						</div>
+						{/foreach}
 					</div>
 				</div>
 				
 				<div class="bookDetail_Evaluation">
 					<div class="topBar shadow">
-						<span>商品详情</span>
-						<span>商品评价</span>
+						<span id="detail">商品详情</span>
+						<span id="comment">商品评价</span>
 
 					</div>
+					
+					<div id="showDetail" class="">
 					<div class="specification">
 						<div class="bookDetailTitle">
 							<div>规格参数</div>
@@ -95,26 +140,23 @@
 						<div class="specificationDetail">
 							<div class="specificationDetail_col">
 								<ul>
-									<li>图书编号：1234124123</li>
-									<li>价格：1234124123</li>
-									<li>出版日期：1234124123</li>
-									<li>包装：平装</li>
+									<li>图书编号：{$book.bookID}</li>
+									<li>原价：¥{$book.bPriceB}</li>
+									<li>现价：¥{$book.bPriceS}</li>
+									
 								</ul>
 							</div>
 							<div class="specificationDetail_col">
 								<ul>
-									<li>图书名称：1234124123</li>
-									<li>出版社：1234124123</li>
-									<li>页数：1234124123</li>
-									<li>开本：平装</li>
+									<li>图书名称：{$book.bName}</li>
+									<li>图书类型：{$book.bClass}</li>
+									<li>出版社：{$book.bPublisher}</li>
 								</ul>
 							</div>
 							<div class="specificationDetail_col">
 								<ul>
-									<li>作者：1234124123</li>
-									<li>版次：1234124123</li>
-									<li>字数：1234124123</li>
-									<li>用纸：平装</li>
+									<li>作者：{$book.bAuthor}</li>
+									<li>出版日期：{$book.bPubTime}</li>
 								</ul>
 							</div>
 						</div>
@@ -125,7 +167,17 @@
 							<div>商品介绍</div>
 							<div><img class="titleImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_4.png" /></div>
 						</div>
-						<div><img src="/DangDangBook/public/front_static/img/goods/9787111213826/intro.jpg" /></div>
+						<div>
+							{$book.bContentInfo}
+						</div>
+						
+						<div class="bookDetailTitle">
+							<div>作者介绍</div>
+							<div><img class="titleImg" src="/DangDangBook/public/front_static/img/product_detail/product_detail_icon_4.png" /></div>
+						</div>
+						<div>
+							{$book.bAuthorInfo}
+						</div>
 					</div>
 					
 					<div class="bookDetailTitle">
@@ -149,7 +201,34 @@
 						<div class="protectInformation">
 							全国哟，大江南北，都是我们的地盘，如果你买了，我们再送你一个全球的联保，还行吧？
 						</div>
-
+						</div>
+						
+						<div id="showComment" class="hide">
+							<div class="comment">
+								{foreach $comments as $comment}
+								<div class="commentItem">
+									<div class="commentContent">
+										{$comment.content}
+									</div>
+									<div class="commentName">
+										{$comment.email}<br/>
+										{$comment.sendTime}<br/>
+										评分:{$comment.score}
+									</div>
+									<div class="commentContent" style="color:#00a">
+									{if $comment.reply neq ""}
+										回复:
+										{$comment.reply}
+									{/if}
+									</div>
+									<div class="itemHr"></div>
+								</div>
+								{/foreach}
+							
+							</div>
+							
+						</div>
+						
 				</div>
 				<div class="rightBar">
 					<div class="rightBarCss shadow">

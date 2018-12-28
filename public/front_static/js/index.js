@@ -5,7 +5,7 @@ var startScroll=setInterval(moveR,3000);
     $("box").onmouseover=function () {
         $("round").style.display="block";
         clearInterval(startScroll);
-        console.log(1);
+//        console.log(1);
     }
     $("box").onmouseout=function () {
         $("round").style.display="none";

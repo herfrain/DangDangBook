@@ -21,7 +21,7 @@ ul,li{
 
 
 .main{
-	height: 800px;
+	height: 1000px;
 	width: 1000px;
 	margin: 0px auto;
 	/*background-color: rgba(240,255,240,0.6);*/
@@ -37,9 +37,7 @@ ul,li{
 
 /*mid*//*mid*//*mid*//*mid*//*mid*//*mid*//*mid*//*mid*//*mid*//*mid*/
 .mid{
-	height: 550px;
-	width: 100%;
-	margin: 0px auto;
+	margin-top: 50px;
 	/*border: solid orange 1px;*/
 	align-content: center;
 }
@@ -93,232 +91,76 @@ ul,li{
 .mainDiv .menuDiv .rightEle{
 	float: right;
 }
+/*.xx div
+{
+	border:solid 1px #000;
+}*/
 
-
-.mid .xxList{
+.mid .orderList{
 	height: 100%;
 	width: 1240px;
 	float: left;
 	
 }
-.mid .xxList .biaoqian{
-	width: 100%;
-	height: 40px;
-	margin-bottom: 10px;
-	background-color: rgb(220,220,220);
-	/*border: solid #FF0000 1px;*/
-}
-.mid .xxList .beijing{
-	background-color: white;
-}
-.mid .xxList .sp{
-	float: left;
-	width: 38%;
-	margin-right: 1px;
-	height: 40px;
-	line-height: 40px;
-}
-.mid .xxList .dj{
-	float: left;
-	width: 10%;
-	margin-right: 1px;
-	height: 40px;
-	line-height: 40px;
-}
-.mid .xxList .sl{
-	float: left;
-	width: 7%;
-	margin-right: 1px;
-	height: 40px;
-	line-height: 40px;
-}
-.mid .xxList .sh{
-	float: left;
-	width: 10%;
-	margin-right: 1px;
-	height: 40px;
-	line-height: 40px;
-}
-.mid .xxList .sfk{
-	float: left;
-	width: 12%;
-	margin-right: 1px;
-	height: 40px;
-	line-height: 40px;
-}
-.mid .xxList .jyzt{
-	float: left;
-	width: 10%;
-	margin-right: 1px;
-	height: 40px;
-	line-height: 40px;
-}
-.mid .xxList .cz{
-	width: 10%;
-	float: left;
-	margin-right: 1px;
-	height: 40px;
-	line-height: 40px;
-}
-.mid .beijing{
-	height: auto;
-	/*margin-bottom: 10px;*/
-	/*background-color: black;*/
+.Order_price{
+	width:999px;
+	text-align:right;
+	color:rgb(29,170,242);
+	font-size:28px;
+	margin:5px 0px 18px;
+	font-weight:bold;
+	border-bottom: 1px solid #CCC;
 	
 }
-.mid .beijing .nANDtime{
-	background-color: rgb(232,232,232);
+
+.orderDetail font
+{
+	font-weight:bold;
+}
+.goDetail
+{
+	float:right;
+	font-size:20px;
+	color:#0aa2ed;
+	font-weight:bold;
+}
+/*---分页显示----------------------------------------------------------------------*/
+.pages{
+	width:100%;	
+	height:25px;
+	text-align:right;
+	padding:5px 0;
+	clear:both;
+	margin:10px 0px 0px 0px;
+	color:#0aa2ed;
+}
+.pages ul{
+	float:right;
 }
 
-
-
-.mid .xx{
-	background-color: white;
-	width: 100%;
-	height: 100px;
-	margin-bottom: 10px;
-}
-.mid .xx .sp2{
-	background-color: white;
-	height: 100px;
-	/*background-color: orange;*/
-	float: left;
-	width: 38%;
-	margin-right: 1px;
-	align-content: center;
+.pages ul li{
 	
+	padding:0px 15px;
+	float:left;
 }
-.mid .xx .sp2 .sp22{
-	height: 84px;
-	float: left;
-}.mid .xx .sp2 .sp222{
-	background-color: white;
-	height: 50px;
-	width: auto;
-	float: left;
-	margin-top: 25px;
-}
-.mid .xx .dj2{
-	height: 100px;
-	/*background-color: orange;*/
-	float: left;
-	width: 10%;
-	margin-right: 1px;
-	align-content: center;
-}
-.mid .xx .dj2 .dj22{
-	height: 20px;
-	width: auto;
-	margin-top: 40px;
-}
-.mid .xx .sl2{
-	height: 100px;
-	float: left;
-	width: 7%;
-	margin-right: 1px;
-	align-content: center;
-	line-height: 100px;
-}
-.mid .xx .sh2{
-	height: 100px;
-	float: left;
-	width: 10%;
-	margin-right: 1px;
-	align-content: center;
-}
-.mid .xx .sh2 .sh22{
-	height: 50px;
-	width: auto;
-	margin-top: 25px;
-}
-.mid .xx .sfk2{
-	height: 100px;
-	float: left;
-	width: 12%;
-	margin-right: 1px;
-	align-content: center;
-	line-height: 100px;
-}
-.mid .xx .jyzt2{
-	height: 100px;
-	float: left;
-	width: 10%;
-	margin-right: 1px;
-	align-content: center;
-}
-.mid .xx .jyzt2 .jyzt22{
-	height: 50px;
-	width: auto;
-	margin-top: 25px;
-}
-.mid .xx .cz2{
-	height: 100px;
-	width: 10%;
-	float: left;
-	margin-right: 1px;
-	/*align-content: center;*/
-	padding-top: 0px,0px;
-}
-/*确认按钮*/
-.mid .xx .cz2 input{
-	background-color: rgb(36,175,241);
-	color:white;
-	height: 35px;
-	width: 70px;
-	margin: 0,auto;
-	margin-top: 32px;
-	margin-left: 10px;
-	border-radius: 5px;
-	border: rgb(36,175,230);
-	/*border: 0px;*/
-	
-}
-.mid .xx .cz2 input:hover{
-	background-color: orange;
-	height: 37px;
-	width: 72px;
-}
-/*.mid .xxList .biaoqian{
-	width: 100%;
-	height: 50px;
-}*/
-
-.mid .xxList .yema{
-	/*background-color: orange;*/
-	width: 100%;
-	height: 50px;
-	/*float: right;*/
-}/*页码翻页*/
-.mid .xxList .yema .yema-change{
-	height: 30px;
-	width: 50px;
-	float: right;
-	margin-right: 4px;
-	border-radius: 5px;
-	color: rgb(36,175,241);
-	background-color: rgb(232,232,232);
-	/*font-weight: 300;*/
-}/*页码翻页鼠标经过样式改变*/
-.mid .xxList .yema .yema-change:hover{
-	background-color: rgb(36,175,241);
-	color: white;
-}/*页码数字*/
-.mid .xxList .yema .yema-num{
-	height: 30px;
-	width: 30px;
-	float: right;
-	margin-right: 4px;
-	border-radius: 5px;
-}/*页码数字鼠标进过样式改变*/
-.mid .xxList .yema .yema-num:hover{
-	background-color: rgb(36,175,200);
-	color: white;
+.pages ul li span{
+	float:left;
+	font-size:18px;
+	margin-top:1px;
 }
 
-
-
-
-/*bottom*//*bottom*//*bottom*//*bottom*//*bottom*//*bottom*//*bottom*/
-.bottom{
-	height: 200px;
+.pages a,.pages .current{
+	font-size:12px;
+	font-family:Arial;
+	margin:0 2px;	
+}
+.pages a,.pages .current{
+	border:1px solid #0aa2ed;
+	background:#fff;
+	padding:2px 6px;
+	text-decoration:none;
+}
+.pages .current,.pages a:haver{
+	background:#7AB63F;
+	color:#fff;
 }

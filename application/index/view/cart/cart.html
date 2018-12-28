@@ -4,196 +4,196 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>购物车</title>
+	
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/cart.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
-		<script type="text/javascript" src="/DangDangBook/public/front_static/js/cart.js"></script>
+		<!--  <script type="text/javascript" src="/DangDangBook/public/front_static/js/cart.js"></script>-->
+		<script type="text/javascript" src="__ROOT__/public/front_static/js/jquery-1.4.2.js"> </script>
+		<script>
+		function allSelect(obj){
+			var itemLists=document.getElementsByClassName("goodsCheckBox");
+			var allList=document.getElementsByClassName("allSelectCheckBox");
+			for(i=0;i<itemLists.length;i++){
+				
+				itemLists[i].checked=obj.checked;
+			}
+			for(i=0;i<allList.length;i++){
+				allList[i].checked=obj.checked;
+			}
+			if($(obj).attr("checked"))
+			{
+				sum();
+			}
+			else 
+			{
+				$("#totalCount").text(0);
+				$("#totalPrice").text(0);
+			}
+		}
+		function sum()
+		{
+			$sum=0;
+			$num=0;
+			$("div.goodItem").each(function(){
+				if($(this).find("div.selectDiv").find("input").attr("checked"))
+				{
+					var yourprice=parseFloat($(this).find("div[name='goodsPrice']").find("span").text());
+					var num=parseInt($(this).find("div").find("input[name='countText']").val());
+					$num=$num+num;
+					$sum=$sum+num*yourprice;
+				}
+			});
+			$sum=$sum.toFixed(1);
+			$("#totalCount").text($num);
+			$("#totalPrice").text($sum);
+		}
+
+		function itemSelect(obj){
+			if(obj.checked == true){
+				var lists = document.getElementsByClassName("goodsCheckBox");
+				for(i=0;i<lists.length;i++){/*i in lists 进行迭代*/
+					if(!lists[i].checked){
+						sum();
+						return;
+					}
+				}
+			}
+			var allList=document.getElementsByClassName("allSelectCheckBox");
+			for(i=0;i<allList.length;i++){
+				allList[i].checked=obj.checked;
+			}
+			sum();
+		}
+
+		function subtractClick(obj,cid,num){
+			$item=$(obj).parent().parent();
+			$count=$item.find("div").find("input[name='countText']");
+			if(parseInt($count.val())<=1){
+				//不能小于1份
+			}else{
+				$count.val($count.val()-1);
+				var num=parseInt($count.val());
+				var price=parseFloat($item.find("div[name='goodsPrice']").find("span").text());
+				$total=$item.find("div[name='goodsTotalPrice']").find("span");
+				var totalPrice=(num*price).toFixed(1);
+				$total.text(totalPrice);
+				sum();
+				$.get("{:url('cart/updateCart')}",{"cartID":cid,"num":num});
+			}
+		}
+
+		function addClick(obj,cid,num){
+			$item=$(obj).parent().parent();
+			$count=$item.find("div").find("input[name='countText']");
+			$count.val(parseInt($count.val())+1);
+			var num=parseInt($count.val());
+			var price=parseFloat($item.find("div[name='goodsPrice']").find("span").text());
+			$total=$item.find("div[name='goodsTotalPrice']").find("span");
+			var totalPrice=(num*price).toFixed(1);
+			$total.text(totalPrice);
+			sum();
+			$.get("{:url('cart/updateCart')}",{"cartID":cid,"num":num});
+		}
+
+		function deleteNode(obj,cid){
+			var goodItem=obj.parentNode.parentNode;
+			var itemCheck=goodItem.children[0].children[0];
+			itemCheck.checked=false;
+			sum();
+			var goodsTable=goodItem.parentNode;
+			goodsTable.removeChild(goodItem);
+			$.get("{:url('cart/deleteCart')}",{"cartID":cid});
+		}
+
+		function updateCount(obj){
+			var price = obj.parentNode.previousElementSibling;
+			var total = obj.parentNode.nextElementSibling;
+			total.innerHTML = "￥" + (parseFloat(price.innerHTML.replace("￥", "")) * parseInt(obj.value)).toFixed(1);
+		}
+		function submitOrder()//提交订单
+		{
+			$cartIDs=$("input:checkbox:checked[name='cartID']");//获取被选中的购物车条目
+			var cids=[];//定义一个var数组
+			var i=0;
+			//将每一个被选中的购物车条目的id数值放到cids中
+			 $.each($cartIDs,function(){
+				 cids[i]=$(this).val();
+				 i++;
+	            });
+			//这种写法就是执行cart模型中的submitCart方法，同时把cids这个数组传过去，命名为cartIDs
+			//方法执行完以后，执行后面的函数，data是模型方法的返回值,如果返回的值是正确的，就跳转到下一个页面
+			$.get("{:url('cart/submitCart')}",{"cartIDs":cids},function(data){
+					if(data=="goOrder"){
+						
+						window.location.href="{:url('order/orderConfirm')}";
+					}				
+				});
+		}
+		</script>
 	</head>
 
 	<body>
 		<div class="mainDiv">
-			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/front_common/top.html" width="100%"  height=""></iframe>
-			<form action="orderConfirm.html" method="get">
+			{include  file="./public/front_common/top.html"/}
+			<form method="get">
 				<div class="bodyDiv">
 					<div class="mainTitle">
-						<!--
-             		作者：罗梓浩
-             		时间：2018-10-09
-             		描述：显示购物车，已选商品数等
-            	-->
+
 						<div class="title">购物车</div>
-						<div class="detail"><span class="totalCount">已选<span class="total" name="totalCount">0</span>件商品</span><span class="totalPrice">合计（不含运费）:<span class="total" name="totalPrice">0.00元</span></span>
-						</div>
 					</div>
 
 					<div class="cartHead">
-						<!--
-            		作者：罗梓浩
-            		时间：2018-10-09
-            		描述：购物车表的表头，有全选，每一列的列名等等
-            	-->
-						<div class="allSelectDiv"><input class="allSelectCheckBox" type="checkbox" onclick="allSelect(this);" />全选</div>
+
+						<div class="allSelectDiv"><input class="allSelectCheckBox" type="checkbox" onclick="allSelect(this);" checked="checked" />全选</div>
 						<div class="goodsDiv">商品</div>
 						<div class="propertyDiv">单价(元)</div>
 						<div class="propertyDiv">数量</div>
 						<div class="propertyDiv">金额</div>
 						<div class="propertyDiv">操作</div>
 					</div>
-
+					{assign name="sum" value="0"}
+					{assign name="num" value="0"}
 					<div class="cartTable">
-						<!--
-            		作者：罗梓浩
-            		时间：2018-10-09
-            		描述：购物车表单的主体，用于展示自己购物车内的商品
-            	-->
+					{foreach $showcarts as $showcart}
+					{assign name="sum" value="$sum+$showcart.bPriceS*$showcart.num"}
+					{assign name="num" value="$num+$showcart.num"}
+						
 						<div class="goodItem">
-							<!--
-                    	作者：罗梓浩
-                    	时间：2018-10-09
-                    	描述：每个货物占一个的Item，用来显示货物信息
-                    -->
-							<div class="selectDiv"><input type="checkbox" class="goodsCheckBox" onclick="itemSelect(this);" /></div>
+
+							<div class="selectDiv"><input type="checkbox" class="goodsCheckBox" onclick="itemSelect(this);" checked="checked" name="cartID" value="{$showcart.cartID}"/></div>
 							<div class="goodsInformationDiv">
-								<div class="goodsPectureDiv"><img class="goodsImage" src="/DangDangBook/public/front_static/img/goods/9787115130228/collect.jpg" /></div>
+								<div class="goodsPectureDiv"><img class="goodsImage" src="{$showcart.bPicture}" /></div>
 								<div class="goodsDeatil">
-									<p class="goods" name="goodsName">C Primer Plus</p>
-									<p class="goods" name="author">作者：[美]普拉塔(Prata S.) 著;云巅工作室编</p>
+									<p class="goods" name="goodsName">{$showcart.bName}</p>
+									<p class="goods" name="author">{$showcart.bAuthor}[著] {$showcart.bPublisher}[出版]</p>
 								</div>
 							</div>
-							<div class="othersDiv" name="goodsPrice">￥49.8</div>
+							<div class="othersDiv" name="goodsPrice">￥<span>{$showcart.bPriceS}</span></div>
 							<div class="othersDiv" name="goodsCount">
-								<input class="countInput" type="button" name="countSubtract" value="-" onclick="subtractClick(this)" />
-								<input class="countInput" type="text" name="countText" value="1" onblur="updateCount(this)"/>
-								<input class="countInput" type="button" name="countAdd" value="+" onclick="addClick(this)" />
+								<input class="countInput" type="button" name="countSubtract" value="-" onclick="subtractClick(this,{$showcart.cartID},{$showcart.num})" />
+								<input class="countInput" type="text" name="countText" value="{$showcart.num}" onblur="updateCount(this)" disabled="disabled"/>
+								<input class="countInput" type="button" name="countAdd" value="+" onclick="addClick(this,{$showcart.cartID},{$showcart.num})" />
 							</div>
 							<div class="othersDiv" name="goodsTotalPrice">
-								￥49.8
+								￥<span>{$showcart.bPriceS*$showcart.num}</span>
 							</div>
 							<div class="othersDiv" >
-								<span onclick="deleteNode(this);">删除</span>
+								<span onclick="deleteNode(this,{$showcart.cartID});">删除</span>
 							</div>
-						</div>
-						<div class="goodItem">
-							<!--
-                    	作者：罗梓浩
-                    	时间：2018-10-09
-                    	描述：每个货物占一个的Item，用来显示货物信息
-                    -->
-							<div class="selectDiv"><input type="checkbox" class="goodsCheckBox" onclick="itemSelect(this);" /></div>
-							<div class="goodsInformationDiv">
-								<div class="goodsPectureDiv"><img class="goodsImage" src="/DangDangBook/public/front_static/img/goods/9787111526285/collect.jpg" /></div>
-								<div class="goodsDeatil">
-									<p class="goods" name="goodsName">Go程序设计语言(英文版)</p>
-									<p class="goods" name="author">作者：[美]艾伦A.A.多诺万 等 著</p>
-								</div>
-							</div>
-							<div class="othersDiv" name="goodsPrice">￥64.7</div>
-							<div class="othersDiv" name="goodsCount">
-								<input class="countInput" type="button" name="countSubtract" value="-" onclick="subtractClick(this)" />
-								<input class="countInput" type="text" name="countText" value="1" onblur="updateCount(this)"/>
-								<input class="countInput" type="button" name="countAdd" value="+" onclick="addClick(this)" />
-							</div>
-							<div class="othersDiv" name="goodsTotalPrice">
-								￥64.7
-							</div>
-							<div class="othersDiv" >
-								<span onclick="deleteNode(this);">删除</span>
-							</div>
-						</div>
-						<div class="goodItem">
-							<!--
-                    	作者：罗梓浩
-                    	时间：2018-10-09
-                    	描述：每个货物占一个的Item，用来显示货物信息
-                    -->
-							<div class="selectDiv"><input type="checkbox" class="goodsCheckBox" onclick="itemSelect(this);" /></div>
-							<div class="goodsInformationDiv">
-								<div class="goodsPectureDiv"><img class="goodsImage" src="/DangDangBook/public/front_static/img/goods/9787111213826/collect.jpg" /></div>
-								<div class="goodsDeatil">
-									<p class="goods" name="goodsName">Java编程思想</p>
-									<p class="goods" name="author">作者：[美]埃克尔,译者:陈昊鹏 编</p>
-								</div>
-							</div>
-							<div class="othersDiv" name="goodsPrice">￥86.4</div>
-							<div class="othersDiv" name="goodsCount">
-								<input class="countInput" type="button" name="countSubtract" value="-" onclick="subtractClick(this)" />
-								<input class="countInput" type="text" name="countText" value="1" onblur="updateCount(this)"/>
-								<input class="countInput" type="button" name="countAdd" value="+" onclick="addClick(this)" />
-							</div>
-							<div class="othersDiv" name="goodsTotalPrice">
-								￥86.4
-							</div>
-							<div class="othersDiv" >
-								<span onclick="deleteNode(this);">删除</span>
-							</div>
-						</div>
-						<div class="goodItem">
-							<!--
-                    	作者：罗梓浩
-                    	时间：2018-10-09
-                    	描述：每个货物占一个的Item，用来显示货物信息
-                    -->
-							<div class="selectDiv"><input type="checkbox" class="goodsCheckBox" onclick="itemSelect(this);" /></div>
-							<div class="goodsInformationDiv">
-								<div class="goodsPectureDiv"><img class="goodsImage" src="/DangDangBook/public/front_static/img/goods/9787111532644/index.jpg" /></div>
-								<div class="goodsDeatil">
-									<p class="goods" name="goodsName">架构即未来</p>
-									<p class="goods" name="author">作者：[美]马丁L.阿伯特(MartinL.Abbott),迈克尔T.费舍尔(Michael.Fisher) 著;陈斌  译</p>
-								</div>
-							</div>
-							<div class="othersDiv" name="goodsPrice">￥81.0</div>
-							<div class="othersDiv" name="goodsCount">
-								<input class="countInput" type="button" name="countSubtract" value="-" onclick="subtractClick(this)" />
-								<input class="countInput" type="text" name="countText" value="1" onblur="updateCount(this)"/>
-								<input class="countInput" type="button" name="countAdd" value="+" onclick="addClick(this)" />
-							</div>
-							<div class="othersDiv" name="goodsTotalPrice">
-								￥81.0
-							</div>
-							<div class="othersDiv" >
-								<span onclick="deleteNode(this);">删除</span>
-							</div>
-						</div>
-						<div class="goodItem">
-							<!--
-                    	作者：罗梓浩
-                    	时间：2018-10-09
-                    	描述：每个货物占一个的Item，用来显示货物信息
-                    -->
-							<div class="selectDiv"><input type="checkbox" class="goodsCheckBox" onclick="itemSelect(this);" /></div>
-							<div class="goodsInformationDiv">
-								<div class="goodsPectureDiv"><img class="goodsImage" src="/DangDangBook/public/front_static/img/goods/9787115435101/collect.jpg" /></div>
-								<div class="goodsDeatil">
-									<p class="goods" name="goodsName">Python数据科学指南</p>
-									<p class="goods" name="author">作者：印度,Gopi,Subramanian, 萨伯拉曼尼安 著;方延风,刘丹 译</p>
-								</div>
-							</div>
-							<div class="othersDiv" name="goodsPrice">￥66.2</div>
-							<div class="othersDiv" name="goodsCount">
-								<input class="countInput" type="button" name="countSubtract" value="-" onclick="subtractClick(this)" />
-								<input class="countInput" type="text" name="countText" value="1" onblur="updateCount(this)"/>
-								<input class="countInput" type="button" name="countAdd" value="+" onclick="addClick(this)" />
-							</div>
-							<div class="othersDiv" name="goodsTotalPrice">
-								￥66.2
-							</div>
-							<div class="othersDiv" >
-								<span onclick="deleteNode(this);">删除</span>
-							</div>
-						</div>
-					</div>
+						</div>	
+					{/foreach}			
 					<div class="cartFoot">
-						<div class="allSelectDiv"><input type="checkbox" onclick="allSelect(this);" class="allSelectCheckBox" />全选</div>
-						<div class="detail"><span class="totalCount">已选<span class="total" name="totalCount">0</span>件商品</span><span class="totalPrice">合计（不含运费）:<span class="total" name="totalPrice">0.00元</span></span></div>
-						<div class="submitButton"><input onclick="window.location.href='orderConfirm.html'" type="submit" value="提交订单" /></div>
+						<div class="allSelectDiv"><input type="checkbox" onclick="allSelect(this);" class="allSelectCheckBox" checked="checked"/>全选</div>
+						<div class="detail"><span class="totalCount">已选<span id="totalCount" class="total" name="totalCount">{$num}</span>件商品</span><span class="totalPrice">合计（不含运费）:<span id="totalPrice"class="total" name="totalPrice">{$sum}</span>元</span></div>
+						<div class="submitButton"><input type="button" onclick="submitOrder()" value="提交订单" /></div>
 					</div>
 				</div>
 			</form>
 			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
 				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
 				
-			<script type="text/javascript" src="/DangDangBook/public/front_static/js/cart.js"></script>
+		
 		</div>
 	</body>
 

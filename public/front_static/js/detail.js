@@ -47,3 +47,17 @@ scrollToptimer = setInterval(function () {
     }
 }, 16); 
 }
+
+//jquery 添加点击事件
+//商品详情显示或商品评价显示
+$('#detail').click(function(){
+	$('#showDetail').removeClass("hide");
+	$('#showComment').addClass("hide");
+});
+
+$('#comment').click(function(){
+	$('#showDetail').addClass("hide");
+	$('#showComment').removeClass("hide");
+});
+
+

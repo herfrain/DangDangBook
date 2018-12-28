@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		<title>注册</title>
+		<title>登录</title>
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/login.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
@@ -18,33 +19,41 @@
 			</div>
 			<div class="HlDiv">
 				<div class="loginDiv">
-					<form action="{:url('register/doRegister')}" method="post" n="f" onsubmit="return checkForm()">
-						<div class="titleDiv">注册</div>
+					<form action="#" method="get" onsubmit="return onsubmit();">
+						<div class="titleDiv">登录讹人商场</div>
 						<div class="registDiv">
-							<a href="{:url('login/login')}">直接登录</a>
+							<a href="regist.html">新用户注册</a>
 						</div>
-						<div class="whiteLine">	</div>
-						<div class="inputDiv">
-							<input class="inputClass" type="text" name="name" id="loginUserName" placeholder="请输入用户名" onfocus="this.placeholder='';" onblur="userNameOnblur(this);" />
-						</div>
-						<div class="inputDiv">
-							<input class="inputClass" type="text" name="email" id="loginUserName" placeholder="请输入邮箱" onfocus="this.placeholder='';" onblur="userNameOnblur(this);" />
-						</div>
-						<div class="inputDiv">
-							<input class="inputClass" type="password" name="passw1" id="loginPassword" placeholder="请输入密码" onfocus="this.placeholder='';" onblur="passwordOnblur(this);" />
+						<div class="whiteLine">
+							<!--
+                            	作者：罗梓浩
+                            	时间：2018-10-09
+                            	描述：这只是一条分割线
+                            -->
 						</div>
 						<div class="inputDiv">
-							<input class="inputClass" type="password" name="passw2" id="loginPassword" placeholder="请输入确认密码" onfocus="this.placeholder='';" onblur="passwordOnblur(this);" />
+							<input class="inputClass" type="text" name="loginUserName" id="loginUserName" placeholder="请输入用户名" onfocus="this.placeholder='';" onblur="userNameOnblur(this);" />
 						</div>
 						<div class="inputDiv">
-							<input class="buttonClass" type="submit" name="s" id="loginSubmit" value="注册"  />
+							<input class="inputClass" type="password" name="loginPassword" id="loginPassword" placeholder="请输入密码" onfocus="this.placeholder='';" onblur="passwordOnblur(this);" />
+						</div>
+						<div class="inputDiv">
+							<input class="buttonClass" type="submit" name="loginSubmit" id="loginSubmit" value="登录"  />
 						</div>
 						<div class="errDiv"><span class="showError" id="showError" name="showError"></span></div>
 					</form>
+
 				</div>
 			</div>
+			
 			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
 				SCROLLING=no src="/DangDangBook/public/front_common/bottom.html" width="100%"  height="400px"></iframe>
 		</div>
 	</body>
+
 </html>
+<!--
+	作者：offline
+	时间：2018-10-11
+	描述：
+-->

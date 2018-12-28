@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/index.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/top_bottom.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/front_static/css/unify.css" />
-		
+		<script type="text/javascript" src="/DangDangBook/public/front_static/js/jquery-1.4.2.js"></script>
 		<!--<script type="text/javascript" src="js/index.js" ></script>-->
 	</head>
 	<body>
@@ -19,6 +19,7 @@
 			
 			
 			<div class="container">
+				
 				
 				<div class="bookClass">
 					<ul>
@@ -32,10 +33,10 @@
 				<div id="box" class="topScrollPicture">
         			<div>
         				<ul id="image">
-           					<li class="image_show"><img src="/DangDangBook/public/front_static/img/banner/banner4.png"/></li>
-            				<li><img src="/DangDangBook/public/front_static/img/banner/banner1.png"/></li>
-            				<li><img src="/DangDangBook/public/front_static/img/banner/banner2.png"/></li>
-            				<li><img src="/DangDangBook/public/front_static/img/banner/banner3.png"/></li>
+           					<li class="image_show"><a href="{:url('bookdetail/detail')}?bookID=23617284"><img src="/DangDangBook/public/front_static/img/banner/banner4.png"/></a></li>
+            				<li><a href="{:url('bookdetail/detail')}?bookID=24242197"><img src="/DangDangBook/public/front_static/img/banner/banner1.png"/></a></li>
+            				<li><a href="{:url('bookdetail/detail')}?bookID=25065057"><img src="/DangDangBook/public/front_static/img/banner/banner2.png"/></a></li>
+            				<li><a href="{:url('bookdetail/detail')}?bookID=25060095"><img src="/DangDangBook/public/front_static/img/banner/banner3.png"/></a></li>
         				</ul>
         			</div>
         			<div>
@@ -68,8 +69,10 @@
 								<div class="info">
 									<span class="bookName">{$book.bName}</span>
 									<span class="bookPricePress">
-										价格：¥{$book.bPriceS}
-										<br />出版社：{$book.bPublisher}
+										价格：¥{$book.bPriceS}<br />
+										作者：{$book.bAuthor}<br />
+										出版社：{$book.bPublisher}
+										
 									</span>
 								</div>
 							</div>
@@ -78,6 +81,8 @@
 						
 					</ul>
 				</div>
+				
+				<div class="page">{$page}</div>
 			</div>
 			
 			<iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
