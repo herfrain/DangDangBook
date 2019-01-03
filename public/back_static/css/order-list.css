@@ -1,0 +1,105 @@
+a
+{
+	color: #FFFFFF;
+}
+.orderlistTable
+{
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.orderTable .orderTableTitle 
+{
+	/*border: solid  #CCCCCC 1px;*/
+	width: 1500px;
+	height: 50px;
+	
+}
+.orderTable .orderTableTitle ul,li
+{
+	margin-top: 5px;
+	float: left;
+	list-style: none;
+	font-size: 22px;
+	font-weight:bold ;
+	
+}
+.orderTable .orderNum 
+{
+	width: 250px;
+}
+.orderTable .orderCondition 
+{
+	width: 250px;
+}
+.orderTable .createDate 
+{
+	width: 450px;
+	
+}
+.orderTable .orderAmount 
+{
+	width: 250px;
+}
+.orderTable .operation
+{
+	width: 300px;
+}
+.iFrameDiv
+{
+	width: 1500px;
+	height: 450px;
+}
+.iFrameDiv iframe
+{
+	width: 1500px;
+
+}
+.changePageDiv{
+	font-size: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.changePageDiv font
+{
+	font-weight:bold ;
+	color: #3C8DBC;
+}
+.changePageDiv span
+{
+	float: left;
+	margin-top: 10px;
+}
+.changePageDiv .changePageButtonDiv
+{
+	float: right;
+}
+.changePageDiv .changePageButtonDiv input
+{
+	font-size: 20px;
+	border: solid #CCCCCC 1px;
+}
+.cheackTrue
+{
+	background-color:#3C8DBC;
+	color: #FFFFFF;
+}
+.cheackFalse
+{
+	background-color: #FFFFFF;
+	color: #666666;
+}
+.changePageDiv .changePageButtonDiv .skipPage
+{
+	width: 100px;
+	height: 40px;
+}
+.changePageDiv .changePageButtonDiv .jumpPage
+{
+	width: 80px;
+	height: 40px;
+}
+.changePageDiv .changePageButtonDiv  .pageNum
+{
+	width: 40px;
+	height: 40px;
+}

@@ -73,7 +73,8 @@ class Bookdetail extends Controller
     //添加收藏
     public function addToCollection(){
         if(empty(session('userEmail'))){
-            $this->error('请先登录!','login/login');
+//             $this->error('请先登录!','login/login');
+            return "login";
         }
         
         $email=session('userEmail');

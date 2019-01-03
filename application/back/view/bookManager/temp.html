@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.css" />
+<title>Insert title here</title>
+</head>
+<body>
+<div class="contentDiv">
+                	<div class="orderTable orderlistTable">
+                		<div class="orderTableTitle">
+	            			<ul>
+	            				<li class="orderNum">书名</li>
+	            				<li class="orderCondition">作者</li>
+	            				<li class="createDate">出版社</li>
+	            				<li class="orderAmount">出版时间</li>
+	            				<li class="operation">分类</li>
+	            			</ul>
+                		</div>
+                		<div class="iFrameDiv">
+                			<!-- 
+                				这里要添加商品列表，book表
+                				上面的li可以改
+                			 -->
+                	{foreach $list as $book}
+                		<table cellspacing="15px">
+			 		<tr>
+			 			<td>
+			 			<span><font>
+                		{$book.bName}
+                		</font></span>
+			 			</td>
+			 			<td>
+			 			</td>
+			 			
+			 			<td>
+			 			<span><font>
+                		{$book.bAuthor}
+                		</font></span>
+			 			</td>
+			 			<td>	
+			 			</td>
+			 			
+			 			<td>
+			 			<span><font>
+                		{$book.bPublisher}
+                		</font></span>
+			 			</td>
+			 			<td>	
+			 			</td>
+			 			
+			 			<td>
+			 			<span><font>
+                		{$book.bPubTime}
+                		</font></span>
+			 			</td>
+			 			<td>	
+			 			</td>
+			 			
+			 			<td>
+			 			<span><font>
+                		{$book.bClass}
+                		</font></span>
+			 			</td>
+			 			<td>	
+			 			</td>
+			 			
+			 			
+			 		</tr>
+			 		{/foreach}
+			 		</table>
+                		
+                		</div>
+                		<div class="orderTableTitle">
+	            			<ul>
+	            				<li class="orderNum">商品编号</li>
+	            				<li class="orderCondition">商品名称</li>
+	            				<li class="createDate">添加时间</li>
+	            				<li class="orderAmount">商品单价</li>
+	            				<li class="operation">可选操作</li>
+	            			</ul>
+                		</div>
+                	</div>
+                	<div class="changePageDiv">
+                		<span>第<font id="page"> 1 </font>页至<font id="order"> 10 </font>条(共<font> 64 </font>条)</span>
+                		<div class="changePageButtonDiv">
+                			<ul>
+                				<li><input type="button" value="首页" class="skipPage cheackFalse" id="firstPage" onclick="toFirstPage(this);"></li>
+                				<li><input type="button" value="上一页" class="jumpPage cheackFalse" id="upPage" onclick="UpPage(this);"></li>
+                				<li><input type="button" value="1" class="pageNum cheackTrue" id="1"  onclick="changePage(this);"></li>
+                				<li><input type="button" value="2" class="pageNum cheackFalse" id="2" onclick="changePage(this);"></li>
+                				<li><input type="button" value="3" class="pageNum cheackFalse" id="3" onclick="changePage(this);"></li>
+                				<li><input type="button" value="4" class="pageNum cheackFalse" id="4" onclick="changePage(this);"></li>
+                				<li><input type="button" value="5" class="pageNum cheackFalse" id="5" onclick="changePage(this);"></li>
+                				<li><input type="button" value="6" class="pageNum cheackFalse" id="6" onclick="changePage(this);"></li>
+                				<li><input type="button" value="7" class="pageNum cheackFalse" id="7" onclick="changePage(this);"></li>
+                				<li><input type="button" value="下一页" class="jumpPage cheackFalse" id="downPage" onclick="NextPage(this);"></li>
+                				<li><input type="button" value="尾页" class="skipPage cheackFalse" id="lastPage" onclick="toLastPage(this);"></li>
+                				 
+                			</ul>
+                		</div>
+                	</div>
+
+                </div>
+			</div>
+</body>
+</html>

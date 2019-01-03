@@ -33,8 +33,8 @@
 								<a href="{:url('order/orderPay')}"><font color="red">去付款&nbsp;|</font></a>
 								<a href="{:url('order/deleteOrder')}"><font color="red">删除订单</font></a>
 								{/case}
-								{case value="已付款"}											
-										<a href=""><font color="#CDBE70">等待发货</font></a>	
+								{case value="未发货"}											
+										<a href=""><font color="#ff8600">等待发货</font></a>	
 								{/case}
 								{case value="已发货"}											
 										<a href="{:url('order/getPackage')}?orderID={$showorder.orderID}"><font color="#0aa2ed">已发货&nbsp;|&nbsp;确认收货</font></a>	
@@ -44,7 +44,11 @@
 							</td>
 							<td colspan=3 class="custInf">
 									<span class="xxMS">收件人：{$showorder.custName}</span><br/>
-									<span class="xxMS">快递单号：{$showorder.packageID}</span><br/>
+									{if $showorder.packageID!=0}
+									<span class="xxMS">快递单号：{$showorder.packageID }</span><br/>
+									{else/}
+									<span class="xxMS">快递单号：未发货</span><br/>
+									{/if}
 									<span class="xxMS">联系电话：{$showorder.custMobile}</span><br/>
 									<span class="xxMS">收货地址：{$showorder.custAddress}</span><br/>
 							</td>

@@ -9,7 +9,12 @@ class Index extends Controller{
         return  $this->fetch();
     }
     
-    public function index(){
+    public function index($name='123'){
+        $data =md5('admin');
+       
+        dump($data);
+        #return 'hello '.$name.'!';
         return  $this->fetch();
     }
+    
 }

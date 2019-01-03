@@ -5,15 +5,15 @@
 		<title></title>
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/welcome.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
+		
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.css" />
 	</head>
 	<body>
 		<div class="mainDiv">
-			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/top.html"/}
 				
-			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+			{include file="./public/back_common/left.html"/}
 				
 			<div class="bodyDiv">
                 <div class="contentDiv">
@@ -26,8 +26,7 @@
                 </div>
 			</div>
 			
-			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/foot.html"/}
 		</div>
 	</body>
 </html>

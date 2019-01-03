@@ -6,15 +6,39 @@
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/productAdd.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.css" />
 		<script type="text/javascript" src="/DangDangBook/public/back_static/js/productAdd.js" ></script>
+		<script type="text/javascript" src="/DangDangBook/public/back_static/js/jquery-1.4.2.js" ></script>
+		<script>
+		function getFileUrl(sourceId) {
+            var url;
+            if (navigator.userAgent.indexOf("MSIE")>=1) { // IE
+                url = document.getElementById(sourceId).value;
+            } else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox
+                url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+            } else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome
+                url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+            }
+            return url;
+        }
+        function preImg(sourceId, targetId) {
+            var url = getFileUrl(sourceId);
+            var imgPre = document.getElementById(targetId);
+            imgPre.src = url;
+            console.log(getLastName($('#image').val()));
+        }		
+        function getLastName(fileName){
+        	var lasti=fileName.lastIndexOf(".");
+            var lastName=fileName.substring(lasti+1);    
+        	return lastName;
+        }
+		</script>
 	</head>
 	<body>
 		<div class="mainDiv">
-			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/top.html"/}
 				
-			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+			{include file="./public/back_common/left.html"/}
 				
 			<div class="bodyDiv">
                 <div class="locationDiv">
@@ -27,39 +51,44 @@
                     	时间：2018-10-10
                     	描述：写自己的内容
                     -->
-                    
-                    <form method="get" action="#" class="informationForm" onsubmit="return onSubmit()">
+                    <!-- {:url('bookmanager/add')} -->
+                    <form method="post" action="add" class="informationForm" onsubmit="return onSubmit()" enctype='multipart/form-data'>
                     	<div class="informationTitle">
                     		信息录入
+                    		<div class="submitDiv">
+                    			<p class="report" id="report" style="color: red;"></p>
+                    		 	<input type="submit"  value="提交" />
+                    		</div>
                     	</div>
+                    	
                     	<div class="inputDiv">
                     		<!--
                             	作者：罗梓浩
                             	时间：2018-10-11
                             	描述：正则表达式判断纯数字编号
                             -->
-                    		<input id="bookNumber" type="text" class="inputText" placeholder="图书编号" onblur="bookNumberOnblur(this)"/>
+                    		<input name="bookID" type="text" class="inputText" placeholder="图书编号"/>
                     	</div>
                     	<div class="inputDiv">
-                    		<input id="bookName" type="text" class="inputText" placeholder="书名" onblur="bookNameOnblur(this)"/>
+                    		<input name="bName" type="text" class="inputText" placeholder="书名" />
                     	</div>
                     	<div class="inputDiv">
-                    		<input id="bookAuthor" type="text" class="inputText" placeholder="作者" onblur="bookAuthorOnblur(this)"/>
+                    		<input name="bAuthor" type="text" class="inputText" placeholder="作者" />
                     	</div>
                     	<div class="inputDiv">
-                    		<input id="bookPriceS" type="text" class="inputText" placeholder="优惠价" onblur=""/>
+                    		<input name="bPriceS" type="text" class="inputText" placeholder="优惠价" onblur=""/>
                     	</div>
                     	<div class="inputDiv">
-                    		<input id="bookPriceB" type="text" class="inputText" placeholder="原价" onblur=""/>
+                    		<input name="bPriceB" type="text" class="inputText" placeholder="原价" onblur=""/>
                     	</div>
                     	<div class="inputDiv">
-                    		<input id="bookPublishComply" type="text" class="inputText" placeholder="出版社" onblur="bookPublishComplyOnblur(this)"/>
+                    		<input name="bPublisher" type="text" class="inputText" placeholder="出版社" />
                     	</div>
                     	<div class="inputDiv">
-                    		<input id="bookPublishTime" type="text" class="inputText" placeholder="出版时间" onblur=""/>
+                    		<input name="bPubTime" type="text" class="inputText" placeholder="出版时间" onblur=""/>
                     	</div>
                     	<div class="inputDiv">
-                    		<select class="inputText" value="">
+                    		<select name="bClass" class="inputText" value="">
                     			
                     			<!-- 
                     				用Book表里面的class显示
@@ -69,31 +98,28 @@
                     			<option value="建筑">建筑</option>
                     			<option value="社会科学">社会科学</option>
                     			<option value="工业技术">工业技术</option>
+                    			<option value="儿童读物">儿童读物</option>
+                    			<option value="计算机">计算机</option>
                     		</select>
                     	</div>
                     	<div class="inputDiv">
-                    		<input type="button" class="inputButton" value="图片" onclick="browser(this)"/>
-                    		<input type="file" class="inputFile" onchange="fileChange(this)"/>
-                    		<p class="path"></p>
-                    	</div>
-                    	<div class="inputDiv">
-                    		<textarea id="" rows="20" cols="60" placeholder="内容简介"></textarea>
-                    	</div>
-                    	
-                    	<div class="inputDiv">
-                    		<textarea id="" rows="20" cols="60" placeholder="作者简介"></textarea>
+                    		<input type="file" name="image" id="image" onchange="preImg(this.id,'photo');" />
+							<img id="photo" src="" style="display: block;border:1px solid #a0a0a0;height:240px;margin-top:20px;" />	
+						</div>
+	
+	
+                    	<div class="contentInfo">
+                    		<textarea name="bContentInfo" rows="20" cols="60" placeholder="内容简介"></textarea>
                     	</div>
                     	
-                    	<div class="line"></div>
-                    	<div class="submitDiv">
-                    		<p class="report" id="report" style="color: red;"></p>
-                    		<input type="submit" value="提交"/>
+                    	<div class="contentInfo">
+                    		<textarea name="bAuthorInfo" rows="20" cols="60" placeholder="作者简介"></textarea>
                     	</div>
+                    	
                     </form>
                 </div>
 			</div>
-			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/foot.html"/}
 		</div>
 	</body>
 </html>

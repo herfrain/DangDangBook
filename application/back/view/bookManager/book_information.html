@@ -5,16 +5,14 @@
 		<title></title>
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
-		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/huang.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/productAdd.css" />
 		<!--<link rel="stylesheet" href="css/hjs.css" />-->
 	</head>
 	<body>
 		<div class="mainDiv">
-			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/top.html"/}
 				
-			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+			{include file="./public/back_common/left.html"/}
 			
 			<div class="bodyDiv">
                 <div class="locationDiv">
@@ -29,68 +27,72 @@
                     	时间：2018-10-10
                     	描述：写自己的内容
                     -->
-                    <!--JsHuang添加的内容-->
-                    <div class="contentDivTitle"><span class="contentDivTitleSpan">详细信息</span></div>
-                    <div class="detai">
-                    	<div class="oneInput">
-                    		<div class="detaiType">图书编号</div>
-                    		<div class="detaiInput"><input type="text"  value="1234567890123" disabled="disabled"/></div>
-                  	  	</div>
-                   		<div class="oneInput">
-                   	 		<div class="detaiType">书名</div>
-                   	 		<div class="detaiInput"><input type="text"  value="儿歌三百首" disabled="disabled"/></div>
-                   		</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">作者</div>
-                   	 		<div class="detaiInput"><input type="text"  value="悟空" disabled="disabled"/></div>
+                    <!-- {:url('bookmanager/add')} -->
+                    <form method="post" action="add" class="informationForm" onsubmit="return onSubmit()">
+                    	<div class="informationTitle">
+                    		信息录入
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">价格</div>
-                   	 		<div class="detaiInput"><input type="text"  value="9.9" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<!--
+                            	作者：罗梓浩
+                            	时间：2018-10-11
+                            	描述：正则表达式判断纯数字编号
+                            -->
+                    		<input name="bookID" type="text" value={$bookID} class="inputText" placeholder="图书编号" onblur="bookNumberOnblur(this)"/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">页数</div>
-                   	 		<div class="detaiInput"><input type="text"  value="80" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<input name="bName" type="text" value={$bName} class="inputText" placeholder="书名" onblur="bookNameOnblur(this)"/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">字数</div>
-                   	 		<div class="detaiInput"><input type="text"  value="2000" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<input name="bAuthor" type="text" value={$bAuthor} class="inputText" placeholder="作者" onblur="bookAuthorOnblur(this)"/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">出版社</div>
-                   	 		<div class="detaiInput"><input type="text"  value="XXX出版社" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<input name="bPriceS" type="text" value={$bPriceS} class="inputText" placeholder="优惠价" onblur=""/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">版次</div>
-                   	 		<div class="detaiInput"><input type="text"  value="2" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<input name="bPriceB" type="text" value={$bPriceB} class="inputText" placeholder="原价" onblur=""/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">出版日期</div>
-                   	 		<div class="detaiInput"><input type="text"  value="2017-10-01" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<input name="bPublisher" type="text" value={$bPublisher} class="inputText" placeholder="出版社" onblur="bookPublishComplyOnblur(this)"/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">开本</div>
-                   	 		<div class="detaiInput"><input type="text"  value="16开" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<input name="bPubTime" type="text" value={$bPubTime} class="inputText" placeholder="出版时间" onblur=""/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">包装</div>
-                   	 		<div class="detaiInput"><input type="text"  value="平装" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<select name="bClass" class="inputText" value={$bClass}>
+                    			
+                    			<!-- 
+                    				用Book表里面的class显示
+                    			 -->
+                    			<option value="">{$bClass}</option>
+                    			<option value="文学">文学</option>
+                    			<option value="建筑">建筑</option>
+                    			<option value="社会科学">社会科学</option>
+                    			<option value="工业技术">工业技术</option>
+                    		</select>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">用纸</div>
-                   	 		<div class="detaiInput"><input type="text"  value="胶版纸" disabled="disabled"/></div>
+                    	<div class="inputDiv">
+                    		<input type="button" class="inputButton" value="图片" onclick="browser(this)"/>
+                    		<input type="file" class="inputFile" onchange="fileChange(this)"/>
+                    		<p class="path"></p>
                     	</div>
-                    	<div class="pic">
-                    		<div class="picImg"><img src="/DangDangBook/public/front_static/img/goods/9787111213826/collect.jpg" /></div>
-                    		<div class="picImg"><img src="/DangDangBook/public/front_static/img/goods/9787111532644/detail2big.jpg" /></div>
-                    		<div class="picImg"><img src="/DangDangBook/public/front_static/img/goods/9787111532644/detail3big.jpg" /></div>
+                    	<div class="inputDiv">
+                    		<textarea name="bContentInfo" value="" rows="20" cols="60" placeholder="内容简介">{$bContentInfo}</textarea>
                     	</div>
-                    </div>
-                    
+                    	
+                    	<div class="inputDiv">
+                    		<textarea name="bAuthorInfo" value="" rows="20" cols="60" placeholder="作者简介">{$bAuthorInfo}</textarea>
+                    	</div>
+                    	
+                    	<div class="line"></div>
+                    	<div class="submitDiv">
+                    		<p class="report" id="report" style="color: red;"></p>
+                    		 <input type="submit"  value="提交" />
+                    	</div>
+                    </form>
                 </div>
 			</div>
-			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/foot.html"/}
 			
 			
 		</div>

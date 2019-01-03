@@ -37,7 +37,7 @@
 }
 
 .contentDiv .receiverInfo{
-	
+	width:100%;
 }
 
 .receiverInfo .info{
@@ -103,6 +103,8 @@
 .contentDiv .goodsInfo{
 	float: left;
 	width: 100%;
+	height:290px;
+	overflow:auto;
 }
 
 .goodsInfo .scroll{

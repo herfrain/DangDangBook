@@ -48,13 +48,13 @@
 									<a href="{:url('order/orderPay')}"><font color="red">去付款&nbsp;|</font></a>
 									<a href="{:url('order/deleteOrder')}"><font color="red">删除订单</font></a>
 									{/case}
-									{case value="已付款"}											
-											<a href=""><font color="#CDBE70">等待发货</font></a>	
+									{case value="未发货"}											
+											<a><font color="#ff8600">等待发货</font></a>	
 									{/case}
 									{case value="已发货"}											
 											<a href="{:url('order/getPackage')}?orderID={$showorder.orderID}"><font color="#0aa2ed">已发货&nbsp;|&nbsp;确认收货</font></a>	
 									{/case}
-									{default /}<font color="green">{$showorder.orderStatus}</font>&nbsp;&nbsp;
+									{default /}<font color="#0aaa0a">{$showorder.orderStatus}</font>&nbsp;&nbsp;
 									{/switch}
 							</td>
 							<td><a href="{:url('order/orderStatus')}?orderID={$showorder.orderID}" style="font-weight:bold;">订单详情>></a></td>

@@ -7,18 +7,17 @@
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/orderDetail.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.css" />
 
 		<script type="text/javascript" src="/DangDangBook/public/back_static/js/unify.js"></script>
-
+		
 	</head>
 
 	<body>
 		<div class="mainDiv">
-			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/top.html"/}
 				
-			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+			{include file="./public/back_common/left.html"/}
 			<div class="bodyDiv">
 				<div class="locationDiv">
 					<!--自己按自己的图改下面的文本内容-->
@@ -36,7 +35,7 @@
                     -->
 					<div class="barTitle">
 						<div class="leftTitle">订单详情</div>
-						<div class="rightDate">日期：2018-10-10</div>
+						<div class="rightDate">日期：{$ctt}</div>
 						<hr />
 					</div>
 					<div class="receiverInfo">
@@ -45,125 +44,95 @@
 							<ul>
 								<li>
 									<span class="boldType">姓名：</span>
-									<span class="lightType">王翠花</span>
+									<span class="lightType">{$da.custName}</span>
 								</li>
 								<li>
 									<span class="boldType">地址：</span>
-									<span class="lightType">上海市黄浦区
+									<span class="lightType">{$da.custAddress}</span>
 						</li>
 						<li>
 							<span class="boldType">电话：</span>
-									<span class="numLine">12312313</span>
+									<span class="numLine">{$da.custMobile}</span>
 								</li>
 							</ul>
 						</div>
 						<div class="info">
-							<div class="subTitle">#111</div>
+							<div class="subTitle"><span>#{$oi}</span><input type="button" value="返回" onclick="history.go(-1)" style="align:right;float:right;background-color: #4CAF50;border: none;color: white;padding: 5px 15px;text-align: right;text-decoration: none;
+ 									display: inline-block;font-size: 16px;"></div>
+							
 							<ul>
 								<li>
 									<span class="boldType">创建时间：</span>
-									<span class="lightType">2018-10-11 8:59</span>
+									<span class="lightType">{$ct}</span>
 								</li>
 								<li>
 									<span class="boldType">订单总额：</span>
-									<span class="lightType">
-								¥<span id="totalPrice">222</span>
-									</span>
+									<span class="lightType"></span>
+								¥{$tp}<!-- <span id="totalPrice" ></span> -->
+									
 								</li>
 								<li>
-									<span class="boldType">订单状态：</span>
-									<span class="lightType">处理中</span>
+									<span class="boldType status">订单状态：</span>
+									<span class="lightType">
+										 <div><input  disabled="disabled" name="status" type="radio" {if condition="$nuu eq 0"}checked="checked" {/if} />未付款</div>
+										<div><input disabled="disabled" name="status"  type="radio" {if condition="$nuu eq 1"}checked="checked" {/if}/>未发货</div>
+										<div><input disabled="disabled" name="status" type="radio" {if condition="$nuu eq 2"}checked="checked" {/if}/>已发货</div>
+										<div><input disabled="disabled" name="status" type="radio" {if condition="$nuu eq 3"}checked="checked" {/if}/>已收货</div>
+									</span>
+								</li>
+								<br>
+								<li>
+									<span class="boldType status">快递单号：</span>
+									<span class="lightType">
+									<form method="post"   action='{:url('Ordermanager/datachange')}?oi={$oi}'>
+								 <span  class="totalPrice"  ><input type="text" name="fahuo" 
+								 {if condition="$nuu eq 0"} placeholder="0" disabled="disabled"
+								 {elseif condition="$nuu eq 2"} placeholder={$pi} disabled="disabled"{/elseif}
+								 {elseif condition="$nuu  eq 3 "} placeholder={$pi} disabled="disabled"{/elseif}{/if}
+								></span>
+								
+								 {if condition="$nuu eq 1"} 
+								 <span><input type="submit"  value="发货" 
+								  style="background-color: #4CAF50;border: none;color: white;padding: 5px 15px;text-align: right;text-decoration: none;
+ 									display: inline-block;font-size: 16px;">
+								  </span>
+								  {/if} 
+								  </form> 
+									</span> 
 								</li>
 							</ul>
 						</div>
-						<div class="goodsInfo">
-							<div class="bar">
-								<ul>
-									<li class="boldType width1">数量</li>
-									<li class="boldType width2">名称</li>
-									<li class="boldType width3">商品编号</li>
-									<li class="boldType width4">商品描述</li>
-									<li class="boldType width5">单价</li>
-								</ul>
-							</div>
-							<!--偶数个div 背景为灰色-->
-							<div class="scroll">
-								<div class="detail">
-									<ul>
-										<li class="width1">1</li>
-										<li class="width2">四星电视机</li>
-										<li class="numLine width3">001</li>
-										<li class="width4">四星的体验，更好的生活</li>
-										<li class="width5">¥<span class="price">666</span></li>
-									</ul>
-								</div>
-								<div class="detail">
-									<ul>
-										<li class="width1">1</li>
-										<li class="width2">想联笔记本</li>
-										<li class="numLine width3">002</li>
-										<li class="width4">想着想着，就联上了的笔记本</li>
-										<li class="width5">¥<span class="price">1666</span></li>
-									</ul>
-								</div>
-								<div class="detail">
-									<ul>
-										<li class="width1">1</li>
-										<li class="width2">1</li>
-										<li class="numLine width3">003</li>
-										<li class="width4">Neki Neki~</li>
-										<li class="width5">¥<span class="price">88</span></li>
-									</ul>
-								</div>
-								<div class="detail">
-									<ul>
-										<li class="width1">1</li>
-										<li class="width2">1</li>
-										<li class="numLine width3">004</li>
-										<li class="width4">背上背包，走吧</li>
-										<li class="width5">¥<span class="price">18</span></li>
-									</ul>
-								</div>
-								<div class="detail">
-									<ul>
-										<li class="width1">1</li>
-										<li class="width2">1</li>
-										<li class="numLine width3">1</li>
-										<li class="width4">超薄，超频，超apple</li>
-										<li class="width5">¥<span class="price">998</span></li>
-									</ul>
-								</div>
-								<div class="detail">
-									<ul>
-										<li class="width1">1</li>
-										<li class="width2">1</li>
-										<li class="numLine width3">1</li>
-										<li class="width4">Doda2 你值得拥有</li>
-										<li class="width5">¥<span class="price">3</span></li>
-									</ul>
-								</div>
-								<div class="detail">
-									<ul>
-										<li class="width1">1</li>
-										<li class="width2">1</li>
-										<li class="numLine width3">1</li>
-										<li class="width4">烧到你脑袋发麻</li>
-										<li class="width5">¥<span class="price">888</span></li>
-									</ul>
-								</div>
-							</div>
+						<div class="goodsInfo" >
+							
+							 <table class="table table-striped">
+								<thead>
+									<tr>
+									<td>数量</td>
+									<td>名称</td>
+									<td>商品编号</td>
+									<td>商品描述</td>
+									<td >单价</td>
+									</tr>
+								</thead>
+								<tbody>
+		 						{volist name='book' id='user'}
+								<tr>
+									<td>{$user.num}</td>
+            						<td>{$user.bName}</td>
+            						<td>{$user.bookID}</td>
+            						<td>作者：{$user.bAuthor} 出版社：{$user.bPublisher} 出版时间：{$user.bPubTime}
+            						<td>{$user.bPriceS}</td>
+            					</tr>
+								{/volist}	 
+								</tbody> 
+							</table>
+							
 						</div>
-						<div class="printDiv">
-							<div class="buttonPrint">
-								<div class="img"><img src="/DangDangBook/public/back_static/img/print.png" /></div>
-								<div class="text">Print</div>
-							</div>
-						</div>
+
 					</div>
 				</div>
 			</div>
-			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/foot.html"/}
 		</div>
 		<script type="text/javascript" src="/DangDangBook/public/back_static/js/orderDetail.js"></script>
 	</body>

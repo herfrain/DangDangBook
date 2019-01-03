@@ -1,16 +1,16 @@
 .mainDiv{
-	width: 1850px;
-	height: 900px;
+	width: 1400px;
+
 	margin:0px auto;
-	float: left;
+
 }
 /*titleDiv，用于显示学子商城系统字样*/
 .titleDiv{
-	width: 310px;
+	width: 20%;
 	height: 70px;
 	background-color: rgb(54,127,168);
 	font-family:"微软雅黑" ;
-	font-size: 35px;
+	font-size: 30px;
 	line-height: 70px;
 	text-align: center;
 	color: white;
@@ -18,7 +18,7 @@
 }
 /*topDiv,主要用于显示用户名等*/
 .topDiv{
-	width: 1540px;
+	width: 80%;
 	height: 70px;
 	background-color: rgb(60,141,188);
 	line-height: 70px;
@@ -42,9 +42,10 @@
 	font-family:"微软雅黑";
 	text-align: right;
 	font-size: 30px;
-	margin-left: 1200px;
+	
 	line-height: 70px;
-	float: left;
+	float: right;
+	margin-right:10px;
 	color: white;
 }
 
@@ -55,16 +56,16 @@
 }
 /*shellDiv，左菜单栏的外壳*/
 .shellDiv{
-	width: 310px;
-	height: 870px;
+	width: 20%;
+	height: 600px;
 	float: left;
 	background-color: rgb(26,34,37);
 }
 
 .shellDiv .menuDiv{
-	width: 310px;
-	height: 810px;
-	margin-top: 60px;
+	width: 100%;
+	height: 100%;
+
 	background-color: rgb(34,45,49);
 	float: left;
 }
@@ -74,7 +75,7 @@
 	height: 60px;
 	text-align: left;
 	line-height: 60px;
-
+	margin-left:10px;
 }
 
 .shellDiv .menuDiv .itemDiv a{
@@ -100,8 +101,8 @@
 }
 /*bodyDiv及其内部样式的内容*/
 .bodyDiv{
-	width: 1540px;
-	height: 830px;
+	width: 80%;
+	height: 600px;
 	float: right;
 	/*margin-top: 70px;*/
 	/*padding-left: 20px;*/
@@ -112,12 +113,14 @@
 
 .contentDiv{
 	/*margin-left: 10px;*/
-	margin-top: 80px;
+	width:100%;
+	height:89%;
+	float:left;
 }
 
 .bodyDiv .locationDiv{
-	width: 600px;
-	height: 90px;
+	width: 99%;
+	height: 11%;
 	line-height: 90px;
 	float: right;
 	text-align: right;
@@ -138,13 +141,13 @@
 
 /*footDiv，网页的尾部*/
 .footDiv{
-	width: 1540px;
+	width: 80%;
 	height: 40px;
 	border-top: solid 2px;
 	border-top-color: rgb(244,244,244);
 	float: left;
-	margin-left: 320px;
-	margin-top: 50px;
+	margin-left: 20%;
+
 }
 
 .footDiv .copyright{
@@ -183,3 +186,4 @@
 .iframeBottom{
 	margin-top: 850px;
 }
+

@@ -112,11 +112,11 @@
 							<span>收货人电话：{$customer.custMobile}</span>
 							<span>支付金额：<font>{$order.totalPay}元</font></span>
 							<div class="inputDiv" id="pwdDiv"><input type="password" maxlength="6" id="payPwd" onblur="pwdOnblur(this);"/> 请输入6位支付密码</div>
-							<div class="inputDiv"><input type="submit" class="paymentButton" value="确认支付" onclick="confirmPay(this);"/></div>
+							<div class="inputDiv"><input style="cursor: pointer;" type="submit" class="paymentButton" value="确认支付" onclick="confirmPay(this);"/></div>
 						</div>
 					</div>
 
-					<div class="paymentRestTime"><span>剩余的付款时间：<font>15:00</font></span><span id="backOrder" class="backOrder" onclick="backOrder();"><<返回订单信息</span></div>
+					<div class="paymentRestTime"><span>剩余的付款时间：<font>15:00</font></span><span style="cursor: pointer;" id="backOrder" class="backOrder" onclick="backOrder();"><<返回订单信息</span></div>
 				</div>
 				
 			</div>

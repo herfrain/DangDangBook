@@ -40,10 +40,13 @@
 						alert('收藏成功!');
 						$('#collectImg').src="/DangDangBook/public/front_static/img/product_detail/product_detail_img62.png";
 						window.location.reload();
-					}else{
+					}else if(result=="detele"){
 						alert('取消收藏成功!');
 						$('#collectImg').src="/DangDangBook/public/front_static/img/product_detail/product_detail_img6.png";
 						window.location.reload();
+					}else if(result=="login"){
+						alert("请先登录!");
+						window.location.href ="{:url('login/login')}";
 					}
 				});
 			}

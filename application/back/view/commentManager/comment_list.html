@@ -5,8 +5,11 @@
 		<title></title>
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
-		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/main.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/comment_list.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/product-list.css" />
+
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.css" />
+		
 		<script type="text/javascript" src="/DangDangBook/public/back_static/js/order-list.js" ></script>
 		<script type="text/javascript" src="/DangDangBook/public/back_static/js/jquery-1.4.2.js"> </script>
 		<script type="text/javascript" src="/DangDangBook/public/back_static/js/jquery-1.8.3.min.js"> </script>
@@ -92,48 +95,73 @@
 		</script>
 	</head>
 	<body>
-		<div class="mainDiv">
-			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+	
+
 				
-			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+		<div class="mainDiv">
+			{include  file="./public/back_common/top.html"/}
+			{include  file="./public/back_common/left.html"/}
+				
 				
 			<div class="bodyDiv">
-                <div class="locationDiv"><!--#3C8DBC-->
-                	<img src="/DangDangBook/public/back_static/img/logo.png"/><a href="#" class="lastStep">订单管理</a> >所有订单
+			
+               <div class="locationDiv">
+                	<!--自己按自己的图改下面的文本内容-->
+                	<img src="/DangDangBook/public/back_static/img/logo.png"/><a href="#" class="lastStep">商品管理</a> > <!--这里有一个符号-->
+                	<a class="lastStep">所有商品</a> ><!--这里有一个符号-->
+                	<a class="lastStep">评价编辑</a>
                 </div>
+                
+               
+
                 <div class="contentDiv">
-                	<div class="orderTable orderlistTable">
-                		<div class="orderTableTitle">
-                			<ul>
-	            				<li class="orderNum">评价编号</li>
-	            				<li class="orderCondition">评价用户</li>
-	            				<li class="createDate">评价内容</li>
-	            				<li class="operation">评价时间</li>
-	            				<li class="">操作</li>
-	            			</ul>
-	            			
-                		</div>
+                
                 		<div class="iFrameDiv">
-                			{foreach $comments as $comment}
-                			<ul>
-	            				<li id="commentID" class="orderNum">{$comment.commentID}</li>
-	            				<li class="orderCondition">{$comment.email}</li>
-	            				<li class="createDate"><a href="javascript:showContent('{$comment.content}')">{$comment.content}</a></li>
-	            				<li class="operation">{$comment.sendTime}</li>
-	            				{if $comment.reply eq ""}
-	            				<li id="replyBtn" class=""><a style="color:#a00;" href="javascript:reply({$comment.commentID})">回复</a></li>
-	            				{else/}
-	            				<li id="haveReplyed" class=""><a href="javascript:showContent('{$comment.reply}')">已回复</a></li>
-	            				{/if}
-	            			</ul>
-                			{/foreach}
+                		
+                			 <table class="table table-striped table-bordered">
+				         <thead>
+				           <tr>
+				             <th>评价编号</th>
+				             <th>评价用户</th>
+				             <th>评价内容</th>
+				             <th>评价时间</th>
+				             <th>操作</th>
+				           </tr>
+				         </thead>
+				         <tbody>
+				           {foreach $comments as $comment}
+				           <tr>
+				             <td>{$comment.commentID}</td>
+				             <td>{$comment.email}</td>
+				             <td class="hideOverFlow"><a href="javascript:showContent('{$comment.content}')">{$comment.content}</a></td>
+				             <td>{$comment.sendTime}</td>
+				              
+				              <td>
+				              {if $comment.reply eq ""}
+				              	<a href='javascript:reply({$comment.commentID})'>
+				              	<button type="button" class="btn btn-link">回复</button></a>
+				              	{else/}
+				              	<a href="javascript:showContent('{$comment.reply}')">
+				              	<button type="button" class="btn btn-link">已回复</button></a>
+				              	{/if}
+				              </td>
+				           </tr>
+				           
+				           
+				           {/foreach}
+				         </tbody>
+				         
+				       </table>
+                		</div>
+                		
+                		<div class="changePageDiv">
+                		<div class="changePageButtonDiv">
+                			{$page}
                 		</div>
                 	</div>
-                	<div class="pages">
-                		{$page}
                 	</div>
+                	
+                	
 					
 					<div id="add-panel" class="editBox" align="center">
 				
@@ -145,10 +173,10 @@
 						</form>
 					</div>
                 </div>
+                {include file="./public/back_common/foot.html"/}
 			</div>
 			<script>dragFunc("add-panel");</script>
-			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+			
 		</div>
 	</body>
 </html>

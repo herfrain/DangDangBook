@@ -163,7 +163,7 @@
 
 							<div class="selectDiv"><input type="checkbox" class="goodsCheckBox" onclick="itemSelect(this);" checked="checked" name="cartID" value="{$showcart.cartID}"/></div>
 							<div class="goodsInformationDiv">
-								<div class="goodsPectureDiv"><img class="goodsImage" src="{$showcart.bPicture}" /></div>
+								<div class="goodsPectureDiv"><a href="{:url('bookdetail/detail')}?bookID={$showcart.bookID}"><img class="goodsImage" src="{$showcart.bPicture}" /></a></div>
 								<div class="goodsDeatil">
 									<p class="goods" name="goodsName">{$showcart.bName}</p>
 									<p class="goods" name="author">{$showcart.bAuthor}[著] {$showcart.bPublisher}[出版]</p>
@@ -179,7 +179,7 @@
 								￥<span>{$showcart.bPriceS*$showcart.num}</span>
 							</div>
 							<div class="othersDiv" >
-								<span onclick="deleteNode(this,{$showcart.cartID});">删除</span>
+								<span style="cursor: pointer;" onclick="deleteNode(this,{$showcart.cartID});">删除</span>
 							</div>
 						</div>	
 					{/foreach}			

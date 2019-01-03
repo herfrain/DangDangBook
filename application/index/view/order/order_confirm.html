@@ -91,7 +91,7 @@
 			var name=document.getElementById("newAddressName").value;
 			var place=document.getElementById("newAddressPlace").value;
 			var tel=document.getElementById("newAddressTel").value;
-			/*var adde=document.getElementById("oneAddress");		
+			var adde=document.getElementById("oneAddress");		
 			var superE=adde.parentNode;
 			var newE=adde.cloneNode(true);//传入一个bl值，当为真的时候，会拷贝全部，false时候只会拷贝首节点
 			var arr=newE.childNodes;
@@ -100,7 +100,7 @@
 			{
 				if(arr[i].nodeName=="INPUT")
 				{
-					arr[i].checked='checked';
+					
 				}
 				if(arr[i].className=="addressNameDiv")
 				{
@@ -120,7 +120,7 @@
 			document.getElementById("newAddressName").value="";
 			document.getElementById("newAddressPlace").value="";
 			document.getElementById("newAddressTel").value="";
-			document.getElementById("addAddress").style.display = "none";*/
+			document.getElementById("addAddress").style.display = "none";
 			//通过order模型修改数据库
 			$.get("{:url('order/addAddress')}",{"addName":name,"addPlace":place,"addTel":tel});
 			window.location.reload();
@@ -210,6 +210,20 @@
 			);
 		
 	}
+	
+	function  setDefault(obj)
+	{
+		$cust=$(obj).parent().parent().find('#address1');
+		var custID=$cust.val();
+		$.get("{:url('order/setDefaultAddress')}",{"custID":custID},function(data)
+				{
+					if(data=="success")
+					{
+						window.location.reload();	
+					}	
+				}
+			);
+	}
 
 	</script>
 	<body>
@@ -234,23 +248,45 @@
 							<div class="addressNameDiv"></div>
 							<span class="addressTelDiv">电话:&nbsp;</span>
 							<span class="addressPlaceDiv">地址:&nbsp;</span>
-							<span class="addressDeleDiv"  onclick="deleteAddressClick(this)">删除</span>
-							<span class="addressEditDiv"  onclick="editA(this)">编辑</span>		
+							
+							<span style="cursor: pointer;" class="addressDeleDiv"  onclick="deleteAddressClick(this)">删除</span>
+							<span style="cursor: pointer;" class="addressEditDiv"  onclick="editA(this)">编辑</span>		
+							<div class="defaultOffDiv">
+							<span style="cursor: pointer;" class="defaultOff" onclick="setDefault(this)">设为默认</span>
+							</div>	
 						</div>
+						
 					{foreach $customers as $customer}
 						<div class="addressDetailDiv">
+							{if $customer.default eq '1' }
 							<input type="radio" name="addressRadio" id="address1" checked="checked" value="{$customer.custID}"/>
+							{else}
+							<input type="radio" name="addressRadio" id="address1"  value="{$customer.custID}"/>
+							{/if}
 							<div class="addressNameDiv">{$customer.custName}</div>
 							<span class="addressTelDiv">电话:&nbsp;{$customer.custMobile}</span>
 							<span class="addressPlaceDiv">地址:&nbsp;{$customer.custAddress}</span>
-							<span class="addressDeleDiv"  onclick="deleteAddressClick(this)">删除</span>
-							<span class="addressEditDiv"  onclick="editA(this)">编辑</span>		
+
+							<span style="cursor: pointer;" class="addressDeleDiv"  onclick="deleteAddressClick(this)">删除</span>
+							<span style="cursor: pointer;" class="addressEditDiv"  onclick="editA(this)">编辑</span>	
+							
+							{if $customer.default eq '1' }
+							<div class="defaultOnDiv">
+							<span  class="defaultOn">默认地址</span>
+							</div>	
+							{else}
+							<div class="defaultOffDiv">
+							<span style="cursor: pointer;" class="defaultOff" onclick="setDefault(this)">设为默认</span>
+							</div>	
+							{/if}
+							
 						</div>
 					{/foreach}
+					
 					</div>
 			
 					<div class="moreAddress">
-						<span id="moreAddress" onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);" onclick="moreAddressClick()">
+						<span style="cursor: pointer;" id="moreAddress" onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);" onclick="moreAddressClick()">
 							更多地址>>
 						</span><div>
 						<div id="addAddress" class="addAddress" hidden="hidden">
@@ -274,7 +310,7 @@
 									<td class=""><span id="errorAddPlace"></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><input type="submit" value="添加地址" class="addAddressButton" onclick="addAddress()"></td>
+									<td colspan="2"><input style="cursor: pointer;" type="submit" value="添加地址" class="addAddressButton" onclick="addAddress()"></td>
 									<td></td>
 								</tr>
 							</table>
@@ -316,10 +352,10 @@
 						<div class="goodsBottomDiv">
 							<table cellpadding="0" cellspacing="0">
 								<tr>
-									<td class="back"><span onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);" onclick="backCart();"><<返回购物车</span></td>
+									<td class="back"><span style="cursor: pointer;" onmouseover="changeColorOver(this);" onmouseout="changeColorOut(this);" onclick="backCart();"><<返回购物车</span></td>
 									<td class="blank"></td>
 									<td class="totalAmount">已选<font>{$num}</font>件商品，合计(不含运费)<font>{$sum}</font>元</span></td>
-									<td class="confirmButton"><input type="submit" value="确认并付款" onclick="confirmClick({$sum});"></td>
+									<td class="confirmButton"><input style="cursor: pointer;" type="submit" value="确认并付款" onclick="confirmClick({$sum});"></td>
 								</tr>
 							</table>
 	
@@ -366,7 +402,7 @@
 						</tr>
 					</table>
 				</div>
-				<button id="edit-btn" class="save" onclick="editAddressClick()" type="button">保存</button>
+				<button style="cursor: pointer;" id="edit-btn" class="save" onclick="editAddressClick()" type="button">保存</button>
 				</form>
 			</div>
 			

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.css" />
+<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.min.css" />
+<script >
+function show(){
+	alert('更改成功');
+}
+
+</script>
+<title>Insert title here</title>
+<style>
+/* *{
+	border:red 1px solid;
+} */
+td,th{
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<div class="mainDiv">
+			{include file="./public/back_common/top.html"/}
+				
+			{include file="./public/back_common/left.html"/}
+			
+			<div class="bodyDiv">
+                <div class="contentDiv">
+<table class="table table-hover" >
+	<div style="float:right;padding:5px;">所有用户权限</div>
+	<thead>
+	<tr >
+	<th><button type="button" class="btn btn-default btn-sm " style="font-size: 18px">
+	<span class="glyphicon glyphicon-user"></span>用户名</button></th>
+	<th><button type="button" class="btn btn-default btn-sm " style="font-size: 18px">
+	<span class="glyphicon glyphicon-envelope"></span>用户邮箱</button></th>
+	<th><button type="button" class="btn btn-default btn-sm " style="font-size: 18px">
+	<span class="glyphicon glyphicon-bell"></span>用户权限</button></th>
+	<th><button type="button" class="btn btn-default btn-sm " style="font-size: 18px">
+	<span class="glyphicon glyphicon-cog"></span>更改权限</button></th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	{foreach $list as $member}
+		<form method="post" action="change?email={$member.userEmail}">
+		<tr>
+	
+			<td>{$member.userName}</td>
+			<td>{$member.userEmail}</td>
+			<td><select name="permission">
+			
+  <option value="0" <?php echo ($member["permission"]=="0")?"selected":""?>>普通用户</option>
+  <option value="1" <?php echo ($member["permission"]=="1")?"selected":""?>>管理员</option>
+  <option value="2" <?php echo ($member["permission"]=="2")?"selected":""?>>超级管理员</option>
+</select>
+</td>
+			{if $member.userEmail=="admin"}
+			<td><button type="submit" class="btn btn-warning" onclick="show()" disabled="disabled">更改</button></td>
+			{else/}
+			<td><button type="submit" class="btn btn-warning" onclick="show()">更改</button></td>
+			{/if}
+		<tr>
+		</form>
+			{/foreach}
+		
+	</tbody>
+</table>
+<div style="margin-left:1300px">{$page}</div>
+			</div>
+			</div>
+{include file="./public/back_common/foot.html"/}
+</div>
+
+</body>
+</html>

@@ -17,24 +17,38 @@
 					 -->
 					
 					<div class="itemDiv" onclick="">
-						<a href="order-list.html" target="_top">订单列表</a>
+						<a href="{:url('Ordermanager/orderList')}" target="_top">所有订单</a>
 					</div>
+					 
 					
-					<div class="itemDiv" onclick="">
-						<a class="linkName" href="orderProcess.html" target="_top">订单进程</a>
-					</div>
-					<div class="itemDiv" onclick="">
-						<a class="linkName" href="orderDetail.html" target="_top">订单详情</a>
-					</div>
 					<div class="itemDiv">
 						<img src="/DangDangBook/public/back_static/img/link.png"/><span class="linkName">商品管理</span>
 					</div>
 					<div class="itemDiv" onclick="">
-						<a class="linkName" href="product-list.html" target="_top">所有商品</a>
+						<a class="linkName" href="{:url('Bookmanager/booklist')}" target="_top">所有商品</a>
 					</div>
 					<div class="itemDiv" onclick="">
-						<a class="linkName" href="productAdd.html" target="_top">添加商品</a>
+						<a class="linkName" href="{:url('Bookmanager/bookadd')}" target="_top">添加商品</a>
 					</div>
+					<div class="itemDiv">
+						<img src="/DangDangBook/public/back_static/img/link.png"/><span class="linkName">权限管理</span>
+					</div>
+					
+					<div class="itemDiv" onclick="">
+						<a class="linkName" href="{:url('Pmsmanager/memberlist')}" target="_top">用户列表</a>
+					</div>
+					
+					<hr/>
+					{if condition="$Think.session.admin eq '' "}
+					<div class="itemDiv" onclick="" style="font-size:24px;">
+						<a class="linkName" href="{:url('Login/login')}" target="_top">登录</a>
+					</div>
+					{else/}
+					<div class="itemDiv" onclick="" style="font-size:24px;">
+						<a class="linkName" href="{:url('Login/logOut')}" target="_top">退出登录</a>
+					</div>
+					{/if}
 				</div>
+			</div>
 	</body>
 </html>

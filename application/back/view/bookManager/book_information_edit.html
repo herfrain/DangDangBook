@@ -5,24 +5,41 @@
 		<title></title>
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
-		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/huang.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/productAdd.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/hjs.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.css" />
 		<script type="text/javascript" src="/DangDangBook/public/back_static/js/hjs.js"></script>
+		<script>
+		function getFileUrl(sourceId) {
+            var url;
+            if (navigator.userAgent.indexOf("MSIE")>=1) { // IE
+                url = document.getElementById(sourceId).value;
+            } else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox
+                url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+            } else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome
+                url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+            }
+            return url;
+        }
+        function preImg(sourceId, targetId) {
+            var url = getFileUrl(sourceId);
+            var imgPre = document.getElementById(targetId);
+            imgPre.src = url;
+        }		
+		</script>
+		
 	</head>
 	<body>
 		<div class="mainDiv">
-			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/top.html"/}
 				
-			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
-				
+			{include file="./public/back_common/left.html"/}
 			<div class="bodyDiv">
                 <div class="locationDiv">
                 	<!--自己按自己的图改下面的文本内容-->
                 	<img src="/DangDangBook/public/back_static/img/logo.png"/><a href="#" class="lastStep">商品管理</a> > <!--这里有一个符号-->
-                	<a href="http://www.baidu.com" class="lastStep">所有商品</a> ><!--这里有一个符号-->
-                	<a href="http://www.baidu.com" class="nowStep">商品详情</a>
+                	<a class="lastStep">所有商品</a> ><!--这里有一个符号-->
+                	<a class="lastStep">信息编辑</a>
                 </div>
                 <div class="contentDiv">
                 	<!--
@@ -30,84 +47,74 @@
                     	时间：2018-10-10
                     	描述：写自己的内容
                     -->
-                    <!--JsHuang添加的内容-->
-                    <div class="contentDivTitle"><span class="contentDivTitleSpan">详细信息</span></div>
-                    <div class="detai">
-                    	<div class="oneInput">
-                    		<div class="detaiType">图书编号</div>
-                    		<div class="detaiInput">
-                    			<input type="text"  value="1234567890123" id="bookNumber" name="bookNumber" onblur="checkBookNumber(this);"/>
+                    <!-- {:url('bookmanager/add')} -->
+                    <form method="post" action="{:url('bookmanager/edit')}?bookID={$bookID}" class="informationForm" onsubmit="return onSubmit()" enctype='multipart/form-data'>
+                    	
+                    	<div class="informationTitle">
+                    		信息编辑
+                    		<div class="submitDiv">
+                    			<p class="report" id="report" style="color: red;"></p>
+                    		 	<input type="submit"  value="保存" />
                     		</div>
-                    		<div class="checkPic"><img id="bookNumberCheck" name="bookNumberCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
-                  	  	</div>
-                   		<div class="oneInput">
-                   	 		<div class="detaiType">书名</div>
-                   	 		<div class="detaiInput"><input type="text"  value="儿歌三百首" id="bookName" onblur="checkBookName(this);"/></div>
-                   	 		<div class="checkPic"><img id="bookNameCheck" name="bookNameCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
-                   		</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">作者</div>
-                   	 		<div class="detaiInput"><input type="text"  value="悟空" id="author" onblur="checkAuthor(this);"/></div>
-                   	 		<div class="checkPic"><img id="authorCheck" name="authorCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">价格</div>
-                   	 		<div class="detaiInput"><input type="text"  value="9.9" id="price" onblur="checkPrice(this);"/></div>
-                   	 		<div class="checkPic"><img id="priceCheck" name="priceCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	
+                    	<div class="inputDiv">
+                    		<!--
+                            	作者：罗梓浩
+                            	时间：2018-10-11
+                            	描述：正则表达式判断纯数字编号
+                            -->
+                    		<input name="bookID" type="text" value="{$bookID}" readonly="readonly" class="inputText" placeholder="图书编号" onblur="bookNumberOnblur(this)"/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">页数</div>
-                   	 		<div class="detaiInput"><input type="text"  value="80" id="page" onblur="checkPage(this);"/></div>
-                   	 		<div class="checkPic"><img id="pageCheck" name="pageCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	<div class="inputDiv">
+                    		<input name="bName" type="text" value="{$bName}" class="inputText" placeholder="书名" onblur="bookNameOnblur(this)"/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">字数</div>
-                   	 		<div class="detaiInput"><input type="text"  value="2000" id="wordNumber" onblur="checkWordNumber(this);"/></div>
-                   	 		<div class="checkPic"><img id="wordNumberCheck" name="wordNumberCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	<div class="inputDiv">
+                    		<input name="bAuthor" type="text" value="{$bAuthor}" class="inputText" placeholder="作者" onblur="bookAuthorOnblur(this)"/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">出版社</div>
-                   	 		<div class="detaiInput"><input type="text"  value="XXX出版社" id="birthPlace" onblur="checkBirthPlace(this);"/></div>
-                   	 		<div class="checkPic"><img id="birthPlaceCheck" name="birthPlaceCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	<div class="inputDiv">
+                    		<input name="bPriceS" type="text" value="{$bPriceS}" class="inputText" placeholder="优惠价" onblur=""/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">版次</div>
-                   	 		<div class="detaiInput"><input type="text"  value="2" id="age" onblur="checkAge(this);"/></div>
-                   	 		<div class="checkPic"><img id="ageCheck" name="ageCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	<div class="inputDiv">
+                    		<input name="bPriceB" type="text" value="{$bPriceB}" class="inputText" placeholder="原价" onblur=""/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">出版日期</div>
-                   	 		<div class="detaiInput"><input type="text"  value="2017-10-01" id="birth" onblur="checkBirth(this);"/></div>
-                   	 		<div class="checkPic"><img id="birthCheck" name="birthCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	<div class="inputDiv">
+                    		<input name="bPublisher" type="text" value="{$bPublisher}" class="inputText" placeholder="出版社" onblur="bookPublishComplyOnblur(this)"/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">开本</div>
-                   	 		<div class="detaiInput"><input type="text"  value="16开" id="kai" onblur="checkKai(this);"/></div>
-                   	 		<div class="checkPic"><img id="kaiCheck" name="kaiCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	<div class="inputDiv">
+                    		<input name="bPubTime" type="text" value="{$bPubTime}" class="inputText" placeholder="出版时间" onblur=""/>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">包装</div>
-                   	 		<div class="detaiInput"><input type="text"  value="平装" id="zhuang" onblur="checkZhuang(this);"/></div>
-                   	 		<div class="checkPic"><img id="zhuangCheck" name="zhuangCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	<div class="inputDiv">
+                    		<select name="bClass" class="inputText" value="">
+                    			
+                    			<!-- 
+                    				用Book表里面的class显示
+                    			 -->
+                    			<option value="">类型</option>
+                    			<option value="文学">文学</option>
+                    			<option value="建筑">建筑</option>
+                    			<option value="社会科学">社会科学</option>
+                    			<option value="工业技术">工业技术</option>
+                    		</select>
                     	</div>
-                    	<div class="oneInput">
-                    		<div class="detaiType">用纸</div>
-                   	 		<div class="detaiInput"><input type="text"  value="胶版纸" id="usePaper" onblur="checkUsePaper(this);"/></div>
-                   	 		<div class="checkPic"><img id="usePaperCheck" name="usePaperCheck" src="" /><!--/DangDangBook/public/back_static/img/tF/t.png--></div>
+                    	<div class="inputDiv">
+                    		<input type="file" name="image" id="image" onchange="preImg(this.id,'photo');" />
+							<img id="photo" src="{$bPicture}" style="display: block;border:1px solid #a0a0a0;height:240px;margin-top:20px;" />	
+						</div>
+	
+	
+                    	<div class="contentInfo">
+                    		<textarea name="bContentInfo" rows="20" cols="60" placeholder="内容简介">{$bContentInfo}</textarea>
                     	</div>
-                    	<div class="pic">
-                    		<div class="picImg"><img src="/DangDangBook/public/front_static/img/goods/9787111213826/collect.jpg" /></div>
-                    		<div class="picImg"><img src="/DangDangBook/public/front_static/img/goods/9787111532644/detail2big.jpg" /></div>
-                    		<div class="picImg"><img src="/DangDangBook/public/front_static/img/goods/9787111532644/detail3big.jpg" /></div>
+                    	
+                    	<div class="contentInfo">
+                    		<textarea name="bAuthorInfo" rows="20" cols="60" placeholder="作者简介">{$bAuthorInfo}</textarea>
                     	</div>
-                    </div>
-                    <div class="buttonDiv">
-                    	<a onclick="aClick();"><input class="buttonaaa" type="button" value="提交" onclick="send();" /></a>
-                    </div>
+                    	
+                    </form>
                 </div>
 			</div>
-			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/foot.html"/}
 		</div>
 	</body>
 </html>

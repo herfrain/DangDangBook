@@ -59,16 +59,16 @@ function emailOnblur(obj){//传入this对象
  * 3.最后一个点（.）之后必须有内容而且内容只能是字母（大小写均可）、数字且长度为2-6字符
  * */
 	if(txt.test(emailAddress)){//txt对象通过test函数匹配nameValue
-		$("errEmail").innerHTML="合法邮箱"; //js控制样式的切换 html css js
-		$("errEmail").className="correctSpan";
+		$("showError").innerHTML="合法邮箱"; //js控制样式的切换 html css js
+		$("showError").className="correctSpan";
 		return true;
-	}else if(email.length==0){
-		$("errEmail").innerHTML="邮箱地址不能为空";
-		$("errEmail").className="errorSpan";
+	}else if(emailAddress.length==0){
+		$("showError").innerHTML="邮箱地址不能为空";
+		$("showError").className="errorSpan";
 		return false;
 	}else{
-		$("errEmail").innerHTML="非法邮箱";
-		$("errEmail").className="errorSpan";
+		$("showError").innerHTML="非法邮箱";
+		$("showError").className="errorSpan";
 		return false;
 	}
 }

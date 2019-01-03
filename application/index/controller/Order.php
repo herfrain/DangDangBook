@@ -143,7 +143,7 @@ class Order extends Controller{
             $myorder->totalPay=$sum;
             $myorder->orderStatus='未付款';
             $myorder->createTime=date("Y-m-d H:i:s");
-            $myorder->packageID=date("YmdH");//快递号暂时定位年月日加时
+            $myorder->packageID=0;//快递号暂时定位年月日加时
             $myorder->save();
             //将所有orderID为0的数据的orderID变为新添加的Order条目的id
             Shoplist::where('orderID',0)->update(['orderID' => $myorder->orderID]);
@@ -196,7 +196,7 @@ class Order extends Controller{
         {
             $orderID=session("orderID");
             $order=Myorder::where('orderID', $orderID)->find();
-            $order->orderStatus='已发货';
+            $order->orderStatus='未发货';
             $order->save();
             $this->assign('order', $order);
             $cartIDs=session('cartIDs');
@@ -224,5 +224,22 @@ class Order extends Controller{
         $order->orderStatus='已收货';
         $order->save();
         $this->redirect('order/order');
+    }
+    
+    public function setDefaultAddress()//设置为默认地址
+    {
+        $email=session('userEmail');
+        $custID = input('get.custID');
+        //return $custID;
+        $customers=Customer::where('email','=',$email)->select();
+        foreach ($customers as $customerone)
+        {
+            $customerone->default=0;
+            $customerone->save();
+        }
+        $customer=Customer::where('custID','=',$custID)->find();
+        $customer->default=1;
+        $customer->save();
+        return "success";
     }
 }

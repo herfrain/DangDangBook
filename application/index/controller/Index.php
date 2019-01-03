@@ -19,6 +19,9 @@ class Index extends Controller
 
         //如果输入框有名字
         if(!empty($bName)){
+            if($bName=="link start"){
+                return $this->redirect('back/login/login');
+            }
             //查找书名、书作者、书类型
             $results=bookModel::where(" bName like '%".$bName."%' "."or bAuthor like '%".$bName."%' "."or bClass like '%".$bName."%' ")->paginate(20);
         }

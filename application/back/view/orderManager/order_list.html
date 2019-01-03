@@ -6,72 +6,85 @@
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/unify.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/frame.css" />
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/main.css" />
+		
 		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/order-list.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/product-list.css" />
+		<link rel="stylesheet" href="/DangDangBook/public/back_static/css/bootstrap.css" />
 		<script type="text/javascript" src="/DangDangBook/public/back_static/js/order-list.js" ></script>
 	</head>
 	<body onload="changePage($('1'));">
 		<div class="mainDiv">
-			<iframe class="iframeTop" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/top.html" width="100%"  height="80px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/top.html"/}
 				
-			<iframe class="iframeLeft" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/left.html" width=""  height="830px" style="z-index: 4;"></iframe>
+			{include file="./public/back_common/left.html"/}
 				
 			<div class="bodyDiv">
                 <div class="locationDiv"><!--#3C8DBC-->
                 	<img src="/DangDangBook/public/back_static/img/logo.png"/><a href="#" class="lastStep">订单管理</a> >所有订单
                 </div>
                 <div class="contentDiv">
-                	<div class="orderTable orderlistTable">
-                		<div class="orderTableTitle">
-	            			<ul>
-	            				<li class="orderNum">订单编号</li>
-	            				<li class="orderCondition">订单状态</li>
-	            				<li class="createDate">创建时间</li>
-	            				<li class="orderAmount">订单总额</li>
-	            				<li class="operation">可选操作</li>
-	            			</ul>
-                		</div>
+                	
+                	
+                	<div class="orderTable orderlistTable"> 
                 		<div class="iFrameDiv">
-                			<!-- 
-                				订单表，myorder表，
-                				用ul、li组合列出来
-                			 -->
+                		<form class="form-inline" role="form" method="get">
+					  <div class="form-group">
+					    <label class="sr-only" for="orderID">订单编号</label>
+					    <input type="text" class="form-control" id="orderID" name="orderID" placeholder="订单编号">
+					  </div>
+					  <div class="form-group">
+					    <label class="sr-only" for="orderstatus">订单状态</label>
+					    <input type="text" class="form-control" id="orderStatus" name="orderStatus" placeholder="订单状态">
+					  </div>
+					  <button type="submit" class="btn btn-warning">查询</button>
+					  <button  class="btn btn-default" onclick="history.go(-1);" >返回</button>
+					</form>
+					
+					<table class="table table-striped">
+						<thead>
+							<tr>
+							<td>订单编号</td>
+							<td>邮箱</td>
+							<td>顾客编号</td>
+							<td>订单总额</td>
+							<td >订单状态</td>
+							<td>物流编号</td>
+							<td>创建时间</td>
+							</tr>
+						</thead>
+						<tbody>
+						 {volist name='resu' id='user'}
+							<tr>
+								<td>{$user.orderID}</td>
+					            <td>{$user.email}</td>
+					            <td>{$user.custID}</td>
+					            <td>{$user.totalPay}</td>
+					            <td>{$user.orderStatus}</button></td>
+					             <td>{$user.packageID}</td>
+					            <td>{$user.createTime}</td>
+					             
+					            <td><a href='{:url('Ordermanager/orderDetail')}?oi={$user.orderID} &ct={$user.createTime} &tp={$user.totalPay} &os={$user.orderStatus} &ci={$user.custID} &pi={$user.packageID}' >
+					            <input type="button"  {if condition="$user.orderStatus eq '未发货' "} value="编辑" class="btn btn-warning" style="font-size:12px;"
+					            {else }value="查看" class="btn btn-info" style="font-size:12px;"{/else}{/if}
+					            ></a>
+							</tr>
+							{/volist}	
+						</tbody>
+					</table>
                 		</div>
-                		<div class="orderTableTitle">
-	            			<ul>
-	            				<li class="orderNum">订单编号</li>
-	            				<li class="orderCondition">订单状态</li>
-	            				<li class="createDate">创建时间</li>
-	            				<li class="orderAmount">订单总额</li>
-	            				<li class="operation">可选操作</li>
-	            			</ul>
-                		</div>
-                	</div>
-                	<div class="changePageDiv">
-                		<span>第<font id="page"> 1 </font>页至<font id="order"> 10 </font>条(共<font> 64 </font>条)</span>
-                		<div class="changePageButtonDiv">
-                			<ul>
-                				<li><input type="button" value="首页" class="skipPage cheackFalse" id="firstPage" onclick="toFirstPage(this);"></li>
-                				<li><input type="button" value="上一页" class="jumpPage cheackFalse" id="upPage" onclick="UpPage(this);"></li>
-                				<li><input type="button" value="1" class="pageNum cheackTrue" id="1"  onclick="changePage(this);"></li>
-                				<li><input type="button" value="2" class="pageNum cheackFalse" id="2" onclick="changePage(this);"></li>
-                				<li><input type="button" value="3" class="pageNum cheackFalse" id="3" onclick="changePage(this);"></li>
-                				<li><input type="button" value="4" class="pageNum cheackFalse" id="4" onclick="changePage(this);"></li>
-                				<li><input type="button" value="5" class="pageNum cheackFalse" id="5" onclick="changePage(this);"></li>
-                				<li><input type="button" value="6" class="pageNum cheackFalse" id="6" onclick="changePage(this);"></li>
-                				<li><input type="button" value="7" class="pageNum cheackFalse" id="7" onclick="changePage(this);"></li>
-                				<li><input type="button" value="下一页" class="jumpPage cheackFalse" id="downPage" onclick="NextPage(this);"></li>
-                				<li><input type="button" value="尾页" class="skipPage cheackFalse" id="lastPage" onclick="toLastPage(this);"></li>
-                				 
-                			</ul>
-                		</div>
-                	</div>
-
-                </div>
+                	 </div>
+                	 <div class="changePageDiv">
+						<div class="changePageButtonDiv">
+						{$resu->render()}
+						</div>
+						
+					</div>
+					
+			    </div>
+			    
+			    
 			</div>
-			<iframe class="iframeBottom" MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 
-				SCROLLING=no src="/DangDangBook/public/back_common/foot.html" width="100%"  height="100px" style="z-index: 3;"></iframe>
+			{include file="./public/back_common/foot.html"/}
 		</div>
 	</body>
 </html>

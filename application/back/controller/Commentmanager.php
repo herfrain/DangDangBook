@@ -4,8 +4,8 @@ namespace app\back\controller;
 use think\Controller;
 use think\Db;
 use app\index\model\Comment as commentModel;
-class Commentmanager extends Controller{
-    
+class Commentmanager extends Base{
+    protected $fun=['1'];
     public function reply(){
         $commentID=input('post.commentID');
 
